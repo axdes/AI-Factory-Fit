@@ -18,6 +18,7 @@ import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 import { readFileSync, writeFileSync, existsSync, rmSync, mkdirSync, readdirSync, cpSync, statSync, symlinkSync, realpathSync } from 'node:fs'
 import { createRequire } from 'node:module'
+import { tmpdir } from 'node:os'
 import { compareToBaseline } from '../scripts/lib/image-diff.mjs'
 import { readImage } from '../scripts/lib/image-read.mjs'
 import { detectHosts, HOSTS } from '../scripts/lib/hosts.mjs'
@@ -39,6 +40,25 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const here = dirname(fileURLToPath(import.meta.url))
 const root = join(here, '..')
 const fixture = (name) => join(here, 'fixtures', name)
+
+/**
+ * A copy of a fixture that has no repository above it.
+ *
+ * Some passes answer differently inside a repository than outside one — the toolchain
+ * audit climbs until it meets a repository and credits what it finds, git supplies a
+ * recency window, the history scan has something to read. Fixtures under `tests/` used
+ * to sit outside any repository because this project was not one; the moment it became
+ * one, four tests started measuring the enclosing repository instead of the fixture,
+ * and each of them exists precisely to check the case where there is nothing above.
+ *
+ * So those cases are given what they are about: a directory with no repository over it.
+ */
+const outsideAnyRepo = (name) => {
+  const at = join(tmpdir(), `factoryfit-${name}-${process.pid}`)
+  rmSync(at, { recursive: true, force: true })
+  cpSync(fixture(name), at, { recursive: true })
+  return at
+}
 
 /**
  * The first-party profile these tests were developed against.
@@ -344,7 +364,10 @@ describe('what could not run', () => {
   })
 
   test('an audit that could not run is null, and the reason names the missing input', () => {
-    const at = join(root, 'scans', '.notrun-audit')
+    // Outside any repository: the pass climbs to the nearest lockfile, and under
+    // `scans/` it now finds this project's own — auditing our dependencies and
+    // reporting the result as the fixture's.
+    const at = join(tmpdir(), `factoryfit-notrun-audit-${process.pid}`)
     rmSync(at, { recursive: true, force: true })
     mkdirSync(join(at, 'src'), { recursive: true })
     // Dependencies declared and no lockfile: there is no resolved tree to audit.
@@ -2982,9 +3005,16 @@ describe('the evidence pack', () => {
 })
 
 describe('security', () => {
+  // Scanned outside any repository, which is what these cases are about: no lockfile
+  // to audit, no history to read. Left under `tests/` they began finding the
+  // enclosing repository's lockfile the moment this project became a git repository,
+  // and a pass reporting a clean audit of somebody else's dependencies is the exact
+  // failure the assertions below exist to catch.
+  const securityAt = outsideAnyRepo('security')
+
   test('a construct is a finding only without the thing that makes it fine', () => {
-    run('security.mjs', [fixture('security')])
-    const report = readScan('security', 'security.json')
+    run('security.mjs', [securityAt])
+    const report = JSON.parse(readFileSync(join(root, 'scans', scanSlotOf(securityAt), 'security.json'), 'utf8'))
     const at = (file) => report.source.filter(f => f.file.endsWith(file))
 
     // A security report that cries wolf is read once, so every one of these is a
@@ -3017,7 +3047,7 @@ describe('security', () => {
   })
 
   test('a dependency audit that could not run is not a clean one', () => {
-    const report = readScan('security', 'security.json')
+    const report = JSON.parse(readFileSync(join(root, 'scans', scanSlotOf(securityAt), 'security.json'), 'utf8'))
 
     // No lockfile here, so there is nothing to audit — and the count is null
     // rather than 0, because every reader downstream prints a 0 as good news.
@@ -3026,7 +3056,7 @@ describe('security', () => {
   })
 
   test('a history that was not read is not a history with nothing in it', () => {
-    const report = readScan('security', 'security.json')
+    const report = JSON.parse(readFileSync(join(root, 'scans', scanSlotOf(securityAt), 'security.json'), 'utf8'))
 
     // The fixture is not a git repository, so there is no history to read. The
     // shape that matters is the absence of a number: `total` unset rather than 0.
@@ -4583,7 +4613,8 @@ describe('a count is a number only when something was counted', () => {
 
     // And no reader turns it into a zero. The DEFECTS and SECURITY sections of the
     // summary are the ones a client reads.
-    const out = run('ds.mjs', ['assess', fixture('unreadable')])
+    const unreadableAt = outsideAnyRepo('unreadable')
+    const out = run('ds.mjs', ['assess', unreadableAt])
     const from = out.indexOf('DEFECTS')
     const to = out.indexOf('not covered:', from)
     assert.ok(from !== -1 && to !== -1, 'the summary did not print its defect and security sections')
@@ -4730,8 +4761,9 @@ describe('where measurements are filed', () => {
     // it reached a directory holding ten unrelated clones and reported six of
     // their mechanisms as this project's. The climb now stops at a repository or
     // a declared workspace, and where there is none the target is the whole world.
-    run('scan.mjs', [fixture('lonely')])
-    const scan = readScan('lonely', 'scan.json')
+    const lonely = outsideAnyRepo('lonely')
+    run('scan.mjs', [lonely])
+    const scan = JSON.parse(readFileSync(join(root, 'scans', scanSlotOf(lonely), 'scan.json'), 'utf8'))
     const present = scan.toolchain.present.map(m => m.name ?? m)
     assert.ok(!present.includes('agent evals'), 'a sibling directory\'s tooling was counted as this project\'s')
     assert.ok(!present.includes('gate aggregate'), 'a sibling directory\'s tooling was counted as this project\'s')

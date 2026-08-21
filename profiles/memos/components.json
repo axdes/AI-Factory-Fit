@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "_": "Extracted from /private/tmp/claude-501/-Users-Vitali-Novikau-Downloads-harness/99992287-9349-41ad-bc25-77f40d283d7c/scratchpad/e2e/memos/web/src/components/ui by adapt-react. Facts only: exports, props, required flags and closed unions. Level, surface, status and description are policy and judgment — they are null until a person writes them, because a guessed judgment tier recommends the wrong component confidently.",
+  "_": "Extracted from the memos web client (src/components)/ui by adapt-react. Facts only: exports, props, required flags and closed unions. Level, surface, status and description are policy and judgment — they are null until a person writes them, because a guessed judgment tier recommends the wrong component confidently.",
   "components": {
     "Badge": {
       "ref": "Badge",
