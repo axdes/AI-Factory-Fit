@@ -41,7 +41,7 @@ to the repository.
 ```sh
 ds report <project>                              the same, as a document to send
 ds fit <project> --select a,b --reject c:reason  record what was agreed
-ds install <repo> --profile own --plan --apply   build exactly that
+ds install <repo> --profile reference --plan --apply  build exactly that
 ```
 
 ## The reference profile, and the one that is not here
