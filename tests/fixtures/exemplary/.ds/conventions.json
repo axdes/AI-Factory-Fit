@@ -1,0 +1,57 @@
+{
+  "_": "An installed contract. One screen is forgiven in the baseline so the gate is green on it \u2014 and it must still be named as the wrong thing to copy.",
+  "schemaVersion": 1,
+  "generatedFrom": "ds-profile scan of 4 files",
+  "mode": "settled",
+  "scope": "src",
+  "excluded": [],
+  "enforce": {
+    "component export": {
+      "expect": "named",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "styling": {
+      "expect": "plain co-located CSS",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "file structure": {
+      "expect": "flat Name.tsx",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "props declaration": {
+      "expect": "type Props",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "handler naming": {
+      "expect": "handleX",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "internal imports": {
+      "expect": "relative",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "test placement": {
+      "expect": "co-located",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "colour values": {
+      "expect": "token",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "sizing values": {
+      "expect": "token",
+      "share": 1,
+      "source": "whole repository"
+    }
+  },
+  "documented": {},
+  "undecided": {}
+}

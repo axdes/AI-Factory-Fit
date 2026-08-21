@@ -1,0 +1,9 @@
+{
+  "component export": [
+    "src/pages/OrdersPage.tsx",
+    "src/components/OrderSummary.tsx"
+  ],
+  "styling": [
+    "src/components/InvoiceRow.tsx"
+  ]
+}

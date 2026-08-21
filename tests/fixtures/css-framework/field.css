@@ -1,0 +1,3 @@
+.field { display: grid; gap: 4px; }
+.field.is-invalid { border-color: #b3261e; }
+.field.is-disabled { opacity: 0.5; }

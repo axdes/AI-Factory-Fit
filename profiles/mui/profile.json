@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "mui",
+  "library": {
+    "name": "@mui/material",
+    "kind": "third-party",
+    "source": "@mui/material@9.3.1"
+  },
+  "adapter": "adapt-mui.mjs",
+  "tiers": {
+    "facts": [
+      "components.json",
+      "tokens.json"
+    ],
+    "policy": [
+      "policy.json",
+      "rules.json"
+    ],
+    "judgment": [
+      "judgment.json"
+    ]
+  },
+  "counts": {
+    "components": 120,
+    "blocks": 0,
+    "tokens": 160
+  }
+}

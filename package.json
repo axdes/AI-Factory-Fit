@@ -1,0 +1,75 @@
+{
+  "name": "ai-factoryfit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Installs an AI factory fitted to the codebase it measured, not one brought with it.",
+  "scripts": {
+    "ds": "node scripts/ds.mjs",
+    "assess": "node scripts/ds.mjs assess",
+    "scan": "node scripts/scan.mjs",
+    "defects": "node scripts/defects.mjs",
+    "deep": "node scripts/deep.mjs",
+    "ai-audit": "node scripts/ai-audit.mjs",
+    "exemplars": "node scripts/exemplars.mjs",
+    "practices": "node scripts/practices.mjs",
+    "fit": "node scripts/fit.mjs",
+    "install:gate": "node scripts/install.mjs",
+    "update:gate": "node scripts/update.mjs",
+    "score": "node scripts/score.mjs",
+    "measure": "node scripts/measure.mjs",
+    "style": "node scripts/style-from-site.mjs",
+    "style:tokens": "node scripts/style-to-tokens.mjs",
+    "probe:own": "node scripts/probe-own.mjs",
+    "adapt:mui": "node scripts/adapt-mui.mjs",
+    "adapt:css": "node scripts/adapt-css.mjs",
+    "adapt:antd": "node scripts/adapt-antd.mjs",
+    "validate": "node scripts/validate-profile.mjs",
+    "spec": "node scripts/validate-spec.mjs",
+    "draft": "node scripts/draft-spec.mjs",
+    "build:screen": "node scripts/build-screen.mjs",
+    "report": "node scripts/report.mjs",
+    "eval": "node scripts/eval.mjs",
+    "redteam": "node scripts/redteam.mjs",
+    "mcp": "node scripts/mcp.mjs",
+    "context:budget": "node scripts/context-budget.mjs",
+    "checks:manifest": "node scripts/gen-checks-manifest.mjs",
+    "lint:twins": "node scripts/lint-twins.mjs",
+    "lint:vocab": "node scripts/lint-vocab.mjs",
+    "spec:selection": "node scripts/spec-selection.mjs",
+    "test": "node --test tests/detectors.test.mjs",
+    "check": "npm test && npm run eval && npm run redteam && npm run probe:own -- --check && npm run validate -- own && npm run validate -- --all && npm run lint:twins && npm run lint:vocab && npm run spec:selection && npm run context:budget -- --check && npm run checks:manifest -- --check"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "dependency-cruiser": "^18.2.0",
+    "oxlint": "^1.78.0",
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.62.1",
+    "pngjs": "^7.0.0",
+    "postcss": "^8.5.26",
+    "typescript": "^5.9.3"
+  },
+  "bin": {
+    "ds": "./scripts/ds.mjs"
+  },
+  "files": [
+    "scripts",
+    "catalogue",
+    "practices",
+    "roles",
+    "bindings",
+    "profiles",
+    "rules",
+    "config",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axdes/AI-Factory-Fit.git"
+  }
+}

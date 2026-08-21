@@ -1,0 +1,58 @@
+/* A utility-class project: the tokens are here, the components are not.
+ * Mirrors what memos looks like to `adapt-css` — many custom properties,
+ * almost no class families, because the components are TSX with utilities. */
+:root {
+  --colour-1: #001eef;
+  --colour-2: #003dde;
+  --colour-3: #005ccd;
+  --colour-4: #007bbc;
+  --colour-5: #009aab;
+  --colour-6: #00b99a;
+  --colour-7: #00d889;
+  --colour-8: #00f778;
+  --colour-9: #011667;
+  --colour-10: #013556;
+  --colour-11: #015445;
+  --colour-12: #017334;
+  --colour-13: #019223;
+  --colour-14: #01b112;
+  --colour-15: #01d001;
+  --colour-16: #01eef0;
+  --colour-17: #020ddf;
+  --colour-18: #022cce;
+  --colour-19: #024bbd;
+  --colour-20: #026aac;
+  --colour-21: #02899b;
+  --colour-22: #02a88a;
+  --colour-23: #02c779;
+  --colour-24: #02e668;
+  --colour-25: #030557;
+  --colour-26: #032446;
+  --colour-27: #034335;
+  --colour-28: #036224;
+  --colour-29: #038113;
+  --colour-30: #03a002;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-13: 52px;
+  --space-14: 56px;
+  --space-15: 60px;
+  --space-16: 64px;
+  --space-17: 68px;
+  --space-18: 72px;
+  --space-19: 76px;
+  --space-20: 80px;
+}
+
+.cm-anchor { color: var(--colour-1); }
+.cm-anchor--failed { color: var(--colour-2); }

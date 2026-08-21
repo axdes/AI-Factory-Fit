@@ -1,0 +1,6 @@
+{
+  "_": "Level and surface per component. Assigned once for the library and then reusable across every client on this stack. Empty until someone assigns them.",
+  "schemaVersion": 1,
+  "levels": {},
+  "surfaces": {}
+}

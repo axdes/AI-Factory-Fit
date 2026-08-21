@@ -1,0 +1,7 @@
+{
+  "_": "How the shared rule catalogue is expressed for this library. The reference profile uses the first-party expressions in rules/catalogue.json, keyed \"own\".",
+  "schemaVersion": 1,
+  "catalogue": "../../rules/catalogue.json",
+  "applies": "all",
+  "expressionKey": "own"
+}

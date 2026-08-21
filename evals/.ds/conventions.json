@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "scope": "tasks",
+  "excluded": [],
+  "_": "Mirrors the conventions measured in a real repository. The corpus is scored against a real ruleset, not an invented one.",
+  "enforce": {
+    "component export": {
+      "expect": "named",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "colour values": {
+      "expect": "from tokens",
+      "share": 0.95,
+      "source": "whole repository"
+    },
+    "sizing values": {
+      "expect": "from tokens",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "handler naming": {
+      "expect": "onX",
+      "share": 0.875,
+      "source": "whole repository"
+    },
+    "test placement": {
+      "expect": "co-located",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "props declaration": {
+      "expect": "type Props",
+      "share": 1,
+      "source": "whole repository"
+    }
+  },
+  "documented": {},
+  "undecided": {}
+}

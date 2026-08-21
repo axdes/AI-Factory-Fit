@@ -1,0 +1,7 @@
+html { background: var(--page); }
+/* A checkbox, not the page. Matching any selector starting with `html` called
+   this the page background. */
+html[data-theme='dark'] input:checked + .checkboxLabel { background: hsl(167deg 56% 73% / 10%); }
+.container { max-width: 1024px; }
+.article { max-width: 1024px; }
+.list { max-width: 1024px; }

@@ -1,0 +1,2 @@
+.home { display: flex; gap: var(--sp-cosy); padding: var(--sp-tight); }
+.home__row { display: flex; gap: var(--sp-cosy); }

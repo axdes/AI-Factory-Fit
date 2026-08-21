@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "variableCollections": {
+      "VC:1": {
+        "id": "VC:1", "name": "Brand", "defaultModeId": "M:light",
+        "modes": [{ "modeId": "M:light", "name": "Light" }, { "modeId": "M:dark", "name": "Dark" }],
+        "variableIds": ["V:1", "V:2", "V:3", "V:4"]
+      }
+    },
+    "variables": {
+      "V:1": {
+        "id": "V:1", "name": "colour/brand/500", "variableCollectionId": "VC:1",
+        "resolvedType": "COLOR", "description": "The brand blue",
+        "valuesByMode": {
+          "M:light": { "r": 0.1019, "g": 0.4509, "b": 0.9098, "a": 1 },
+          "M:dark":  { "r": 0.3411, "g": 0.6117, "b": 0.9490, "a": 1 }
+        }
+      },
+      "V:2": {
+        "id": "V:2", "name": "colour/action/primary", "variableCollectionId": "VC:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": {
+          "M:light": { "type": "VARIABLE_ALIAS", "id": "V:1" },
+          "M:dark":  { "type": "VARIABLE_ALIAS", "id": "V:1" }
+        }
+      },
+      "V:3": {
+        "id": "V:3", "name": "space/4", "variableCollectionId": "VC:1",
+        "resolvedType": "FLOAT", "valuesByMode": { "M:light": 16, "M:dark": 16 }
+      },
+      "V:4": {
+        "id": "V:4", "name": "colour/from-library", "variableCollectionId": "VC:1",
+        "resolvedType": "COLOR",
+        "valuesByMode": { "M:light": { "type": "VARIABLE_ALIAS", "id": "V:999" } }
+      }
+    }
+  }
+}

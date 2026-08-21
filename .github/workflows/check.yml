@@ -1,0 +1,30 @@
+# CI for the tool itself.
+#
+# The regression suite exists because eleven detectors over-reported before
+# anyone noticed. Running it only when someone remembers is the same failure one
+# level up, so it runs here on every push.
+name: check
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      # The detector suite. Fixtures are self-contained, so this needs no
+      # repository other than this one.
+      - run: node --test tests/detectors.test.mjs
+      # Both catalogues fail closed; a technique without a condition or a
+      # practice without a source stops the build rather than shipping.
+      - run: node scripts/fit.mjs --help || true
+      - run: node scripts/practices.mjs --greenfield > /dev/null
+      # The corpus asks whether the ruleset discriminates, and the redteam asks
+      # whether we would notice if a check stopped working. Both fail the build.
+      - run: node scripts/eval.mjs
+      - run: node scripts/redteam.mjs

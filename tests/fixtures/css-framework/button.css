@@ -1,0 +1,9 @@
+.btn {
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+}
+.btn[data-variant="primary"] { background: var(--colour-brand-500); }
+.btn[data-variant="ghost"]   { background: transparent; }
+.btn[data-size="sm"]         { padding: 8px; }
+.btn.is-loading              { pointer-events: none; }
+.btn:disabled                { opacity: 0.5; }

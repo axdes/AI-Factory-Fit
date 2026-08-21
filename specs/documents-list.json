@@ -1,0 +1,21 @@
+{
+  "id": "documents-list",
+  "title": "Documents library",
+  "goal": "Find a document and open it, or start a new one.",
+  "zones": [
+    { "name": "header",  "purpose": "Name the screen and offer the one creating action.",
+      "elements": ["pageHeader", "primaryAction"] },
+    { "name": "toolbar", "purpose": "Narrow the list by text and by status.",
+      "elements": ["searchInput", "select"] },
+    { "name": "content", "purpose": "One row per document with its status.",
+      "elements": ["table", "statusTag tone=warning", "avatar size=sm"] },
+    { "name": "footer",  "purpose": "Move through pages when the set is large.",
+      "elements": ["pagination"] }
+  ],
+  "states": {
+    "empty":   "emptyState offering to clear the filters",
+    "error":   "inlineMessage tone=danger above the list, with a retry action",
+    "loading": "skeleton holding the shape of the rows"
+  },
+  "data": ["documents: id, title, status (draft | review | published), updatedAt"]
+}

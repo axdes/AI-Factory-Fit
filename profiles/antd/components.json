@@ -1,0 +1,6571 @@
+{
+  "schemaVersion": 1,
+  "components": {
+    "Alert": {
+      "ref": "Alert",
+      "exports": [
+        "Alert"
+      ],
+      "main": "Alert",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "type",
+          "type": "'success' | 'info' | 'warning' | 'error'",
+          "required": false,
+          "values": [
+            "success",
+            "info",
+            "warning",
+            "error"
+          ],
+          "description": "Type of Alert styles, options:`success`, `info`, `warning`, `error`"
+        },
+        {
+          "name": "variant",
+          "type": "AlertVariant",
+          "required": false,
+          "values": [
+            "outlined",
+            "filled"
+          ],
+          "description": "Variant of Alert style"
+        },
+        {
+          "name": "closable",
+          "type": "boolean | (Exclude<ClosableType, boolean> & { /** Callback when close Alert */ o",
+          "required": false,
+          "description": "Whether Alert can be closed"
+        },
+        {
+          "name": "closeText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Close text to show"
+        },
+        {
+          "name": "title",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Content of Alert"
+        },
+        {
+          "name": "message",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Additional content of Alert"
+        },
+        {
+          "name": "onClose",
+          "type": "React.MouseEventHandler<HTMLButtonElement>",
+          "required": false
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "Trigger when animation ending of Alert"
+        },
+        {
+          "name": "showIcon",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to show icon"
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "required": false,
+          "description": "https://www.w3.org/TR/2014/REC-html5-20141028/dom.html#aria-role-attribute"
+        },
+        {
+          "name": "banner",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "closeIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "action",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "onMouseEnter",
+          "type": "React.MouseEventHandler<HTMLDivElement>",
+          "required": false
+        },
+        {
+          "name": "onMouseLeave",
+          "type": "React.MouseEventHandler<HTMLDivElement>",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "React.MouseEventHandler<HTMLDivElement>",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/alert/Alert.d.ts",
+      "variants": {
+        "type": {
+          "prop": "type",
+          "values": [
+            "success",
+            "info",
+            "warning",
+            "error"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "outlined",
+            "filled"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "Inline message that stays until the condition is resolved; use message or notification when it should leave on its own."
+    },
+    "Anchor": {
+      "ref": "Anchor",
+      "exports": [
+        "Anchor"
+      ],
+      "main": "Anchor",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "offsetTop",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "bounds",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "affix",
+          "type": "boolean | Omit<AffixProps, 'offsetTop' | 'target' | 'children'>",
+          "required": false
+        },
+        {
+          "name": "showInkInFixed",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "getContainer",
+          "type": "() => AnchorContainer",
+          "required": false
+        },
+        {
+          "name": "getCurrentAnchor",
+          "type": "(activeLink: string) => string",
+          "required": false,
+          "description": "Return customize highlight anchor"
+        },
+        {
+          "name": "onClick",
+          "type": "(e: React.MouseEvent<HTMLElement>, link: { title: React.ReactNode; href: string;",
+          "required": false
+        },
+        {
+          "name": "targetOffset",
+          "type": "number",
+          "required": false,
+          "description": "Scroll to target offset value, if none, it's offsetTop prop value or 0."
+        },
+        {
+          "name": "onChange",
+          "type": "(currentActiveLink: string) => void",
+          "required": false,
+          "description": "Listening event when scrolling change active link"
+        },
+        {
+          "name": "items",
+          "type": "AnchorLinkItemProps[]",
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "AnchorDirection",
+          "required": false,
+          "values": [
+            "vertical",
+            "horizontal"
+          ]
+        },
+        {
+          "name": "replace",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/anchor/Anchor.d.ts",
+      "variants": {
+        "direction": {
+          "prop": "direction",
+          "values": [
+            "vertical",
+            "horizontal"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "Links that track scroll position within a long document; not navigation between pages."
+    },
+    "AutoComplete": {
+      "ref": "AutoComplete",
+      "exports": [
+        "AutoComplete"
+      ],
+      "main": "AutoComplete",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "dataSource",
+          "type": "DataSourceItemType[]",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "popupClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownMatchSelectWidth",
+          "type": "boolean | number",
+          "required": false
+        },
+        {
+          "name": "popupMatchSelectWidth",
+          "type": "boolean | number",
+          "required": false
+        },
+        {
+          "name": "dropdownRender",
+          "type": "(menu: React.ReactElement) => React.ReactElement",
+          "required": false
+        },
+        {
+          "name": "popupRender",
+          "type": "(menu: React.ReactElement) => React.ReactElement",
+          "required": false
+        },
+        {
+          "name": "dropdownStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "onDropdownVisibleChange",
+          "type": "(visible: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(visible: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "showSearch",
+          "type": "boolean | Pick<SearchConfig<OptionType> & { searchIcon?: React.ReactNode; }, 'fi",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/auto-complete/AutoComplete.d.ts",
+      "variants": {
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "Free text with suggestions, where the typed value is valid even if it matches nothing; use Select when the value must come from the list."
+    },
+    "Avatar": {
+      "ref": "Avatar",
+      "exports": [
+        "Avatar"
+      ],
+      "main": "Avatar",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "shape",
+          "type": "'circle' | 'square'",
+          "required": false,
+          "values": [
+            "circle",
+            "square"
+          ],
+          "description": "Shape of avatar, options: `circle`, `square`"
+        },
+        {
+          "name": "size",
+          "type": "AvatarSize",
+          "required": false
+        },
+        {
+          "name": "gap",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "src",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Src of image avatar"
+        },
+        {
+          "name": "srcSet",
+          "type": "string",
+          "required": false,
+          "description": "Srcset of image avatar"
+        },
+        {
+          "name": "draggable",
+          "type": "boolean | 'true' | 'false'",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Icon to be used in avatar"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "alt",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "crossOrigin",
+          "type": "'' | 'anonymous' | 'use-credentials'",
+          "required": false,
+          "values": [
+            "",
+            "anonymous",
+            "use-credentials"
+          ]
+        },
+        {
+          "name": "onClick",
+          "type": "(e?: React.MouseEvent<HTMLElement>) => void",
+          "required": false
+        },
+        {
+          "name": "onError",
+          "type": "() => boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/avatar/Avatar.d.ts",
+      "variants": {
+        "shape": {
+          "prop": "shape",
+          "values": [
+            "circle",
+            "square"
+          ]
+        },
+        "crossOrigin": {
+          "prop": "crossOrigin",
+          "values": [
+            "",
+            "anonymous",
+            "use-credentials"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "A person or entity as an image, initials or icon."
+    },
+    "Badge": {
+      "ref": "Badge",
+      "exports": [
+        "Badge"
+      ],
+      "main": "Badge",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "count",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Number to show in badge"
+        },
+        {
+          "name": "showZero",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "overflowCount",
+          "type": "number",
+          "required": false,
+          "description": "Max count to show"
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to show red dot without number"
+        },
+        {
+          "name": "scrollNumberPrefixCls",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "PresetStatusColorType",
+          "required": false,
+          "values": [
+            "success",
+            "processing",
+            "error",
+            "default",
+            "warning"
+          ]
+        },
+        {
+          "name": "color",
+          "type": "LiteralUnion<PresetColorKey>",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "Exclude<SizeType, 'large'> | 'default'",
+          "required": false,
+          "description": "Note: `default` is deprecated and will be removed in v7, please use `medium` instead."
+        },
+        {
+          "name": "offset",
+          "type": "[number | string, number | string]",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string | null | false",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/badge/Badge.d.ts",
+      "variants": {
+        "status": {
+          "prop": "status",
+          "values": [
+            "success",
+            "processing",
+            "error",
+            "default",
+            "warning"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "A count or status dot pinned to another element's corner; use Tag for a standalone label the user can read or remove."
+    },
+    "Breadcrumb": {
+      "ref": "Breadcrumb",
+      "exports": [
+        "Breadcrumb"
+      ],
+      "main": "Breadcrumb",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "params",
+          "type": "T",
+          "required": false
+        },
+        {
+          "name": "separator",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "dropdownIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "routes",
+          "type": "ItemType[]",
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "ItemType[]",
+          "required": false
+        },
+        {
+          "name": "itemRender",
+          "type": "(route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.React",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/breadcrumb/Breadcrumb.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "The trail back up the hierarchy above the current page."
+    },
+    "Button": {
+      "ref": "Button",
+      "exports": [
+        "Button"
+      ],
+      "main": "Button",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "htmlType",
+          "type": "ButtonHTMLType",
+          "required": false,
+          "values": [
+            "submit",
+            "button",
+            "reset"
+          ]
+        },
+        {
+          "name": "autoInsertSpace",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "ButtonType",
+          "required": false,
+          "values": [
+            "default",
+            "primary",
+            "dashed",
+            "link",
+            "text"
+          ]
+        },
+        {
+          "name": "color",
+          "type": "ButtonColorType",
+          "required": false,
+          "values": [
+            "default",
+            "primary",
+            "danger",
+            "blue",
+            "purple",
+            "cyan",
+            "green",
+            "magenta",
+            "pink",
+            "red",
+            "orange",
+            "yellow",
+            "volcano",
+            "geekblue",
+            "lime",
+            "gold"
+          ]
+        },
+        {
+          "name": "variant",
+          "type": "ButtonVariantType",
+          "required": false,
+          "values": [
+            "outlined",
+            "dashed",
+            "solid",
+            "filled",
+            "text",
+            "link"
+          ]
+        },
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "iconPosition",
+          "type": "'start' | 'end'",
+          "required": false,
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "iconPlacement",
+          "type": "'start' | 'end'",
+          "required": false,
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "shape",
+          "type": "ButtonShape",
+          "required": false,
+          "values": [
+            "default",
+            "circle",
+            "round",
+            "square"
+          ]
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean | { delay?: number; icon?: React.ReactNode; }",
+          "required": false
+        },
+        {
+          "name": "ghost",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "danger",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "_skipSemantic",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/button/Button.d.ts",
+      "variants": {
+        "htmlType": {
+          "prop": "htmlType",
+          "values": [
+            "submit",
+            "button",
+            "reset"
+          ]
+        },
+        "type": {
+          "prop": "type",
+          "values": [
+            "default",
+            "primary",
+            "dashed",
+            "link",
+            "text"
+          ]
+        },
+        "color": {
+          "prop": "color",
+          "values": [
+            "default",
+            "primary",
+            "danger",
+            "blue",
+            "purple",
+            "cyan",
+            "green",
+            "magenta",
+            "pink",
+            "red",
+            "orange",
+            "yellow",
+            "volcano",
+            "geekblue",
+            "lime",
+            "gold"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "outlined",
+            "dashed",
+            "solid",
+            "filled",
+            "text",
+            "link"
+          ]
+        },
+        "iconPosition": {
+          "prop": "iconPosition",
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        "iconPlacement": {
+          "prop": "iconPlacement",
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        "shape": {
+          "prop": "shape",
+          "values": [
+            "default",
+            "circle",
+            "round",
+            "square"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "The action control; `type` sets its weight and `danger` marks a destructive action, which are two separate props in Ant and are often confused."
+    },
+    "Calendar": {
+      "ref": "Calendar",
+      "exports": [
+        "Calendar"
+      ],
+      "main": "Calendar",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "locale",
+          "type": "typeof enUS",
+          "required": false
+        },
+        {
+          "name": "validRange",
+          "type": "[DateType, DateType]",
+          "required": false
+        },
+        {
+          "name": "disabledDate",
+          "type": "(date: DateType) => boolean",
+          "required": false
+        },
+        {
+          "name": "dateFullCellRender",
+          "type": "(date: DateType) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "dateCellRender",
+          "type": "(date: DateType) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "monthFullCellRender",
+          "type": "(date: DateType) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "monthCellRender",
+          "type": "(date: DateType) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "cellRender",
+          "type": "(date: DateType, info: CellRenderInfo<DateType>) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "fullCellRender",
+          "type": "(date: DateType, info: CellRenderInfo<DateType>) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "headerRender",
+          "type": "HeaderRender<DateType>",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "DateType",
+          "required": false
+        },
+        {
+          "name": "defaultValue",
+          "type": "DateType",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "CalendarMode",
+          "required": false,
+          "values": [
+            "year",
+            "month"
+          ]
+        },
+        {
+          "name": "fullscreen",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "showWeek",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(date: DateType) => void",
+          "required": false
+        },
+        {
+          "name": "onPanelChange",
+          "type": "(date: DateType, mode: CalendarMode) => void",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "type": "(date: DateType, selectInfo: SelectInfo) => void",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/calendar/generateCalendar.d.ts",
+      "variants": {
+        "mode": {
+          "prop": "mode",
+          "values": [
+            "year",
+            "month"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "A full month or year view for browsing dates in place; use DatePicker to capture a date in a form."
+    },
+    "Card": {
+      "ref": "Card",
+      "exports": [
+        "Card"
+      ],
+      "main": "Card",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "title",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "extra",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "headStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "bodyStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "CardSize",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "CardType",
+          "required": false,
+          "values": [
+            "inner"
+          ]
+        },
+        {
+          "name": "cover",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "type": "React.ReactNode[]",
+          "required": false
+        },
+        {
+          "name": "tabList",
+          "type": "CardTabListType[]",
+          "required": false
+        },
+        {
+          "name": "tabBarExtraContent",
+          "type": "TabBarExtraContent",
+          "required": false
+        },
+        {
+          "name": "onTabChange",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "activeTabKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "defaultActiveTabKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tabProps",
+          "type": "TabsProps",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'borderless' | 'outlined'",
+          "required": false,
+          "values": [
+            "borderless",
+            "outlined"
+          ]
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/card/Card.d.ts",
+      "variants": {
+        "type": {
+          "prop": "type",
+          "values": [
+            "inner"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "borderless",
+            "outlined"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "A bounded surface grouping one subject with an optional title and actions."
+    },
+    "Carousel": {
+      "ref": "Carousel",
+      "exports": [
+        "Carousel"
+      ],
+      "main": "Carousel",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "effect",
+          "type": "CarouselEffect",
+          "required": false,
+          "values": [
+            "scrollx",
+            "fade"
+          ]
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "slickGoTo",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "dotPosition",
+          "type": "DotPlacement | 'left' | 'right'",
+          "required": false,
+          "values": [
+            "top",
+            "bottom",
+            "start",
+            "end",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "name": "dotPlacement",
+          "type": "DotPlacement",
+          "required": false,
+          "values": [
+            "top",
+            "bottom",
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "dots",
+          "type": "boolean | { className?: string; }",
+          "required": false
+        },
+        {
+          "name": "waitForAnimate",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean | { dotDuration?: boolean; }",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/carousel/index.d.ts",
+      "variants": {
+        "effect": {
+          "prop": "effect",
+          "values": [
+            "scrollx",
+            "fade"
+          ]
+        },
+        "dotPosition": {
+          "prop": "dotPosition",
+          "values": [
+            "top",
+            "bottom",
+            "start",
+            "end",
+            "left",
+            "right"
+          ]
+        },
+        "dotPlacement": {
+          "prop": "dotPlacement",
+          "values": [
+            "top",
+            "bottom",
+            "start",
+            "end"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Rotating panels; reach for it only where the content is genuinely equivalent, since anything past the first panel is rarely seen."
+    },
+    "Cascader": {
+      "ref": "Cascader",
+      "exports": [
+        "Cascader"
+      ],
+      "main": "Cascader",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "multiple",
+          "type": "Multiple",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "showArrow",
+          "type": "boolean",
+          "required": false,
+          "description": "default behavior, you can hide it by setting `suffixIcon` to null."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "SelectCommonPlacement",
+          "required": false,
+          "values": [
+            "bottomLeft",
+            "bottomRight",
+            "topLeft",
+            "topRight"
+          ]
+        },
+        {
+          "name": "suffixIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "showSearch",
+          "type": "boolean | (SearchConfig<OptionType, keyof OptionType> & { searchIcon?: React.Rea",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "OptionType[]",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "popupClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "dropdownRender",
+          "type": "(menu: React.ReactElement) => React.ReactElement",
+          "required": false
+        },
+        {
+          "name": "popupRender",
+          "type": "(menu: React.ReactElement) => React.ReactElement",
+          "required": false
+        },
+        {
+          "name": "dropdownMenuColumnStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "popupMenuColumnStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "onDropdownVisibleChange",
+          "type": "(visible: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onPopupVisibleChange",
+          "type": "(visible: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(visible: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "Variant",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/cascader/index.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        "placement": {
+          "prop": "placement",
+          "values": [
+            "bottomLeft",
+            "bottomRight",
+            "topLeft",
+            "topRight"
+          ]
+        },
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "Selects a value from a strict hierarchy, one level at a time; use TreeSelect when the tree is browsable rather than sequential."
+    },
+    "Checkbox": {
+      "ref": "Checkbox",
+      "exports": [
+        "Checkbox"
+      ],
+      "main": "Checkbox",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(e: T) => void",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "React.MouseEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onMouseEnter",
+          "type": "React.MouseEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onMouseLeave",
+          "type": "React.MouseEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onKeyPress",
+          "type": "React.KeyboardEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onKeyDown",
+          "type": "React.KeyboardEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onFocus",
+          "type": "React.FocusEventHandler<HTMLInputElement>",
+          "required": false
+        },
+        {
+          "name": "onBlur",
+          "type": "React.FocusEventHandler<HTMLInputElement>",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "required": false
+        },
+        {
+          "name": "tabIndex",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "skipGroup",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/checkbox/Checkbox.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "An independent on/off choice applied on submit; use Switch when the change takes effect immediately."
+    },
+    "Collapse": {
+      "ref": "Collapse",
+      "exports": [
+        "Collapse"
+      ],
+      "main": "Collapse",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "activeKey",
+          "type": "Array<string | number> | string | number",
+          "required": false
+        },
+        {
+          "name": "defaultActiveKey",
+          "type": "Array<string | number> | string | number",
+          "required": false
+        },
+        {
+          "name": "accordion",
+          "type": "boolean",
+          "required": false,
+          "description": "手风琴效果"
+        },
+        {
+          "name": "destroyInactivePanel",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(key: string[]) => void",
+          "required": false
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "expandIcon",
+          "type": "(panelProps: PanelProps) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "expandIconPlacement",
+          "type": "ExpandIconPlacement",
+          "required": false,
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "expandIconPosition",
+          "type": "ExpandIconPlacement",
+          "required": false,
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "ghost",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "collapsible",
+          "type": "CollapsibleType",
+          "required": false,
+          "values": [
+            "header",
+            "icon",
+            "disabled"
+          ]
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/collapse/Collapse.d.ts",
+      "variants": {
+        "expandIconPlacement": {
+          "prop": "expandIconPlacement",
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        "expandIconPosition": {
+          "prop": "expandIconPosition",
+          "values": [
+            "start",
+            "end"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        "collapsible": {
+          "prop": "collapsible",
+          "values": [
+            "header",
+            "icon",
+            "disabled"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "Sections that reveal on demand; use Tabs when the sections are peers a user switches between rather than optional detail."
+    },
+    "Descriptions": {
+      "ref": "Descriptions",
+      "exports": [
+        "Descriptions"
+      ],
+      "main": "Descriptions",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType | 'default'",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large",
+            "default"
+          ],
+          "description": "Note: `default` is deprecated and will be removed in v7, please use `medium` instead."
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "extra",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "column",
+          "type": "number | Partial<Record<Breakpoint, number>>",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        {
+          "name": "colon",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "labelStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "contentStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "DescriptionsItemType[]",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/descriptions/index.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large",
+            "default"
+          ]
+        },
+        "layout": {
+          "prop": "layout",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Read-only label and value pairs for one record; use Form for anything editable."
+    },
+    "Divider": {
+      "ref": "Divider",
+      "exports": [
+        "Divider"
+      ],
+      "main": "Divider",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "type",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "titlePlacement",
+          "type": "TitlePlacement",
+          "required": false,
+          "values": [
+            "left",
+            "right",
+            "center",
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "orientationMargin",
+          "type": "string | number",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "dashed",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'dashed' | 'dotted' | 'solid'",
+          "required": false,
+          "values": [
+            "dashed",
+            "dotted",
+            "solid"
+          ]
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "plain",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/divider/index.d.ts",
+      "variants": {
+        "titlePlacement": {
+          "prop": "titlePlacement",
+          "values": [
+            "left",
+            "right",
+            "center",
+            "start",
+            "end"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "dashed",
+            "dotted",
+            "solid"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "The one hairline rule between content; reach for spacing before a divider."
+    },
+    "Drawer": {
+      "ref": "Drawer",
+      "exports": [
+        "Drawer"
+      ],
+      "main": "Drawer",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "size",
+          "type": "sizeType | number | string",
+          "required": false
+        },
+        {
+          "name": "resizable",
+          "type": "boolean | DrawerResizableConfig",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "afterOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "destroyOnClose",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "mask",
+          "type": "MaskType",
+          "required": false
+        },
+        {
+          "name": "focusable",
+          "type": "FocusableConfig",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/drawer/Drawer.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "page",
+      "description": "A panel from a screen edge for secondary work that keeps the page behind it visible; use Modal when the page must be blocked."
+    },
+    "Dropdown": {
+      "ref": "Dropdown",
+      "exports": [
+        "Dropdown"
+      ],
+      "main": "Dropdown",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "menu",
+          "type": "MenuProps & { activeKey?: RcMenuProps['activeKey']; }",
+          "required": false
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "arrow",
+          "type": "boolean | DropdownArrowOptions",
+          "required": false
+        },
+        {
+          "name": "trigger",
+          "type": "('click' | 'hover' | 'contextMenu')[]",
+          "required": false
+        },
+        {
+          "name": "dropdownRender",
+          "type": "(originNode: React.ReactNode) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "popupRender",
+          "type": "(originNode: React.ReactNode) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, info: { source: 'trigger' | 'menu'; }) => void",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyPopupOnHide",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "AlignType",
+          "required": false
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "(triggerNode: HTMLElement) => HTMLElement",
+          "required": false
+        },
+        {
+          "name": "transitionName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "Placement",
+          "required": false,
+          "values": [
+            "topLeft",
+            "topCenter",
+            "topRight",
+            "bottomLeft",
+            "bottomCenter",
+            "bottomRight",
+            "top",
+            "bottom",
+            "left",
+            "leftTop",
+            "leftBottom",
+            "right",
+            "rightTop",
+            "rightBottom"
+          ]
+        },
+        {
+          "name": "overlayClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "overlayStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "forceRender",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "mouseEnterDelay",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "mouseLeaveDelay",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "openClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "autoAdjustOverflow",
+          "type": "boolean | AdjustOverflow",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/dropdown/dropdown.d.ts",
+      "variants": {
+        "placement": {
+          "prop": "placement",
+          "values": [
+            "topLeft",
+            "topCenter",
+            "topRight",
+            "bottomLeft",
+            "bottomCenter",
+            "bottomRight",
+            "top",
+            "bottom",
+            "left",
+            "leftTop",
+            "leftBottom",
+            "right",
+            "rightTop",
+            "rightBottom"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "A menu of actions opened from a control; use Popover for arbitrary content and Tooltip for a label."
+    },
+    "Empty": {
+      "ref": "Empty",
+      "exports": [
+        "Empty"
+      ],
+      "main": "Empty",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "imageStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "image",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/empty/index.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "What a region shows when there is nothing in it; the first thing a new user sees and the state most often left out."
+    },
+    "Flex": {
+      "ref": "Flex",
+      "exports": [
+        "Flex"
+      ],
+      "main": "Flex",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "boolean | React.CSSProperties['flexWrap']",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "React.CSSProperties['justifyContent']",
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "React.CSSProperties['alignItems']",
+          "required": false
+        },
+        {
+          "name": "flex",
+          "type": "React.CSSProperties['flex']",
+          "required": false
+        },
+        {
+          "name": "gap",
+          "type": "LiteralUnion<SizeType, React.CSSProperties['gap']>",
+          "required": false
+        },
+        {
+          "name": "component",
+          "type": "CustomComponent<P>",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/flex/interface.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "card",
+      "description": "One-direction layout with a gap; the default for arranging things, with Space reserved for inline runs of controls."
+    },
+    "FloatButton": {
+      "ref": "FloatButton",
+      "exports": [
+        "FloatButton"
+      ],
+      "main": "FloatButton",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "FloatButtonType",
+          "required": false,
+          "values": [
+            "default",
+            "primary"
+          ]
+        },
+        {
+          "name": "shape",
+          "type": "FloatButtonShape",
+          "required": false,
+          "values": [
+            "circle",
+            "square"
+          ]
+        },
+        {
+          "name": "tooltip",
+          "type": "React.ReactNode | TooltipProps",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "React.HTMLAttributeAnchorTarget",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "type": "FloatButtonBadgeProps",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "htmlType",
+          "type": "ButtonHTMLType",
+          "required": false,
+          "values": [
+            "submit",
+            "button",
+            "reset"
+          ]
+        },
+        {
+          "name": "'aria-label'",
+          "type": "React.HtmlHTMLAttributes<HTMLElement>['aria-label']",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/float-button/FloatButton.d.ts",
+      "variants": {
+        "type": {
+          "prop": "type",
+          "values": [
+            "default",
+            "primary"
+          ]
+        },
+        "shape": {
+          "prop": "shape",
+          "values": [
+            "circle",
+            "square"
+          ]
+        },
+        "htmlType": {
+          "prop": "htmlType",
+          "values": [
+            "submit",
+            "button",
+            "reset"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "page",
+      "description": "An action floating above the page; more than one group on a screen means none of them is primary."
+    },
+    "Form": {
+      "ref": "Form",
+      "exports": [
+        "Form"
+      ],
+      "main": "Form",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "colon",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "layout",
+          "type": "FormLayout",
+          "required": false,
+          "values": [
+            "horizontal",
+            "inline",
+            "vertical"
+          ]
+        },
+        {
+          "name": "labelAlign",
+          "type": "FormLabelAlign",
+          "required": false,
+          "values": [
+            "left",
+            "right"
+          ]
+        },
+        {
+          "name": "labelWrap",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "labelCol",
+          "type": "ColProps",
+          "required": false
+        },
+        {
+          "name": "wrapperCol",
+          "type": "ColProps",
+          "required": false
+        },
+        {
+          "name": "form",
+          "type": "FormInstance<Values>",
+          "required": false
+        },
+        {
+          "name": "feedbackIcons",
+          "type": "FeedbackIcons",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "scrollToFirstError",
+          "type": "ScrollFocusOptions | boolean",
+          "required": false
+        },
+        {
+          "name": "requiredMark",
+          "type": "RequiredMark",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "Variant",
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "FormTooltipProps",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/form/Form.d.ts",
+      "variants": {
+        "layout": {
+          "prop": "layout",
+          "values": [
+            "horizontal",
+            "inline",
+            "vertical"
+          ]
+        },
+        "labelAlign": {
+          "prop": "labelAlign",
+          "values": [
+            "left",
+            "right"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Ant's form controller: layout, validation and submission together. Fields belong to it rather than holding their own state."
+    },
+    "Image": {
+      "ref": "Image",
+      "exports": [
+        "Image"
+      ],
+      "main": "Image",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "preview",
+          "type": "boolean | PreviewConfig",
+          "required": false
+        },
+        {
+          "name": "wrapperStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "PlaceholderType",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/image/index.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "An image with a preview overlay and fallback; a plain img is enough where neither is wanted."
+    },
+    "Input": {
+      "ref": "Input",
+      "exports": [
+        "Input"
+      ],
+      "main": "Input",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "addonBefore",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "```tsx import { Space, Input } from 'antd'; <Space.Compact> {addon} <Input defaultValue=\"name\" /> </Space.Compact> ```"
+        },
+        {
+          "name": "addonAfter",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "```tsx import { Space, Input } from 'antd'; <Space.Compact> <Input defaultValue=\"name\" /> {addon} </Space.Compact> ```"
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "Variant",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/input/Input.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "Single-line text entry; inside a Form it takes its label, validation and error text from Form.Item rather than from itself."
+    },
+    "InputNumber": {
+      "ref": "InputNumber",
+      "exports": [
+        "InputNumber"
+      ],
+      "main": "InputNumber",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "addonBefore",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "```tsx import { Space, InputNumber } from 'antd'; <Space.Compact> {addon} <InputNumber defaultValue={1} /> </Space.Compact> ```"
+        },
+        {
+          "name": "addonAfter",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "```tsx import { Space, InputNumber } from 'antd'; <Space.Compact> <InputNumber defaultValue={1} /> {addon} </Space.Compact> ```"
+        },
+        {
+          "name": "prefix",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "suffix",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "controls",
+          "type": "boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode; }",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "Variant",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/input-number/index.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "Numeric entry with steppers and bounds; use Slider when the approximate position matters more than the exact number."
+    },
+    "List": {
+      "ref": "List",
+      "exports": [
+        "List"
+      ],
+      "main": "List",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "dataSource",
+          "type": "T[]",
+          "required": false
+        },
+        {
+          "name": "extra",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "grid",
+          "type": "ListGridType",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "itemLayout",
+          "type": "ListItemLayout",
+          "required": false,
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        {
+          "name": "loading",
+          "type": "boolean | SpinProps",
+          "required": false
+        },
+        {
+          "name": "loadMore",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "pagination",
+          "type": "PaginationConfig | false",
+          "required": false
+        },
+        {
+          "name": "rowKey",
+          "type": "((item: T) => React.Key) | keyof T",
+          "required": false
+        },
+        {
+          "name": "renderItem",
+          "type": "(item: T, index: number) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "ListSize",
+          "required": false,
+          "values": [
+            "small",
+            "default",
+            "large"
+          ]
+        },
+        {
+          "name": "split",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "ListLocale",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/list/index.d.ts",
+      "variants": {
+        "itemLayout": {
+          "prop": "itemLayout",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "default",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "A vertical run of items of one kind; use Table when the items have columns worth comparing."
+    },
+    "Mentions": {
+      "ref": "Mentions",
+      "exports": [
+        "Mentions"
+      ],
+      "main": "Mentions",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "options",
+          "type": "MentionsOptionProps[]",
+          "required": false
+        },
+        {
+          "name": "popupClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "Variant",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/mentions/index.d.ts",
+      "variants": {
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "Multi-line text that offers suggestions after a trigger character."
+    },
+    "Menu": {
+      "ref": "Menu",
+      "exports": [
+        "Menu"
+      ],
+      "main": "Menu",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "theme",
+          "type": "MenuTheme",
+          "required": false,
+          "values": [
+            "light",
+            "dark"
+          ]
+        },
+        {
+          "name": "inlineIndent",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "false | TooltipProps",
+          "required": false
+        },
+        {
+          "name": "_internalDisableMenuItemTitleTooltip",
+          "type": "boolean",
+          "required": false,
+          "description": "for removing."
+        },
+        {
+          "name": "items",
+          "type": "ItemType[]",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/menu/menu.d.ts",
+      "variants": {
+        "theme": {
+          "prop": "theme",
+          "values": [
+            "light",
+            "dark"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Navigation between destinations, vertical or horizontal; use Dropdown for a short list of actions on a control."
+    },
+    "Modal": {
+      "ref": "Modal",
+      "exports": [
+        "Modal"
+      ],
+      "main": "Modal",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the modal dialog is visible or not"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to apply loading visual effect for OK button or not"
+        },
+        {
+          "name": "title",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "The modal dialog's title"
+        },
+        {
+          "name": "onOk",
+          "type": "(e: React.MouseEvent<HTMLButtonElement>) => void",
+          "required": false,
+          "description": "Specify a function that will be called when a user clicks the OK button"
+        },
+        {
+          "name": "onCancel",
+          "type": "(e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLElement>) => v",
+          "required": false,
+          "description": "Specify a function that will be called when a user clicks mask, close button on top right or Cancel button, or presses Esc key"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false
+        },
+        {
+          "name": "afterOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false,
+          "description": "Callback when the animation ends when Modal is turned on and off"
+        },
+        {
+          "name": "centered",
+          "type": "boolean",
+          "required": false,
+          "description": "Centered Modal"
+        },
+        {
+          "name": "width",
+          "type": "string | number | Partial<Record<Breakpoint, string | number>>",
+          "required": false,
+          "description": "Width of the modal dialog"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Text of the OK button"
+        },
+        {
+          "name": "okType",
+          "type": "LegacyButtonType",
+          "required": false,
+          "values": [
+            "default",
+            "primary",
+            "dashed",
+            "link",
+            "text",
+            "danger"
+          ],
+          "description": "Button `type` of the OK button"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Text of the Cancel button"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "forceRender",
+          "type": "boolean",
+          "required": false,
+          "description": "Force render Modal"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false
+        },
+        {
+          "name": "destroyOnClose",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "maskTransitionName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "transitionName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "rootStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "getContainer",
+          "type": "string | HTMLElement | getContainerFunc | false",
+          "required": false
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "bodyStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "maskStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "mask",
+          "type": "MaskType",
+          "required": false
+        },
+        {
+          "name": "keyboard",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "scrollLock",
+          "type": "boolean",
+          "required": false,
+          "description": "Control whether to lock body scroll when modal opens."
+        },
+        {
+          "name": "wrapProps",
+          "type": "any",
+          "required": false
+        },
+        {
+          "name": "closeIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "modalRender",
+          "type": "(node: React.ReactNode) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "mousePosition",
+          "type": "MousePosition",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "focusTriggerAfterClose",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "focusable",
+          "type": "FocusableConfig",
+          "required": false
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((originNode: React.ReactNode, extra: { OkBtn: React.FC; Cance",
+          "required": false
+        },
+        {
+          "name": "closable",
+          "type": "boolean | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?:",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/modal/interface.d.ts",
+      "variants": {
+        "okType": {
+          "prop": "okType",
+          "values": [
+            "default",
+            "primary",
+            "dashed",
+            "link",
+            "text",
+            "danger"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "A blocking window for a task that interrupts the page; use Drawer when the page behind should stay visible."
+    },
+    "Pagination": {
+      "ref": "Pagination",
+      "exports": [
+        "Pagination"
+      ],
+      "main": "Pagination",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "showQuickJumper",
+          "type": "boolean | { goButton?: React.ReactNode; }",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "responsive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "totalBoundaryShowSizeChanger",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "components",
+          "type": "{ sizeChanger?: React.ComponentType<{ value: number; onChange: (value: number) =",
+          "required": false
+        },
+        {
+          "name": "showSizeChanger",
+          "type": "boolean | SelectProps",
+          "required": false
+        },
+        {
+          "name": "selectComponentClass",
+          "type": "any",
+          "required": false
+        },
+        {
+          "name": "pageSizeOptions",
+          "type": "(string | number)[]",
+          "required": false,
+          "description": "`string` type will be removed in next major version."
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/pagination/Pagination.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "Page navigation for a known total; when the total is unknown, load more instead."
+    },
+    "Popconfirm": {
+      "ref": "Popconfirm",
+      "exports": [
+        "Popconfirm"
+      ],
+      "main": "Popconfirm",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "title",
+          "type": "React.ReactNode | RenderFunction",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "React.ReactNode | RenderFunction",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onConfirm",
+          "type": "(e?: React.MouseEvent<HTMLElement>) => void",
+          "required": false
+        },
+        {
+          "name": "onCancel",
+          "type": "(e?: React.MouseEvent<HTMLElement>) => void",
+          "required": false
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "okType",
+          "type": "LegacyButtonType",
+          "required": false,
+          "values": [
+            "default",
+            "primary",
+            "dashed",
+            "link",
+            "text",
+            "danger"
+          ]
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false
+        },
+        {
+          "name": "showCancel",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onPopupClick",
+          "type": "(e: React.MouseEvent<HTMLElement>) => void",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "LiteralUnion<PresetColorType>",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "TooltipPlacement",
+          "required": false,
+          "values": [
+            "top",
+            "left",
+            "right",
+            "bottom",
+            "topLeft",
+            "topRight",
+            "bottomLeft",
+            "bottomRight",
+            "leftTop",
+            "leftBottom",
+            "rightTop",
+            "rightBottom"
+          ]
+        },
+        {
+          "name": "builtinPlacements",
+          "type": "Placements",
+          "required": false
+        },
+        {
+          "name": "openClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "arrow",
+          "type": "boolean | { pointAtCenter?: boolean; }",
+          "required": false
+        },
+        {
+          "name": "autoAdjustOverflow",
+          "type": "boolean | AdjustOverflow",
+          "required": false
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "(triggerNode: HTMLElement) => HTMLElement",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyTooltipOnHide",
+          "type": "boolean | { keepParent?: boolean; }",
+          "required": false
+        },
+        {
+          "name": "overlayStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "overlayInnerStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "overlayClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "RcTooltipProps['visible']",
+          "required": false
+        },
+        {
+          "name": "defaultOpen",
+          "type": "RcTooltipProps['defaultVisible']",
+          "required": false
+        },
+        {
+          "name": "afterOpenChange",
+          "type": "RcTooltipProps['afterVisibleChange']",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/popconfirm/index.d.ts",
+      "variants": {
+        "okType": {
+          "prop": "okType",
+          "values": [
+            "default",
+            "primary",
+            "dashed",
+            "link",
+            "text",
+            "danger"
+          ]
+        },
+        "placement": {
+          "prop": "placement",
+          "values": [
+            "top",
+            "left",
+            "right",
+            "bottom",
+            "topLeft",
+            "topRight",
+            "bottomLeft",
+            "bottomRight",
+            "leftTop",
+            "leftBottom",
+            "rightTop",
+            "rightBottom"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "A small inline confirmation anchored to the control that triggered it; use Modal when the decision needs explanation or more than two options."
+    },
+    "Popover": {
+      "ref": "Popover",
+      "exports": [
+        "Popover"
+      ],
+      "main": "Popover",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "title",
+          "type": "React.ReactNode | RenderFunction",
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "React.ReactNode | RenderFunction",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "LiteralUnion<PresetColorType>",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "TooltipPlacement",
+          "required": false,
+          "values": [
+            "top",
+            "left",
+            "right",
+            "bottom",
+            "topLeft",
+            "topRight",
+            "bottomLeft",
+            "bottomRight",
+            "leftTop",
+            "leftBottom",
+            "rightTop",
+            "rightBottom"
+          ]
+        },
+        {
+          "name": "builtinPlacements",
+          "type": "Placements",
+          "required": false
+        },
+        {
+          "name": "openClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "arrow",
+          "type": "boolean | { pointAtCenter?: boolean; }",
+          "required": false
+        },
+        {
+          "name": "autoAdjustOverflow",
+          "type": "boolean | AdjustOverflow",
+          "required": false
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "(triggerNode: HTMLElement) => HTMLElement",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyTooltipOnHide",
+          "type": "boolean | { keepParent?: boolean; }",
+          "required": false
+        },
+        {
+          "name": "overlayStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "overlayInnerStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "overlayClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "RcTooltipProps['visible']",
+          "required": false
+        },
+        {
+          "name": "defaultOpen",
+          "type": "RcTooltipProps['defaultVisible']",
+          "required": false
+        },
+        {
+          "name": "afterOpenChange",
+          "type": "RcTooltipProps['afterVisibleChange']",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/popover/index.d.ts",
+      "variants": {
+        "placement": {
+          "prop": "placement",
+          "values": [
+            "top",
+            "left",
+            "right",
+            "bottom",
+            "topLeft",
+            "topRight",
+            "bottomLeft",
+            "bottomRight",
+            "leftTop",
+            "leftBottom",
+            "rightTop",
+            "rightBottom"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "An anchored surface holding arbitrary content on click; use Tooltip for a label and Dropdown for a list of actions."
+    },
+    "Progress": {
+      "ref": "Progress",
+      "exports": [
+        "Progress"
+      ],
+      "main": "Progress",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "type",
+          "type": "ProgressType",
+          "required": false,
+          "values": [
+            "line",
+            "circle",
+            "dashboard"
+          ]
+        },
+        {
+          "name": "percent",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "(percent?: number, successPercent?: number) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "(typeof ProgressStatuses)[number]",
+          "required": false,
+          "values": [
+            "normal",
+            "exception",
+            "active",
+            "success"
+          ]
+        },
+        {
+          "name": "showInfo",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "strokeLinecap",
+          "type": "'butt' | 'square' | 'round'",
+          "required": false,
+          "values": [
+            "butt",
+            "square",
+            "round"
+          ]
+        },
+        {
+          "name": "strokeColor",
+          "type": "string | string[] | ProgressGradient",
+          "required": false
+        },
+        {
+          "name": "trailColor",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "railColor",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "SuccessProps",
+          "required": false
+        },
+        {
+          "name": "gapDegree",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "gapPlacement",
+          "type": "GapPlacement",
+          "required": false,
+          "values": [
+            "top",
+            "bottom",
+            "start",
+            "end"
+          ]
+        },
+        {
+          "name": "gapPosition",
+          "type": "GapPosition",
+          "required": false,
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "name": "size",
+          "type": "number | [number | string, number] | ProgressSize | { width?: number; height?: n",
+          "required": false
+        },
+        {
+          "name": "steps",
+          "type": "number | { count: number; gap: number; }",
+          "required": false
+        },
+        {
+          "name": "percentPosition",
+          "type": "PercentPositionType",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "rounding",
+          "type": "(step: number) => number",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/progress/progress.d.ts",
+      "variants": {
+        "type": {
+          "prop": "type",
+          "values": [
+            "line",
+            "circle",
+            "dashboard"
+          ]
+        },
+        "status": {
+          "prop": "status",
+          "values": [
+            "normal",
+            "exception",
+            "active",
+            "success"
+          ]
+        },
+        "strokeLinecap": {
+          "prop": "strokeLinecap",
+          "values": [
+            "butt",
+            "square",
+            "round"
+          ]
+        },
+        "gapPlacement": {
+          "prop": "gapPlacement",
+          "values": [
+            "top",
+            "bottom",
+            "start",
+            "end"
+          ]
+        },
+        "gapPosition": {
+          "prop": "gapPosition",
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "Advance toward completion; use Spin for a wait whose length is unknown and Skeleton when the shape of the result is known."
+    },
+    "Radio": {
+      "ref": "Radio",
+      "exports": [
+        "Radio"
+      ],
+      "main": "Radio",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(e: T) => void",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "React.MouseEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onMouseEnter",
+          "type": "React.MouseEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onMouseLeave",
+          "type": "React.MouseEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onKeyPress",
+          "type": "React.KeyboardEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onKeyDown",
+          "type": "React.KeyboardEventHandler<HTMLElement>",
+          "required": false
+        },
+        {
+          "name": "onFocus",
+          "type": "React.FocusEventHandler<HTMLInputElement>",
+          "required": false
+        },
+        {
+          "name": "onBlur",
+          "type": "React.FocusEventHandler<HTMLInputElement>",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "required": false
+        },
+        {
+          "name": "tabIndex",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "skipGroup",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/radio/interface.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "One option where exactly one may be chosen; use Segmented when the choice also switches what is shown."
+    },
+    "Rate": {
+      "ref": "Rate",
+      "exports": [
+        "Rate"
+      ],
+      "main": "Rate",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "tooltips",
+          "type": "(TooltipProps | string)[]",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/rate/index.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "A star-scale input or display for a subjective score."
+    },
+    "Result": {
+      "ref": "Result",
+      "exports": [
+        "Result"
+      ],
+      "main": "Result",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "ResultStatusType",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "subTitle",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "extra",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/result/index.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "The outcome of an operation filling a region — success, failure, or a missing page — with the next action attached."
+    },
+    "Segmented": {
+      "ref": "Segmented",
+      "exports": [
+        "Segmented"
+      ],
+      "main": "Segmented",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "options",
+          "type": "SegmentedOptions<ValueType>",
+          "required": true
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "required": false,
+          "description": "Option to fit width to its parent's width"
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ],
+          "description": "Option to control the display size"
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "'default' | 'round'",
+          "required": false,
+          "values": [
+            "default",
+            "round"
+          ]
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/segmented/index.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        "shape": {
+          "prop": "shape",
+          "values": [
+            "default",
+            "round"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "A compact one-of-many switch; use Tabs when panels are revealed and Radio when the choice is a form value."
+    },
+    "Select": {
+      "ref": "Select",
+      "exports": [
+        "Select"
+      ],
+      "main": "Select",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "placement",
+          "type": "SelectCommonPlacement",
+          "required": false,
+          "values": [
+            "bottomLeft",
+            "bottomRight",
+            "topLeft",
+            "topRight"
+          ]
+        },
+        {
+          "name": "mode",
+          "type": "'multiple' | 'tags'",
+          "required": false,
+          "values": [
+            "multiple",
+            "tags"
+          ]
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "popupClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "dropdownRender",
+          "type": "SelectProps['popupRender']",
+          "required": false
+        },
+        {
+          "name": "onDropdownVisibleChange",
+          "type": "SelectProps['onPopupVisibleChange']",
+          "required": false
+        },
+        {
+          "name": "dropdownMatchSelectWidth",
+          "type": "boolean | number",
+          "required": false
+        },
+        {
+          "name": "popupMatchSelectWidth",
+          "type": "boolean | number",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(visible: boolean) => void",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/select/index.d.ts",
+      "variants": {
+        "placement": {
+          "prop": "placement",
+          "values": [
+            "bottomLeft",
+            "bottomRight",
+            "topLeft",
+            "topRight"
+          ]
+        },
+        "mode": {
+          "prop": "mode",
+          "values": [
+            "multiple",
+            "tags"
+          ]
+        },
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "A choice from a fixed list; use AutoComplete when a typed value that matches nothing is still valid."
+    },
+    "Skeleton": {
+      "ref": "Skeleton",
+      "exports": [
+        "Skeleton"
+      ],
+      "main": "Skeleton",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "avatar",
+          "type": "SkeletonAvatarProps | boolean",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "SkeletonTitleProps | boolean",
+          "required": false
+        },
+        {
+          "name": "paragraph",
+          "type": "SkeletonParagraphProps | boolean",
+          "required": false
+        },
+        {
+          "name": "round",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/skeleton/Skeleton.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "Holds the shape of content that has not arrived; use Spin when the shape is unknown."
+    },
+    "Slider": {
+      "ref": "Slider",
+      "exports": [
+        "Slider"
+      ],
+      "main": "Slider",
+      "from": "antd",
+      "slots": [],
+      "props": [],
+      "sourcePath": "node_modules/antd/es/slider/index.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "A value from a range where the position matters more than the number."
+    },
+    "Space": {
+      "ref": "Space",
+      "exports": [
+        "Space"
+      ],
+      "main": "Space",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "size",
+          "type": "SpaceSize | [SpaceSize, SpaceSize]",
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'end' | 'center' | 'baseline'",
+          "required": false,
+          "values": [
+            "start",
+            "end",
+            "center",
+            "baseline"
+          ]
+        },
+        {
+          "name": "split",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "separator",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/space/index.d.ts",
+      "variants": {
+        "align": {
+          "prop": "align",
+          "values": [
+            "start",
+            "end",
+            "center",
+            "baseline"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "Even spacing between inline elements; use Flex for anything with alignment or wrapping to decide."
+    },
+    "Spin": {
+      "ref": "Spin",
+      "exports": [
+        "Spin"
+      ],
+      "main": "Spin",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "spinning",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether Spin is spinning"
+        },
+        {
+          "name": "size",
+          "type": "SizeType | 'default'",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large",
+            "default"
+          ],
+          "description": "Note: `default` is deprecated and will be removed in v7, please use `medium` instead."
+        },
+        {
+          "name": "tip",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Customize description content when Spin has children"
+        },
+        {
+          "name": "description",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "required": false,
+          "description": "Specifies a delay in milliseconds for loading state (prevent flush)"
+        },
+        {
+          "name": "wrapperClassName",
+          "type": "string",
+          "required": false,
+          "description": "The className of wrapper when Spin has children"
+        },
+        {
+          "name": "indicator",
+          "type": "SpinIndicator",
+          "required": false,
+          "description": "React node of the spinning indicator"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "fullscreen",
+          "type": "boolean",
+          "required": false,
+          "description": "Display a backdrop with the `Spin` component"
+        },
+        {
+          "name": "percent",
+          "type": "number | 'auto'",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/spin/index.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large",
+            "default"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "An indeterminate wait; use Progress when the advance is measurable."
+    },
+    "Splitter": {
+      "ref": "Splitter",
+      "exports": [
+        "Splitter"
+      ],
+      "main": "Splitter",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "collapsible",
+          "type": "{ motion?: boolean; icon?: { start?: React.ReactNode; end?: React.ReactNode; }; ",
+          "required": false,
+          "description": "Collapse configuration."
+        },
+        {
+          "name": "layout",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation",
+          "required": false
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "draggerIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "collapsibleIcon",
+          "type": "{ start?: React.ReactNode; end?: React.ReactNode; }",
+          "required": false
+        },
+        {
+          "name": "onDraggerDoubleClick",
+          "type": "(index: number) => void",
+          "required": false
+        },
+        {
+          "name": "onResizeStart",
+          "type": "(sizes: number[]) => void",
+          "required": false
+        },
+        {
+          "name": "onResize",
+          "type": "(sizes: number[]) => void",
+          "required": false
+        },
+        {
+          "name": "onResizeEnd",
+          "type": "(sizes: number[]) => void",
+          "required": false
+        },
+        {
+          "name": "onCollapse",
+          "type": "(collapsed: boolean[], sizes: number[]) => void",
+          "required": false
+        },
+        {
+          "name": "lazy",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/splitter/interface.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Resizable panes with a draggable divider."
+    },
+    "Steps": {
+      "ref": "Steps",
+      "exports": [
+        "Steps"
+      ],
+      "main": "Steps",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "variant",
+          "type": "'filled' | 'outlined'",
+          "required": false,
+          "values": [
+            "filled",
+            "outlined"
+          ]
+        },
+        {
+          "name": "size",
+          "type": "Exclude<SizeType, 'large'> | 'default'",
+          "required": false,
+          "description": "Note: `default` is deprecated and will be removed in v7, please use `medium` instead."
+        },
+        {
+          "name": "type",
+          "type": "'default' | 'navigation' | 'inline' | 'panel' | 'dot'",
+          "required": false,
+          "values": [
+            "default",
+            "navigation",
+            "inline",
+            "panel",
+            "dot"
+          ]
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        {
+          "name": "orientation",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        {
+          "name": "labelPlacement",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        {
+          "name": "titlePlacement",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        {
+          "name": "progressDot",
+          "type": "boolean | ProgressDotRender",
+          "required": false
+        },
+        {
+          "name": "responsive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "ellipsis",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "maxCount",
+          "type": "number",
+          "required": false,
+          "description": "Maximum number of step items to display (`>= 3`)."
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "required": false,
+          "description": "Set offset cell, only work when `type` is `inline`."
+        },
+        {
+          "name": "current",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "initial",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "StepItem[]",
+          "required": false
+        },
+        {
+          "name": "percent",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "'wait' | 'process' | 'finish' | 'error'",
+          "required": false,
+          "values": [
+            "wait",
+            "process",
+            "finish",
+            "error"
+          ]
+        },
+        {
+          "name": "iconRender",
+          "type": "IconRenderType",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(current: number) => void",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/steps/index.d.ts",
+      "variants": {
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "filled",
+            "outlined"
+          ]
+        },
+        "type": {
+          "prop": "type",
+          "values": [
+            "default",
+            "navigation",
+            "inline",
+            "panel",
+            "dot"
+          ]
+        },
+        "direction": {
+          "prop": "direction",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "orientation": {
+          "prop": "orientation",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "labelPlacement": {
+          "prop": "labelPlacement",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "titlePlacement": {
+          "prop": "titlePlacement",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "status": {
+          "prop": "status",
+          "values": [
+            "wait",
+            "process",
+            "finish",
+            "error"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Progress through an ordered task; use Tabs when the sections can be visited in any order."
+    },
+    "Switch": {
+      "ref": "Switch",
+      "exports": [
+        "Switch"
+      ],
+      "main": "Switch",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "size",
+          "type": "SwitchSize",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "boolean",
+          "required": false,
+          "description": "Alias for `checked`."
+        },
+        {
+          "name": "defaultValue",
+          "type": "boolean",
+          "required": false,
+          "description": "Alias for `defaultChecked`."
+        },
+        {
+          "name": "onChange",
+          "type": "SwitchChangeEventHandler",
+          "required": false
+        },
+        {
+          "name": "onClick",
+          "type": "SwitchClickEventHandler",
+          "required": false
+        },
+        {
+          "name": "checkedChildren",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "unCheckedChildren",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tabIndex",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/switch/index.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "An immediate on/off setting; use Checkbox when the change only lands on submit."
+    },
+    "Table": {
+      "ref": "Table",
+      "exports": [
+        "Table"
+      ],
+      "main": "Table",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "dropdownPrefixCls",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dataSource",
+          "type": "RcTableProps<RecordType>['data']",
+          "required": false
+        },
+        {
+          "name": "column",
+          "type": "Partial<ColumnType<RecordType>>",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "type": "ColumnsType<RecordType>",
+          "required": false
+        },
+        {
+          "name": "pagination",
+          "type": "false | TablePaginationConfig",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean | SpinProps",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "TableLocale",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(pagination: TablePaginationConfig, filters: Record<string, FilterValue | null>,",
+          "required": false
+        },
+        {
+          "name": "rowSelection",
+          "type": "TableRowSelection<RecordType>",
+          "required": false
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "GetPopupContainer",
+          "required": false
+        },
+        {
+          "name": "scroll",
+          "type": "RcTableProps<RecordType>['scroll'] & { scrollToFirstRowOnChange?: boolean; }",
+          "required": false
+        },
+        {
+          "name": "sortDirections",
+          "type": "SortOrder[]",
+          "required": false
+        },
+        {
+          "name": "showSorterTooltip",
+          "type": "boolean | SorterTooltipProps",
+          "required": false
+        },
+        {
+          "name": "virtual",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/table/InternalTable.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Rows with comparable columns, sorting and selection; use List when there are no columns to compare and Descriptions for a single record."
+    },
+    "Tabs": {
+      "ref": "Tabs",
+      "exports": [
+        "Tabs"
+      ],
+      "main": "Tabs",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "addIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "moreIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "more",
+          "type": "MoreProps",
+          "required": false
+        },
+        {
+          "name": "removeIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "popupClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "TabsType",
+          "required": false,
+          "values": [
+            "line",
+            "card",
+            "editable-card"
+          ]
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "hideAdd",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "centered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "tabPosition",
+          "type": "TabPosition",
+          "required": false,
+          "values": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        {
+          "name": "tabPlacement",
+          "type": "TabPlacement",
+          "required": false,
+          "values": [
+            "top",
+            "end",
+            "bottom",
+            "start"
+          ]
+        },
+        {
+          "name": "onEdit",
+          "type": "(e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') =",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "indicatorSize",
+          "type": "GetIndicatorSize",
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "(Tab & CompatibilityProps)[]",
+          "required": false
+        },
+        {
+          "name": "destroyInactiveTabPane",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/tabs/index.d.ts",
+      "variants": {
+        "type": {
+          "prop": "type",
+          "values": [
+            "line",
+            "card",
+            "editable-card"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        "tabPosition": {
+          "prop": "tabPosition",
+          "values": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "tabPlacement": {
+          "prop": "tabPlacement",
+          "values": [
+            "top",
+            "end",
+            "bottom",
+            "start"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Switches between peer panels; use Segmented when the choice sets a value and reveals nothing."
+    },
+    "Tag": {
+      "ref": "Tag",
+      "exports": [
+        "Tag"
+      ],
+      "main": "Tag",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "color",
+          "type": "LiteralUnion<PresetColorType | PresetStatusColorType>",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'filled' | 'solid' | 'outlined'",
+          "required": false,
+          "values": [
+            "filled",
+            "solid",
+            "outlined"
+          ]
+        },
+        {
+          "name": "closable",
+          "type": "ClosableType",
+          "required": false,
+          "description": "Advised to use closeIcon instead."
+        },
+        {
+          "name": "closeIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "onClose",
+          "type": "(e: React.MouseEvent<HTMLElement>) => void",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/tag/index.d.ts",
+      "variants": {
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "filled",
+            "solid",
+            "outlined"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "A standalone label for a category or state, optionally closable; use Badge for a count attached to something else."
+    },
+    "TimePicker": {
+      "ref": "TimePicker",
+      "exports": [
+        "TimePicker"
+      ],
+      "main": "TimePicker",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "addon",
+          "type": "() => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "popupClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "popupStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/time-picker/index.d.ts",
+      "variants": {
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "Captures a time of day; pairs with DatePicker where both are needed."
+    },
+    "Timeline": {
+      "ref": "Timeline",
+      "exports": [
+        "Timeline"
+      ],
+      "main": "Timeline",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "variant",
+          "type": "StepsProps['variant']",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "TimelineMode",
+          "required": false,
+          "values": [
+            "left",
+            "right",
+            "start",
+            "end",
+            "alternate"
+          ]
+        },
+        {
+          "name": "orientation",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        {
+          "name": "titleSpan",
+          "type": "string | number",
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "TimelineItemType[]",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "pending",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "pendingDot",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "reverse",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/timeline/Timeline.d.ts",
+      "variants": {
+        "mode": {
+          "prop": "mode",
+          "values": [
+            "left",
+            "right",
+            "start",
+            "end",
+            "alternate"
+          ]
+        },
+        "orientation": {
+          "prop": "orientation",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Ordered events along an axis; use Steps when the user is moving through them rather than reading them."
+    },
+    "Tooltip": {
+      "ref": "Tooltip",
+      "exports": [
+        "Tooltip"
+      ],
+      "main": "Tooltip",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "title",
+          "type": "React.ReactNode | RenderFunction",
+          "required": false
+        },
+        {
+          "name": "overlay",
+          "type": "React.ReactNode | RenderFunction",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "LiteralUnion<PresetColorType>",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "TooltipPlacement",
+          "required": false,
+          "values": [
+            "top",
+            "left",
+            "right",
+            "bottom",
+            "topLeft",
+            "topRight",
+            "bottomLeft",
+            "bottomRight",
+            "leftTop",
+            "leftBottom",
+            "rightTop",
+            "rightBottom"
+          ]
+        },
+        {
+          "name": "builtinPlacements",
+          "type": "Placements",
+          "required": false
+        },
+        {
+          "name": "openClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "arrow",
+          "type": "boolean | { pointAtCenter?: boolean; }",
+          "required": false
+        },
+        {
+          "name": "autoAdjustOverflow",
+          "type": "boolean | AdjustOverflow",
+          "required": false
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "(triggerNode: HTMLElement) => HTMLElement",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "destroyOnHidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "destroyTooltipOnHide",
+          "type": "boolean | { keepParent?: boolean; }",
+          "required": false
+        },
+        {
+          "name": "overlayStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "overlayInnerStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "overlayClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "RcTooltipProps['visible']",
+          "required": false
+        },
+        {
+          "name": "defaultOpen",
+          "type": "RcTooltipProps['defaultVisible']",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "RcTooltipProps['onVisibleChange']",
+          "required": false
+        },
+        {
+          "name": "afterOpenChange",
+          "type": "RcTooltipProps['afterVisibleChange']",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/tooltip/index.d.ts",
+      "variants": {
+        "placement": {
+          "prop": "placement",
+          "values": [
+            "top",
+            "left",
+            "right",
+            "bottom",
+            "topLeft",
+            "topRight",
+            "bottomLeft",
+            "bottomRight",
+            "leftTop",
+            "leftBottom",
+            "rightTop",
+            "rightBottom"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "region",
+      "description": "Short text on hover or focus; it must never hold anything the user has to interact with."
+    },
+    "Tour": {
+      "ref": "Tour",
+      "exports": [
+        "Tour"
+      ],
+      "main": "Tour",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "steps",
+          "type": "TourStepProps[]",
+          "required": false
+        },
+        {
+          "name": "current",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "keyboard",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "indicatorsRender",
+          "type": "(current: number, total: number) => ReactNode",
+          "required": false
+        },
+        {
+          "name": "actionsRender",
+          "type": "(originNode: ReactNode, info: { current: number; total: number; }) => ReactNode",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'default' | 'primary'",
+          "required": false,
+          "values": [
+            "default",
+            "primary"
+          ]
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/tour/interface.d.ts",
+      "variants": {
+        "type": {
+          "prop": "type",
+          "values": [
+            "default",
+            "primary"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "page",
+      "description": "A guided sequence of highlights over the live interface; a one-off onboarding device, not a documentation surface."
+    },
+    "Transfer": {
+      "ref": "Transfer",
+      "exports": [
+        "Transfer"
+      ],
+      "main": "Transfer",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "listStyle",
+          "type": "((style: ListStyle) => CSSProperties) | CSSProperties",
+          "required": false
+        },
+        {
+          "name": "operationStyle",
+          "type": "CSSProperties",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "dataSource",
+          "type": "RecordType[]",
+          "required": false
+        },
+        {
+          "name": "targetKeys",
+          "type": "TransferKey[]",
+          "required": false
+        },
+        {
+          "name": "selectedKeys",
+          "type": "TransferKey[]",
+          "required": false
+        },
+        {
+          "name": "render",
+          "type": "TransferRender<RecordType>",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(targetKeys: TransferKey[], direction: TransferDirection, moveKeys: TransferKey[",
+          "required": false
+        },
+        {
+          "name": "onSelectChange",
+          "type": "(sourceSelectedKeys: TransferKey[], targetSelectedKeys: TransferKey[]) => void",
+          "required": false
+        },
+        {
+          "name": "titles",
+          "type": "React.ReactNode[]",
+          "required": false
+        },
+        {
+          "name": "operations",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "type": "React.ReactNode[]",
+          "required": false
+        },
+        {
+          "name": "showSearch",
+          "type": "boolean | TransferSearchOption",
+          "required": false
+        },
+        {
+          "name": "filterOption",
+          "type": "(inputValue: string, item: RecordType, direction: TransferDirection) => boolean",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "Partial<TransferLocale>",
+          "required": false
+        },
+        {
+          "name": "footer",
+          "type": "(props: TransferListProps<RecordType>, info?: { direction: TransferDirection; })",
+          "required": false
+        },
+        {
+          "name": "rowKey",
+          "type": "(record: RecordType) => TransferKey",
+          "required": false
+        },
+        {
+          "name": "onSearch",
+          "type": "(direction: TransferDirection, value: string) => void",
+          "required": false
+        },
+        {
+          "name": "onScroll",
+          "type": "(direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => voi",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "(props: TransferCustomListBodyProps<RecordType>) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "showSelectAll",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "selectAllLabels",
+          "type": "SelectAllLabel[]",
+          "required": false
+        },
+        {
+          "name": "oneWay",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "pagination",
+          "type": "PaginationType",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "selectionsIcon",
+          "type": "React.ReactNode",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/transfer/index.d.ts",
+      "variants": {
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "Moves items between two lists; use Select multiple where the second list does not need to be seen."
+    },
+    "Tree": {
+      "ref": "Tree",
+      "exports": [
+        "Tree"
+      ],
+      "main": "Tree",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "showLine",
+          "type": "boolean | { showLeafIcon: boolean | TreeLeafIcon; }",
+          "required": false
+        },
+        {
+          "name": "rootStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to support multiple selection"
+        },
+        {
+          "name": "autoExpandParent",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to automatically expand the parent node"
+        },
+        {
+          "name": "checkStrictly",
+          "type": "boolean",
+          "required": false,
+          "description": "Node selection in Checkable state is fully controlled (the selected state of parent and child nodes is no longer associated)"
+        },
+        {
+          "name": "checkable",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to support selection"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "whether to disable the tree"
+        },
+        {
+          "name": "defaultExpandAll",
+          "type": "boolean",
+          "required": false,
+          "description": "Expand all tree nodes by default"
+        },
+        {
+          "name": "defaultExpandParent",
+          "type": "boolean",
+          "required": false,
+          "description": "Expand the corresponding tree node by default"
+        },
+        {
+          "name": "defaultExpandedKeys",
+          "type": "React.Key[]",
+          "required": false,
+          "description": "Expand the specified tree node by default"
+        },
+        {
+          "name": "expandedKeys",
+          "type": "React.Key[]",
+          "required": false,
+          "description": "(Controlled) Expand the specified tree node"
+        },
+        {
+          "name": "checkedKeys",
+          "type": "React.Key[] | { checked: React.Key[]; halfChecked: React.Key[]; }",
+          "required": false,
+          "description": "(Controlled) Tree node with checked checkbox"
+        },
+        {
+          "name": "defaultCheckedKeys",
+          "type": "React.Key[]",
+          "required": false,
+          "description": "Tree node with checkbox checked by default"
+        },
+        {
+          "name": "selectedKeys",
+          "type": "React.Key[]",
+          "required": false,
+          "description": "(Controlled) Set the selected tree node"
+        },
+        {
+          "name": "defaultSelectedKeys",
+          "type": "React.Key[]",
+          "required": false,
+          "description": "Tree node selected by default"
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "filterAntTreeNode",
+          "type": "(node: AntTreeNode) => boolean",
+          "required": false,
+          "description": "Click on the tree node to trigger"
+        },
+        {
+          "name": "loadedKeys",
+          "type": "React.Key[]",
+          "required": false
+        },
+        {
+          "name": "draggable",
+          "type": "DraggableFn | boolean | DraggableConfig",
+          "required": false,
+          "description": "Set the node to be draggable (IE>8)"
+        },
+        {
+          "name": "showIcon",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "TreeIcon",
+          "required": false
+        },
+        {
+          "name": "switcherIcon",
+          "type": "SwitcherIcon",
+          "required": false
+        },
+        {
+          "name": "switcherLoadingIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "blockNode",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/tree/Tree.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "organism",
+      "context": "region",
+      "description": "A browsable hierarchy with expansion and selection; use TreeSelect when the result is a form value."
+    },
+    "TreeSelect": {
+      "ref": "TreeSelect",
+      "exports": [
+        "TreeSelect"
+      ],
+      "main": "TreeSelect",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "suffixIcon",
+          "type": "React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "SizeType",
+          "required": false,
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "SelectCommonPlacement",
+          "required": false,
+          "values": [
+            "bottomLeft",
+            "bottomRight",
+            "topLeft",
+            "topRight"
+          ]
+        },
+        {
+          "name": "popupClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownClassName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dropdownRender",
+          "type": "(menu: React.ReactElement) => React.ReactElement",
+          "required": false
+        },
+        {
+          "name": "popupRender",
+          "type": "(menu: React.ReactElement) => React.ReactElement",
+          "required": false
+        },
+        {
+          "name": "dropdownStyle",
+          "type": "React.CSSProperties",
+          "required": false
+        },
+        {
+          "name": "onDropdownVisibleChange",
+          "type": "(visible: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "treeLine",
+          "type": "TreeProps['showLine']",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "InputStatus",
+          "required": false,
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        },
+        {
+          "name": "switcherIcon",
+          "type": "SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon']",
+          "required": false
+        },
+        {
+          "name": "dropdownMatchSelectWidth",
+          "type": "boolean | number",
+          "required": false
+        },
+        {
+          "name": "popupMatchSelectWidth",
+          "type": "boolean | number",
+          "required": false
+        },
+        {
+          "name": "showArrow",
+          "type": "boolean",
+          "required": false,
+          "description": "default behavior, you can hide it by setting `suffixIcon` to null."
+        },
+        {
+          "name": "variant",
+          "type": "Variant",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/tree-select/index.d.ts",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "small",
+            "medium",
+            "middle",
+            "large"
+          ]
+        },
+        "placement": {
+          "prop": "placement",
+          "values": [
+            "bottomLeft",
+            "bottomRight",
+            "topLeft",
+            "topRight"
+          ]
+        },
+        "status": {
+          "prop": "status",
+          "values": [
+            "warning",
+            "error",
+            "",
+            "success",
+            "validating"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "A form value chosen from a hierarchy; use Cascader when the levels are strictly sequential."
+    },
+    "Typography": {
+      "ref": "Typography",
+      "exports": [
+        "Typography"
+      ],
+      "main": "Typography",
+      "from": "antd",
+      "slots": [],
+      "props": [],
+      "sourcePath": "node_modules/antd/es/typography/Typography.d.ts",
+      "variants": {},
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "atom",
+      "context": "card",
+      "description": "Applies the type scale to text, with copyable, ellipsis and editable behaviours; a screen setting its own font size is bypassing the scale."
+    },
+    "Upload": {
+      "ref": "Upload",
+      "exports": [
+        "Upload"
+      ],
+      "main": "Upload",
+      "from": "antd",
+      "slots": [],
+      "props": [
+        {
+          "name": "type",
+          "type": "UploadType",
+          "required": false,
+          "values": [
+            "drag",
+            "select"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "defaultFileList",
+          "type": "Array<UploadFile<T>>",
+          "required": false
+        },
+        {
+          "name": "fileList",
+          "type": "Array<UploadFile<T>>",
+          "required": false
+        },
+        {
+          "name": "action",
+          "type": "string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>)",
+          "required": false
+        },
+        {
+          "name": "directory",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "Record<string, unknown> | ((file: UploadFile<T>) => Record<string, unknown> | Pr",
+          "required": false
+        },
+        {
+          "name": "method",
+          "type": "'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch'",
+          "required": false,
+          "values": [
+            "POST",
+            "PUT",
+            "PATCH",
+            "post",
+            "put",
+            "patch"
+          ]
+        },
+        {
+          "name": "headers",
+          "type": "HttpRequestHeader",
+          "required": false
+        },
+        {
+          "name": "showUploadList",
+          "type": "boolean | ShowUploadListInterface<T>",
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "accept",
+          "type": "string | AcceptConfig",
+          "required": false
+        },
+        {
+          "name": "beforeUpload",
+          "type": "(file: RcFile, fileList: RcFile[]) => BeforeUploadValueType | Promise<BeforeUplo",
+          "required": false
+        },
+        {
+          "name": "onChange",
+          "type": "(info: UploadChangeParam<UploadFile<T>>) => void",
+          "required": false
+        },
+        {
+          "name": "onDrop",
+          "type": "(event: React.DragEvent<HTMLDivElement>) => void",
+          "required": false
+        },
+        {
+          "name": "listType",
+          "type": "UploadListType",
+          "required": false,
+          "values": [
+            "text",
+            "picture",
+            "picture-card",
+            "picture-circle"
+          ]
+        },
+        {
+          "name": "onPreview",
+          "type": "(file: UploadFile<T>) => void",
+          "required": false
+        },
+        {
+          "name": "onDownload",
+          "type": "(file: UploadFile<T>) => void",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "(file: UploadFile<T>) => void | boolean | Promise<void | boolean>",
+          "required": false
+        },
+        {
+          "name": "supportServerRender",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "customRequest",
+          "type": "(options: RcCustomRequestOptions<T>, info: { /** * @since 5.28.0 */ defaultReque",
+          "required": false
+        },
+        {
+          "name": "withCredentials",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "openFileDialogOnClick",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "UploadLocale",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "previewFile",
+          "type": "PreviewFileHandler",
+          "required": false
+        },
+        {
+          "name": "iconRender",
+          "type": "(file: UploadFile<T>, listType?: UploadListType) => React.ReactNode",
+          "required": false
+        },
+        {
+          "name": "isImageUrl",
+          "type": "(file: UploadFile<T>) => boolean",
+          "required": false
+        },
+        {
+          "name": "progress",
+          "type": "UploadListProgressProps",
+          "required": false
+        },
+        {
+          "name": "itemRender",
+          "type": "ItemRender<T>",
+          "required": false
+        },
+        {
+          "name": "maxCount",
+          "type": "number",
+          "required": false,
+          "description": "Config max count of `fileList`."
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false
+        }
+      ],
+      "sourcePath": "node_modules/antd/es/upload/interface.d.ts",
+      "variants": {
+        "type": {
+          "prop": "type",
+          "values": [
+            "drag",
+            "select"
+          ]
+        },
+        "method": {
+          "prop": "method",
+          "values": [
+            "POST",
+            "PUT",
+            "PATCH",
+            "post",
+            "put",
+            "patch"
+          ]
+        },
+        "listType": {
+          "prop": "listType",
+          "values": [
+            "text",
+            "picture",
+            "picture-card",
+            "picture-circle"
+          ]
+        }
+      },
+      "uses": [],
+      "provenance": {
+        "facts": "shipped .d.ts",
+        "description": "authored",
+        "level": "authored",
+        "context": "authored"
+      },
+      "level": "molecule",
+      "context": "card",
+      "description": "File selection with progress and a list of what was chosen."
+    }
+  },
+  "blocks": {}
+}

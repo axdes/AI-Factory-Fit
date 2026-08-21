@@ -1,0 +1,132 @@
+{
+  "_": "Role bindings for the reference profile. A binding claims a component is the right answer for a role — judgment, authored, and re-derivable only by a person.",
+  "schemaVersion": 1,
+  "profile": "reference",
+  "axes": {
+    "tone": {
+      "prop": "tone",
+      "values": {
+        "neutral": "neutral",
+        "primary": "primary",
+        "success": "success",
+        "warning": "warning",
+        "danger": "danger",
+        "info": "info"
+      }
+    },
+    "size": {
+      "prop": "size",
+      "values": {
+        "sm": "sm",
+        "md": "md",
+        "lg": "lg"
+      }
+    }
+  },
+  "roles": {
+    "pageHeader": {
+      "component": "Heading",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "heading": {
+      "component": "Heading",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "text": {
+      "component": "Text",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "primaryAction": {
+      "component": "Button",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "secondaryAction": {
+      "component": "Button",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "iconAction": {
+      "component": "IconButton",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "textInput": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "searchInput": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "select": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "checkbox": {
+      "component": "Checkbox",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "toggle": {
+      "component": "Switch",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "table": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "list": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "card": {
+      "component": "Card",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "statusTag": {
+      "component": "Badge",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "avatar": {
+      "component": "Avatar",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "divider": {
+      "component": "Separator",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "inlineMessage": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "transientMessage": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "loading": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "skeleton": {
+      "component": "Skeleton",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "emptyState": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "tabs": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "pagination": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    },
+    "tooltip": {
+      "component": "Tooltip",
+      "proposedBecause": "authored for the reference profile"
+    },
+    "dialog": {
+      "notCovered": true,
+      "why": "radix-ui/themes has no component for this role — a spec asking for it refuses to build, which is the correct answer"
+    }
+  }
+}

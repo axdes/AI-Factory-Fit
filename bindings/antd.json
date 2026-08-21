@@ -1,0 +1,37 @@
+{
+  "_": "Role bindings for antd. Authored. Where Ant has no answer, the gap is written down rather than papered over.",
+  "schemaVersion": 1,
+  "profile": "antd",
+  "axes": {
+    "tone": { "prop": "type", "values": { "neutral": "default", "primary": "primary", "success": "success", "warning": "warning", "danger": "error", "info": "info" } },
+    "size": { "prop": "size", "values": { "sm": "small", "md": "middle", "lg": "large" } }
+  },
+  "roles": {
+    "pageHeader":       { "notCovered": "Ant removed PageHeader in v5. It is composed from Flex, Typography and an action, and that composition belongs in the product layer." },
+    "heading":          { "component": "Typography" },
+    "text":             { "component": "Typography" },
+    "primaryAction":    { "component": "Button", "props": { "type": "primary" }, "axes": { "tone": { "prop": "type", "values": { "primary": "primary", "neutral": "default", "danger": "primary" } } }, "note": "A destructive action is type=\"primary\" danger, not type=\"danger\" — the legacy value is no longer in the union." },
+    "secondaryAction":  { "component": "Button", "props": { "type": "default" } },
+    "iconAction":       { "component": "Button", "props": { "type": "text" } },
+    "textInput":        { "component": "Input" },
+    "searchInput":      { "component": "Input", "note": "Input.Search is the idiom; the base Input is what the registry publishes." },
+    "select":           { "component": "Select" },
+    "checkbox":         { "component": "Checkbox" },
+    "toggle":           { "component": "Switch" },
+    "table":            { "component": "Table" },
+    "list":             { "component": "List" },
+    "card":             { "component": "Card" },
+    "statusTag":        { "component": "Tag", "axes": { "tone": { "prop": "color", "values": { "neutral": "default", "primary": "blue", "success": "green", "warning": "orange", "danger": "red", "info": "cyan" } } } },
+    "avatar":           { "component": "Avatar" },
+    "divider":          { "component": "Divider" },
+    "inlineMessage":    { "component": "Alert", "axes": { "tone": { "prop": "type", "values": { "success": "success", "warning": "warning", "danger": "error", "info": "info", "neutral": "info" } } }, "note": "On Alert, `type` carries the meaning — the same prop name that sets weight on Button." },
+    "transientMessage": { "notCovered": "Transient messages come from the message and notification instances on the App context, not from a component a spec can name." },
+    "loading":          { "component": "Spin" },
+    "skeleton":         { "component": "Skeleton" },
+    "emptyState":       { "component": "Empty" },
+    "tabs":             { "component": "Tabs" },
+    "pagination":       { "component": "Pagination" },
+    "tooltip":          { "component": "Tooltip" },
+    "dialog":           { "component": "Modal" }
+  }
+}

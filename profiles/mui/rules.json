@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "catalogue": "../../rules/catalogue.json",
+  "applies": "all",
+  "expressionKey": "mui"
+}

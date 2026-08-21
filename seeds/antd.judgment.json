@@ -1,0 +1,175 @@
+{
+  "_": [
+    "The judgment tier for antd. Authored, not extracted.",
+    "",
+    "Ant publishes zero component descriptions in its types — not one of sixty-four.",
+    "The line that decides which component gets picked is, again, the thing no",
+    "library ships. Everything below is a claim a person made and can be argued",
+    "with, which is what separates it from components.json.",
+    "",
+    "`exclude` removes what is not a component you build a screen from: providers,",
+    "wrappers with no appearance, and the odd experimental entry. Offering",
+    "ConfigProvider as a choice teaches an agent that it is one.",
+    "",
+    "Written in one sitting, which is the honest measure of what a library costs to",
+    "adopt: a day, reusable across every client on this stack."
+  ],
+  "schemaVersion": 1,
+  "library": "antd",
+
+  "exclude": {
+    "App": "A context wrapper supplying message, notification and modal instances. Mounted once at the root; never part of a screen.",
+    "ConfigProvider": "Global configuration — theme, locale, direction. An application decision, not a screen one.",
+    "Affix": "Pins an element while scrolling. A behavioural wrapper with no appearance of its own.",
+    "BackTop": "Superseded by FloatButton.BackTop in Ant's own docs; keeping both splits the vocabulary.",
+    "BorderBeam": "Decorative effect, not a product component.",
+    "Listy": "Not a documented public component in this version.",
+    "Masonry": "Layout experiment; use Flex or a CSS grid until it is documented.",
+    "Watermark": "Overlays a repeating mark across a region — a compliance feature, applied once, not composed with."
+  },
+
+  "components": {
+    "Alert": { "level": "molecule", "surface": "region", "description": "Inline message that stays until the condition is resolved; use message or notification when it should leave on its own." },
+    "Anchor": { "level": "molecule", "surface": "region", "description": "Links that track scroll position within a long document; not navigation between pages." },
+    "AutoComplete": { "level": "molecule", "surface": "card", "description": "Free text with suggestions, where the typed value is valid even if it matches nothing; use Select when the value must come from the list." },
+    "Avatar": { "level": "atom", "surface": "card", "description": "A person or entity as an image, initials or icon." },
+    "Badge": { "level": "atom", "surface": "card", "description": "A count or status dot pinned to another element's corner; use Tag for a standalone label the user can read or remove." },
+    "Breadcrumb": { "level": "molecule", "surface": "card", "description": "The trail back up the hierarchy above the current page." },
+    "Button": { "level": "atom", "surface": "card", "description": "The action control; `type` sets its weight and `danger` marks a destructive action, which are two separate props in Ant and are often confused." },
+    "Calendar": { "level": "organism", "surface": "region", "description": "A full month or year view for browsing dates in place; use DatePicker to capture a date in a form." },
+    "Card": { "level": "organism", "surface": "region", "description": "A bounded surface grouping one subject with an optional title and actions." },
+    "Carousel": { "level": "organism", "surface": "region", "description": "Rotating panels; reach for it only where the content is genuinely equivalent, since anything past the first panel is rarely seen." },
+    "Cascader": { "level": "molecule", "surface": "card", "description": "Selects a value from a strict hierarchy, one level at a time; use TreeSelect when the tree is browsable rather than sequential." },
+    "Checkbox": { "level": "atom", "surface": "card", "description": "An independent on/off choice applied on submit; use Switch when the change takes effect immediately." },
+    "Collapse": { "level": "molecule", "surface": "region", "description": "Sections that reveal on demand; use Tabs when the sections are peers a user switches between rather than optional detail." },
+    "Descriptions": { "level": "organism", "surface": "region", "description": "Read-only label and value pairs for one record; use Form for anything editable." },
+    "Divider": { "level": "atom", "surface": "card", "description": "The one hairline rule between content; reach for spacing before a divider." },
+    "Drawer": { "level": "organism", "surface": "page", "description": "A panel from a screen edge for secondary work that keeps the page behind it visible; use Modal when the page must be blocked." },
+    "Dropdown": { "level": "molecule", "surface": "region", "description": "A menu of actions opened from a control; use Popover for arbitrary content and Tooltip for a label." },
+    "Empty": { "level": "molecule", "surface": "region", "description": "What a region shows when there is nothing in it; the first thing a new user sees and the state most often left out." },
+    "Flex": { "level": "organism", "surface": "card", "description": "One-direction layout with a gap; the default for arranging things, with Space reserved for inline runs of controls." },
+    "FloatButton": { "level": "molecule", "surface": "page", "description": "An action floating above the page; more than one group on a screen means none of them is primary." },
+    "Form": { "level": "organism", "surface": "region", "description": "Ant's form controller: layout, validation and submission together. Fields belong to it rather than holding their own state." },
+    "Image": { "level": "atom", "surface": "card", "description": "An image with a preview overlay and fallback; a plain img is enough where neither is wanted." },
+    "Input": { "level": "atom", "surface": "card", "description": "Single-line text entry; inside a Form it takes its label, validation and error text from Form.Item rather than from itself." },
+    "InputNumber": { "level": "atom", "surface": "card", "description": "Numeric entry with steppers and bounds; use Slider when the approximate position matters more than the exact number." },
+    "List": { "level": "organism", "surface": "region", "description": "A vertical run of items of one kind; use Table when the items have columns worth comparing." },
+    "Mentions": { "level": "molecule", "surface": "card", "description": "Multi-line text that offers suggestions after a trigger character." },
+    "Menu": { "level": "organism", "surface": "region", "description": "Navigation between destinations, vertical or horizontal; use Dropdown for a short list of actions on a control." },
+    "Modal": { "level": "organism", "surface": "region", "description": "A blocking window for a task that interrupts the page; use Drawer when the page behind should stay visible." },
+    "Pagination": { "level": "molecule", "surface": "card", "description": "Page navigation for a known total; when the total is unknown, load more instead." },
+    "Popconfirm": { "level": "molecule", "surface": "region", "description": "A small inline confirmation anchored to the control that triggered it; use Modal when the decision needs explanation or more than two options." },
+    "Popover": { "level": "molecule", "surface": "region", "description": "An anchored surface holding arbitrary content on click; use Tooltip for a label and Dropdown for a list of actions." },
+    "Progress": { "level": "atom", "surface": "card", "description": "Advance toward completion; use Spin for a wait whose length is unknown and Skeleton when the shape of the result is known." },
+    "Radio": { "level": "atom", "surface": "card", "description": "One option where exactly one may be chosen; use Segmented when the choice also switches what is shown." },
+    "Rate": { "level": "atom", "surface": "card", "description": "A star-scale input or display for a subjective score." },
+    "Result": { "level": "organism", "surface": "region", "description": "The outcome of an operation filling a region — success, failure, or a missing page — with the next action attached." },
+    "Segmented": { "level": "molecule", "surface": "card", "description": "A compact one-of-many switch; use Tabs when panels are revealed and Radio when the choice is a form value." },
+    "Select": { "level": "molecule", "surface": "card", "description": "A choice from a fixed list; use AutoComplete when a typed value that matches nothing is still valid." },
+    "Skeleton": { "level": "atom", "surface": "card", "description": "Holds the shape of content that has not arrived; use Spin when the shape is unknown." },
+    "Slider": { "level": "atom", "surface": "card", "description": "A value from a range where the position matters more than the number." },
+    "Space": { "level": "molecule", "surface": "card", "description": "Even spacing between inline elements; use Flex for anything with alignment or wrapping to decide." },
+    "Spin": { "level": "atom", "surface": "card", "description": "An indeterminate wait; use Progress when the advance is measurable." },
+    "Splitter": { "level": "organism", "surface": "region", "description": "Resizable panes with a draggable divider." },
+    "Steps": { "level": "organism", "surface": "region", "description": "Progress through an ordered task; use Tabs when the sections can be visited in any order." },
+    "Switch": { "level": "atom", "surface": "card", "description": "An immediate on/off setting; use Checkbox when the change only lands on submit." },
+    "Table": { "level": "organism", "surface": "region", "description": "Rows with comparable columns, sorting and selection; use List when there are no columns to compare and Descriptions for a single record." },
+    "Tabs": { "level": "organism", "surface": "region", "description": "Switches between peer panels; use Segmented when the choice sets a value and reveals nothing." },
+    "Tag": { "level": "atom", "surface": "card", "description": "A standalone label for a category or state, optionally closable; use Badge for a count attached to something else." },
+    "TimePicker": { "level": "molecule", "surface": "card", "description": "Captures a time of day; pairs with DatePicker where both are needed." },
+    "Timeline": { "level": "organism", "surface": "region", "description": "Ordered events along an axis; use Steps when the user is moving through them rather than reading them." },
+    "Tooltip": { "level": "molecule", "surface": "region", "description": "Short text on hover or focus; it must never hold anything the user has to interact with." },
+    "Tour": { "level": "organism", "surface": "page", "description": "A guided sequence of highlights over the live interface; a one-off onboarding device, not a documentation surface." },
+    "Transfer": { "level": "organism", "surface": "region", "description": "Moves items between two lists; use Select multiple where the second list does not need to be seen." },
+    "Tree": { "level": "organism", "surface": "region", "description": "A browsable hierarchy with expansion and selection; use TreeSelect when the result is a form value." },
+    "TreeSelect": { "level": "molecule", "surface": "card", "description": "A form value chosen from a hierarchy; use Cascader when the levels are strictly sequential." },
+    "Typography": { "level": "atom", "surface": "card", "description": "Applies the type scale to text, with copyable, ellipsis and editable behaviours; a screen setting its own font size is bypassing the scale." },
+    "Upload": { "level": "molecule", "surface": "card", "description": "File selection with progress and a list of what was chosen." }
+  },
+
+  "twins": {
+    "pairs": {
+      "Modal ~ Drawer ~ Popconfirm": {
+        "separated": "Modal blocks the page for a task that needs it. Drawer keeps the page visible because the work is secondary. Popconfirm is a two-option confirmation anchored to the control, small enough that a Modal would be a ceremony.",
+        "reopenIf": "Drawer gains a blocking mode by default, at which point it and Modal overlap."
+      },
+      "Select ~ AutoComplete ~ Cascader ~ TreeSelect": {
+        "separated": "Select requires the value to come from the list. AutoComplete accepts a typed value that matches nothing. Cascader walks a strict hierarchy level by level. TreeSelect picks a node from a browsable tree.",
+        "reopenIf": "Select gains free-text entry."
+      },
+      "Tag ~ Badge": {
+        "separated": "A Tag is a standalone label the user reads or removes. A Badge is a count or dot attached to another element's corner and is never itself the target.",
+        "reopenIf": "Badge becomes independently interactive."
+      },
+      "Spin ~ Progress ~ Skeleton": {
+        "separated": "Skeleton holds the shape of content whose layout is known. Progress shows measurable advance. Spin covers a wait of unknown length and unknown shape.",
+        "reopenIf": "any of the three grows another's role."
+      },
+      "Tabs ~ Segmented ~ Steps": {
+        "separated": "Tabs reveal panels and may be visited in any order. Segmented sets a value and reveals nothing on its own. Steps are ordered and carry the idea of progress.",
+        "reopenIf": "Segmented starts owning panel content in Ant's own docs."
+      },
+      "Table ~ List ~ Descriptions": {
+        "separated": "Table exists to make columns comparable across rows. List presents items with no columns worth aligning. Descriptions shows one record's fields, and is read-only.",
+        "reopenIf": "never; this one is structural."
+      },
+      "Flex ~ Space": {
+        "separated": "Space puts an even gap between inline elements and decides nothing else. Flex owns direction, alignment and wrapping. A Space carrying alignment props has become a Flex written the long way.",
+        "reopenIf": "Space gains alignment control."
+      },
+      "Tooltip ~ Popover ~ Dropdown": {
+        "separated": "Tooltip is text on hover and must hold nothing interactive. Popover holds arbitrary content on click. Dropdown holds a keyboard-navigable list of actions.",
+        "reopenIf": "Tooltip is documented as accepting interactive content."
+      },
+      "Empty ~ Result": {
+        "separated": "Empty is a region with nothing in it yet. Result is the outcome of an operation — succeeded, failed, not found — and carries the next action. An Empty explaining why something failed has become a Result.",
+        "reopenIf": "Empty gains a status prop."
+      },
+      "Checkbox ~ Switch": {
+        "separated": "A Switch applies its change immediately. A Checkbox records a choice that lands on submit. The distinction is about when the change takes effect, not about how it looks.",
+        "reopenIf": "the product adopts immediate-apply forms throughout."
+      }
+    }
+  },
+
+  "vocabulary": {
+    "_": "Ant's own prop vocabulary, recorded as found. Where it is inconsistent the inconsistency is written down rather than corrected.",
+    "type": {
+      "axis": "which role or weight this element takes",
+      "values": {
+        "default": "the resting appearance",
+        "primary": "the main action or the brand accent",
+        "dashed": "a lighter bordered action, usually 'add'",
+        "link": "an action that reads as a link",
+        "text": "the lightest action, no container",
+        "success": "it worked (Alert, Result)",
+        "info": "neutral information (Alert)",
+        "warning": "attention needed (Alert)",
+        "error": "something failed (Alert, Result)"
+      },
+      "note": "`type` means weight on Button and meaning on Alert. The same prop name answers two different questions depending on the component, which is the single most common source of wrong Ant code."
+    },
+    "danger": {
+      "axis": "whether this action destroys something",
+      "values": { "true": "destructive" },
+      "note": "Separate from `type` on Button: a destructive primary action is `type=\"primary\" danger`, not `type=\"danger\"`. `type=\"danger\"` is legacy and no longer in the union."
+    },
+    "status": {
+      "axis": "what a field or a badge is reporting",
+      "values": {
+        "success": "valid or complete",
+        "warning": "valid but worth attention",
+        "error": "invalid",
+        "validating": "being checked",
+        "processing": "in progress (Badge only)",
+        "default": "no status (Badge only)"
+      },
+      "note": "Form fields use success/warning/error/validating; Badge uses success/processing/error/default/warning. The two sets overlap without matching."
+    },
+    "size": {
+      "axis": "the control's height on the density scale",
+      "values": { "small": "dense", "middle": "the default", "large": "prominent" },
+      "note": "Ant's middle value is `middle`, not `medium`. Writing `medium` is silently ignored, which is why it belongs in the registry as a closed set."
+    }
+  }
+}

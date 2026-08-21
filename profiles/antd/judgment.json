@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "_": "Authored, not extracted. Source: seeds/antd.judgment.json.",
+  "vocabulary": {
+    "_": "Ant's own prop vocabulary, recorded as found. Where it is inconsistent the inconsistency is written down rather than corrected.",
+    "type": {
+      "axis": "which role or weight this element takes",
+      "values": {
+        "default": "the resting appearance",
+        "primary": "the main action or the brand accent",
+        "dashed": "a lighter bordered action, usually 'add'",
+        "link": "an action that reads as a link",
+        "text": "the lightest action, no container",
+        "success": "it worked (Alert, Result)",
+        "info": "neutral information (Alert)",
+        "warning": "attention needed (Alert)",
+        "error": "something failed (Alert, Result)"
+      },
+      "note": "`type` means weight on Button and meaning on Alert. The same prop name answers two different questions depending on the component, which is the single most common source of wrong Ant code."
+    },
+    "danger": {
+      "axis": "whether this action destroys something",
+      "values": {
+        "true": "destructive"
+      },
+      "note": "Separate from `type` on Button: a destructive primary action is `type=\"primary\" danger`, not `type=\"danger\"`. `type=\"danger\"` is legacy and no longer in the union."
+    },
+    "status": {
+      "axis": "what a field or a badge is reporting",
+      "values": {
+        "success": "valid or complete",
+        "warning": "valid but worth attention",
+        "error": "invalid",
+        "validating": "being checked",
+        "processing": "in progress (Badge only)",
+        "default": "no status (Badge only)"
+      },
+      "note": "Form fields use success/warning/error/validating; Badge uses success/processing/error/default/warning. The two sets overlap without matching."
+    },
+    "size": {
+      "axis": "the control's height on the density scale",
+      "values": {
+        "small": "dense",
+        "middle": "the default",
+        "large": "prominent"
+      },
+      "note": "Ant's middle value is `middle`, not `medium`. Writing `medium` is silently ignored, which is why it belongs in the registry as a closed set."
+    }
+  },
+  "twins": {
+    "pairs": {
+      "Modal ~ Drawer ~ Popconfirm": {
+        "separated": "Modal blocks the page for a task that needs it. Drawer keeps the page visible because the work is secondary. Popconfirm is a two-option confirmation anchored to the control, small enough that a Modal would be a ceremony.",
+        "reopenIf": "Drawer gains a blocking mode by default, at which point it and Modal overlap."
+      },
+      "Select ~ AutoComplete ~ Cascader ~ TreeSelect": {
+        "separated": "Select requires the value to come from the list. AutoComplete accepts a typed value that matches nothing. Cascader walks a strict hierarchy level by level. TreeSelect picks a node from a browsable tree.",
+        "reopenIf": "Select gains free-text entry."
+      },
+      "Tag ~ Badge": {
+        "separated": "A Tag is a standalone label the user reads or removes. A Badge is a count or dot attached to another element's corner and is never itself the target.",
+        "reopenIf": "Badge becomes independently interactive."
+      },
+      "Spin ~ Progress ~ Skeleton": {
+        "separated": "Skeleton holds the shape of content whose layout is known. Progress shows measurable advance. Spin covers a wait of unknown length and unknown shape.",
+        "reopenIf": "any of the three grows another's role."
+      },
+      "Tabs ~ Segmented ~ Steps": {
+        "separated": "Tabs reveal panels and may be visited in any order. Segmented sets a value and reveals nothing on its own. Steps are ordered and carry the idea of progress.",
+        "reopenIf": "Segmented starts owning panel content in Ant's own docs."
+      },
+      "Table ~ List ~ Descriptions": {
+        "separated": "Table exists to make columns comparable across rows. List presents items with no columns worth aligning. Descriptions shows one record's fields, and is read-only.",
+        "reopenIf": "never; this one is structural."
+      },
+      "Flex ~ Space": {
+        "separated": "Space puts an even gap between inline elements and decides nothing else. Flex owns direction, alignment and wrapping. A Space carrying alignment props has become a Flex written the long way.",
+        "reopenIf": "Space gains alignment control."
+      },
+      "Tooltip ~ Popover ~ Dropdown": {
+        "separated": "Tooltip is text on hover and must hold nothing interactive. Popover holds arbitrary content on click. Dropdown holds a keyboard-navigable list of actions.",
+        "reopenIf": "Tooltip is documented as accepting interactive content."
+      },
+      "Empty ~ Result": {
+        "separated": "Empty is a region with nothing in it yet. Result is the outcome of an operation — succeeded, failed, not found — and carries the next action. An Empty explaining why something failed has become a Result.",
+        "reopenIf": "Empty gains a status prop."
+      },
+      "Checkbox ~ Switch": {
+        "separated": "A Switch applies its change immediately. A Checkbox records a choice that lands on submit. The distinction is about when the change takes effect, not about how it looks.",
+        "reopenIf": "the product adopts immediate-apply forms throughout."
+      }
+    }
+  }
+}

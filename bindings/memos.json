@@ -1,0 +1,73 @@
+{
+  "_": [
+    "Role bindings for memos' own component library, extracted by adapt-react and bound by hand.",
+    "",
+    "This file is the judgment tier, and it is the reason the extraction stops where it does.",
+    "adapt-react can prove that Badge exists, takes a `variant` of five values and a `shape` of",
+    "two, and is imported from @/components/ui/badge. It cannot know that Badge is what this",
+    "project uses to show a status, or that its `warning` variant is the one to reach for when",
+    "something needs attention rather than `destructive`. Nobody ships that, in any library.",
+    "",
+    "An unbound role is reported by `ds spec` as unbuildable rather than guessed at."
+  ],
+  "schemaVersion": 1,
+  "profile": "memos",
+  "axes": {
+    "tone": {
+      "prop": "variant",
+      "values": {
+        "neutral": "secondary",
+        "primary": "default",
+        "warning": "warning",
+        "danger": "destructive"
+      },
+      "_": "memos has no `success` variant. A tone this project does not express is absent here rather than mapped to the nearest thing, so a spec asking for it fails loudly."
+    },
+    "shape": {
+      "prop": "shape",
+      "values": {
+        "default": "default",
+        "pill": "pill"
+      }
+    }
+  },
+  "roles": {
+    "statusTag": {
+      "component": "Badge"
+    },
+    "primaryAction": {
+      "component": "Button"
+    },
+    "secondaryAction": {
+      "component": "Button",
+      "props": {
+        "variant": "secondary"
+      }
+    },
+    "textInput": {
+      "component": "Input"
+    },
+    "searchInput": {
+      "component": "Input",
+      "props": {
+        "type": "search"
+      },
+      "_": "memos has no dedicated search field. Its Input inherits the DOM attributes, so the role is answered by the type rather than by a component that does not exist."
+    },
+    "checkbox": {
+      "component": "Checkbox"
+    },
+    "select": {
+      "component": "Select"
+    },
+    "tooltip": {
+      "component": "Tooltip"
+    },
+    "dialog": {
+      "component": "DialogContent"
+    },
+    "tabs": {
+      "component": "Tabs"
+    }
+  }
+}

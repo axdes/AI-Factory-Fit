@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "_": "Authored, not extracted. Source: seeds/mui.judgment.json.",
+  "vocabulary": {
+    "_": "MUI's own prop vocabulary, recorded as found rather than corrected. Where it is inconsistent, the inconsistency is written down so nobody assumes otherwise.",
+    "color": {
+      "axis": "which palette role this element takes",
+      "values": {
+        "primary": "the brand accent",
+        "secondary": "the second accent",
+        "success": "it worked",
+        "error": "it failed or is invalid",
+        "warning": "it needs attention but nothing is broken",
+        "info": "neutral information worth noticing",
+        "inherit": "take the surrounding colour, used for controls inside a coloured bar",
+        "default": "no palette role; the resting colour"
+      },
+      "note": "`inherit` appears on Button and IconButton but not on Chip; `default` appears on Chip but not on Button. The two words cover the same idea and neither is available everywhere."
+    },
+    "variant": {
+      "axis": "how much visual weight this element carries",
+      "values": {
+        "contained": "filled; the primary action of its area (Button, Fab)",
+        "outlined": "bordered; a secondary action or a bounded field",
+        "text": "no container; the lightest action",
+        "filled": "filled surface (Chip, Alert, and the filled Input rendering)",
+        "standard": "the platform-default rendering (Alert, TextField, Select)"
+      },
+      "note": "The set is not shared: Button uses text/outlined/contained, Chip uses filled/outlined, Alert and TextField use standard/filled/outlined. Learning `variant` on one component does not transfer to another."
+    },
+    "size": {
+      "axis": "the control's height on the density scale",
+      "values": {
+        "small": "dense",
+        "medium": "the default",
+        "large": "prominent"
+      },
+      "note": "Button offers all three; TextField, Chip and Autocomplete offer only small and medium."
+    },
+    "severity": {
+      "axis": "what an Alert is reporting",
+      "values": {
+        "success": "it worked",
+        "info": "neutral information",
+        "warning": "attention needed",
+        "error": "something failed"
+      },
+      "note": "Alert carries both `severity` and `color` with the same four values. `severity` sets the meaning and the icon; `color` overrides only the palette. Setting one and expecting the other is a real and common mistake."
+    }
+  },
+  "twins": {
+    "pairs": {
+      "Dialog ~ Modal": {
+        "separated": "Dialog is Modal with the title, content and action structure already decided, plus the ARIA wiring for a dialog. Modal is the unstyled blocking layer underneath it.",
+        "reopenIf": "MUI gives Modal a documented content structure of its own, making the two interchangeable."
+      },
+      "Popover ~ Popper ~ Tooltip ~ Menu": {
+        "separated": "Popper only positions; it has no surface, elevation or focus handling. Popover adds those. Menu is a Popover whose content is a keyboard-navigable action list. Tooltip is text on hover with no interactive content.",
+        "reopenIf": "Popper gains a default surface, at which point it and Popover overlap."
+      },
+      "Select ~ Autocomplete ~ NativeSelect": {
+        "separated": "Select shows a fixed list; Autocomplete filters by typing and is the only one of the three that handles a list too long to scan; NativeSelect delegates to the platform picker, which matters on mobile and rules out custom option rendering.",
+        "reopenIf": "Select gains built-in filtering."
+      },
+      "Chip ~ Badge": {
+        "separated": "A Chip is a standalone element the user reads, presses or removes. A Badge is a count or dot attached to another element's corner and is never itself the target.",
+        "reopenIf": "Badge becomes independently interactive."
+      },
+      "CircularProgress ~ LinearProgress ~ Skeleton": {
+        "separated": "Skeleton is for when the shape of the incoming content is known and should be held. LinearProgress is for measurable advance. CircularProgress is for an unmeasurable wait whose shape is unknown.",
+        "reopenIf": "any of the three grows the others' role."
+      },
+      "Snackbar ~ Alert": {
+        "separated": "A Snackbar leaves on its own and must not carry anything the user has to act on. An Alert stays until the condition is resolved. Alert is commonly rendered INSIDE a Snackbar, which is what makes the pair confusing.",
+        "reopenIf": "Snackbar gains a persistent mode."
+      },
+      "Stack ~ Grid": {
+        "separated": "Stack lays items along one axis with a gap. Grid assigns responsive column spans. A Grid used for a single row of evenly spaced items is a Stack written the long way.",
+        "reopenIf": "Grid gains a one-dimensional shorthand that reads as clearly as Stack."
+      },
+      "Tabs ~ ToggleButtonGroup ~ BottomNavigation": {
+        "separated": "Tabs reveal panels. ToggleButtonGroup sets a value and reveals nothing. BottomNavigation is primary navigation between destinations on a small viewport, not a control inside a page.",
+        "reopenIf": "any of them takes on another's job in the MUI docs."
+      },
+      "Card ~ Paper": {
+        "separated": "Paper is an elevated surface with no opinion about its contents. Card adds the header, media, content and actions structure for one subject. A Paper that grows a title and an action row has become a Card.",
+        "reopenIf": "Card's structural parts become optional to the point that the two render identically."
+      },
+      "TextField ~ Input ~ OutlinedInput ~ FilledInput ~ InputBase": {
+        "separated": "TextField is the assembled control and the one to use. The three Input renderings and InputBase are its parts, present for hand assembly inside a FormControl.",
+        "reopenIf": "TextField stops covering a case its parts cover, which would make reaching past it normal rather than exceptional."
+      },
+      "Checkbox ~ Switch": {
+        "separated": "A Switch applies its change immediately. A Checkbox records a choice that takes effect when the form is submitted. The distinction is about when the change lands, not about how it looks.",
+        "reopenIf": "the codebase adopts immediate-apply forms throughout, at which point the distinction stops carrying information."
+      },
+      "List ~ Table": {
+        "separated": "A Table exists to make columns comparable across rows. A List presents items that have no columns worth aligning. A List whose rows line up values in columns is a Table.",
+        "reopenIf": "never; this one is structural."
+      }
+    }
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "_": [
+    "World practices, with a primary source behind every one.",
+    "",
+    "This exists for the case the measurement cannot cover: a new project, or a",
+    "dimension an existing project has no opinion on yet. It is deliberately NOT a",
+    "style guide — it is a list of positions someone else already argued in public,",
+    "with the link, so a disagreement is with the source rather than with us.",
+    "",
+    "`authority` is the field that decides what happens in a conflict:",
+    "",
+    "  standard        a published specification. WCAG is not a preference; a",
+    "                  project that diverges is non-conformant, and saying so is a",
+    "                  statement of fact.",
+    "  official-docs   the maintainers of the technology say this. Strong, and",
+    "                  still not binding: a team may know their case is different.",
+    "  convention      widely adopted, sourced, contestable. Defers to any measured",
+    "                  convention in the project.",
+    "",
+    "PRECEDENCE. On an existing project the measured convention wins. A practice",
+    "only overrides it when authority is `standard` AND the divergence carries a",
+    "cost outside taste — accessibility, security, data loss. Everywhere else the",
+    "practice fills a gap and otherwise stays quiet. Walking into a client's",
+    "codebase and correcting its style against a blog post is how a consultant gets",
+    "ignored on the things that actually matter.",
+    "",
+    "`contested` marks a practice with a real counter-argument. Recording it is the",
+    "difference between a catalogue and a sermon."
+  ],
+  "schemaVersion": 1,
+  "practices": {
+    "no-effect-for-server-data": {
+      "name": "Do not fetch server data in an effect",
+      "what": "Server data comes from a caching client (TanStack Query, SWR, RSC, a framework loader) rather than fetch inside a component effect.",
+      "why": "An effect that fetches has no cache, no deduplication, no retry and no request cancellation: two components asking for the same thing ask twice, and a fast remount produces a race whose loser wins.",
+      "authority": "official-docs",
+      "source": {
+        "name": "React — You Might Not Need an Effect",
+        "url": "https://react.dev/learn/you-might-not-need-an-effect"
+      },
+      "dimension": "stateData/fetchInComponents",
+      "recommends": "0",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any"
+    },
+    "state-colocation": {
+      "name": "Keep state as close to where it is used as possible",
+      "what": "State starts local and is lifted only when a second consumer needs it; global stores hold what is genuinely global.",
+      "why": "State lifted too early re-renders subtrees that do not care and makes every component harder to move.",
+      "authority": "official-docs",
+      "source": {
+        "name": "React — Sharing State Between Components",
+        "url": "https://react.dev/learn/sharing-state-between-components"
+      },
+      "dimension": "stateData/createContext",
+      "recommends": "few",
+      "appliesTo": "any",
+      "contested": "Teams running a single global store deliberately trade this away for one debuggable state tree; that is a coherent position, not an error."
+    },
+    "guard-double-submit": {
+      "name": "Disable submission while a submission is in flight",
+      "what": "A submit control is disabled, or the handler guarded, from the moment submission starts until it settles.",
+      "why": "Without it a double click sends the request twice. On anything that creates a record this produces duplicates that a user cannot undo.",
+      "authority": "convention",
+      "source": {
+        "name": "MDN — Sending form data",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data"
+      },
+      "dimension": "forms/guardsDoubleSubmit",
+      "recommends": "every form",
+      "target": {
+        "op": "gte",
+        "value": 1
+      },
+      "appliesTo": "any",
+      "measuredOver": "forms/formsFound"
+    },
+    "form-library-over-hand-rolled": {
+      "name": "Use a form library once forms have validation",
+      "what": "Beyond a single uncontrolled field, forms use an established library rather than hand-rolled state and validation.",
+      "why": "Hand-rolled forms re-implement dirty tracking, touched state, async validation and error focus — badly, and differently in each form.",
+      "authority": "convention",
+      "source": {
+        "name": "React — Reacting to Input with State",
+        "url": "https://react.dev/learn/reacting-to-input-with-state"
+      },
+      "dimension": "forms/handRolled",
+      "recommends": "0 beyond trivial forms",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any",
+      "contested": "A product with two simple forms genuinely does not need the dependency; the practice applies from the point validation appears.",
+      "measuredOver": "forms/formsFound"
+    },
+    "query-by-role": {
+      "name": "Query tests the way a user finds things",
+      "what": "Tests select by role, label or text before falling back to a test id.",
+      "why": "A test id asserts the markup. It keeps passing after a change that removes the accessible name, which is exactly the change that breaks the product for someone using a screen reader.",
+      "authority": "official-docs",
+      "source": {
+        "name": "Testing Library — About Queries, priority order",
+        "url": "https://testing-library.com/docs/queries/about/#priority"
+      },
+      "dimension": "testing/queryDiscipline",
+      "recommends": ">= 0.8",
+      "target": {
+        "op": "gte",
+        "value": 0.8
+      },
+      "appliesTo": "any",
+      "measuredOver": "testing/files"
+    },
+    "user-event-over-fire-event": {
+      "name": "Drive interaction with user-event",
+      "what": "Interaction in tests goes through user-event rather than fireEvent.",
+      "why": "fireEvent dispatches one event; a real click is a sequence including focus, pointer and keyboard effects. Tests built on fireEvent pass on components that a user cannot operate.",
+      "authority": "official-docs",
+      "source": {
+        "name": "Testing Library — user-event",
+        "url": "https://testing-library.com/docs/user-event/intro"
+      },
+      "dimension": "testing/userEvent",
+      "recommends": "user-event dominant",
+      "target": {
+        "op": "gte",
+        "value": 1
+      },
+      "appliesTo": "any",
+      "measuredOver": "testing/files"
+    },
+    "accessible-name-on-controls": {
+      "name": "Every control has an accessible name",
+      "what": "Icon-only controls carry an accessible name; images carry alt text; form fields are associated with a label.",
+      "why": "A control with no name is announced as 'button' and nothing else. This is a conformance failure, not a preference.",
+      "authority": "standard",
+      "source": {
+        "name": "WCAG 2.2 — 4.1.2 Name, Role, Value",
+        "url": "https://www.w3.org/TR/WCAG22/#name-role-value"
+      },
+      "dimension": "defects/counts/a11yFindings",
+      "recommends": "0",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any",
+      "overridesConvention": true
+    },
+    "contrast-minimum": {
+      "name": "Text meets the contrast minimum",
+      "what": "Body text reaches 4.5:1 against its background, large text 3:1, in every theme the product ships.",
+      "why": "Below the threshold the text is unreadable for a measurable share of users. The number is defined by the specification, not by us.",
+      "authority": "standard",
+      "source": {
+        "name": "WCAG 2.2 — 1.4.3 Contrast (Minimum)",
+        "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum"
+      },
+      "dimension": "defects/counts/contrastFailures",
+      "recommends": "0",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any",
+      "overridesConvention": true
+    },
+    "keyboard-operable": {
+      "name": "Everything operable by pointer is operable by keyboard",
+      "what": "Interactive behaviour lives on real interactive elements, with the focus and key handling the pattern requires.",
+      "why": "A click handler on a div is unreachable without a mouse. The authoring practices give the expected keys for each pattern, so there is no need to invent them.",
+      "authority": "standard",
+      "source": {
+        "name": "WAI-ARIA Authoring Practices Guide",
+        "url": "https://www.w3.org/WAI/ARIA/apg/"
+      },
+      "dimension": "defects/counts/a11yFindings",
+      "recommends": "0",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any",
+      "overridesConvention": true
+    },
+    "logical-properties-for-rtl": {
+      "name": "Use logical properties where direction matters",
+      "what": "Directional spacing and borders use inline/block properties rather than left/right.",
+      "why": "A layout built on left/right needs a mirroring layer for right-to-left, and the layer is always incomplete. Logical properties flip with the document.",
+      "authority": "official-docs",
+      "source": {
+        "name": "MDN — CSS logical properties and values",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values"
+      },
+      "dimension": "i18n/rtl/physicalProperties",
+      "recommends": "0 where the product ships an RTL language",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any"
+    },
+    "translation-parity": {
+      "name": "Every message exists in every language",
+      "what": "Locale files carry the same set of messages; plural categories follow the language's own CLDR rules.",
+      "why": "A missing key renders as the key. Comparing raw keys across languages is wrong, though: Arabic has six plural categories and English two, so parity is a question about messages, not about keys.",
+      "authority": "standard",
+      "source": {
+        "name": "Unicode CLDR — Plural Rules",
+        "url": "https://cldr.unicode.org/index/cldr-spec/plural-rules"
+      },
+      "dimension": "i18n/parityGaps",
+      "recommends": "0 missing messages",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any",
+      "measuredOver": "i18n/languages"
+    },
+    "async-has-a-failure-path": {
+      "name": "Every async path has somewhere to fail",
+      "what": "Asynchronous work is guarded, and the failure reaches something that renders: an error state, a boundary, a toast.",
+      "why": "An unhandled rejection leaves the screen in its loading state until reload. The user sees a spinner that never resolves and no reason.",
+      "authority": "official-docs",
+      "source": {
+        "name": "React — Error boundaries",
+        "url": "https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary"
+      },
+      "dimension": "resilience/unhandledAsync",
+      "recommends": "0",
+      "target": {
+        "op": "lte",
+        "value": 0
+      },
+      "appliesTo": "any"
+    },
+    "three-screen-states": {
+      "name": "A screen handles loading, error and empty",
+      "what": "Every screen that fetches decides what it shows while waiting, when the request fails, and when the result is empty.",
+      "why": "The empty state is the first thing a new user sees, and it is the state most often left out. A screen without one looks broken at exactly the moment it should be teaching.",
+      "authority": "convention",
+      "source": {
+        "name": "Nielsen Norman Group — Empty states",
+        "url": "https://www.nngroup.com/articles/empty-state-interface-design/"
+      },
+      "dimension": "composition/statesHandled/allThree",
+      "recommends": ">= 0.9",
+      "target": {
+        "op": "gte",
+        "value": 0.9
+      },
+      "appliesTo": "any",
+      "measuredOver": "composition/screens"
+    },
+    "variant-union-over-boolean-flags": {
+      "name": "Express one-of-many as a union, not as boolean flags",
+      "what": "Mutually exclusive appearance or behaviour is one prop with a closed set of values, not several booleans.",
+      "why": "Booleans permit combinations that have no meaning — primary and destructive at once — and nothing rejects them. A union makes the invalid state unrepresentable.",
+      "authority": "official-docs",
+      "source": {
+        "name": "TypeScript Handbook — Narrowing and discriminated unions",
+        "url": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+      },
+      "dimension": "componentApi/variantStrategy",
+      "recommends": "union",
+      "target": {
+        "op": "equals",
+        "value": "union"
+      },
+      "appliesTo": "any"
+    },
+    "no-invented-props": {
+      "name": "A component's API is its published set of props",
+      "what": "Consumers use the props the component declares; new needs change the component rather than being smuggled in through spread or style.",
+      "why": "Every escape hatch becomes an undocumented API that the next refactor breaks silently.",
+      "authority": "convention",
+      "source": {
+        "name": "React — Passing props to a component",
+        "url": "https://react.dev/learn/passing-props-to-a-component"
+      },
+      "dimension": "componentApi/spreadsRest",
+      "recommends": "restricted to primitive wrappers",
+      "appliesTo": "any",
+      "contested": "A thin wrapper over a DOM element has good reason to forward the rest; the practice is about product components, not primitives.",
+      "sources": {
+        "vue": {
+          "name": "Vue — Props",
+          "url": "https://vuejs.org/guide/components/props.html"
+        },
+        "svelte": {
+          "name": "Svelte — $props",
+          "url": "https://svelte.dev/docs/svelte/$props"
+        },
+        "angular": {
+          "name": "Angular — Accepting data with input properties",
+          "url": "https://angular.dev/guide/components/inputs"
+        }
+      }
+    },
+    "design-tokens-format": {
+      "name": "Publish tokens in an interchange format",
+      "what": "Design tokens are exported in the Design Tokens Community Group format alongside whatever the code consumes.",
+      "why": "CSS custom properties are invisible to every design tool. Without an export the system can be copied but not consumed, and the round trip to design never closes.",
+      "authority": "standard",
+      "source": {
+        "name": "Design Tokens Community Group — format specification",
+        "url": "https://tr.designtokens.org/format/"
+      },
+      "dimension": "toolchain/missing",
+      "recommends": "a DTCG export exists",
+      "appliesTo": "any"
+    },
+    "code-split-routes": {
+      "name": "Split at the route boundary",
+      "what": "Routes load lazily behind a suspense boundary.",
+      "why": "Without it the first screen carries the code for every screen, and the cost lands on the visit that decides whether there is a second one.",
+      "authority": "official-docs",
+      "source": {
+        "name": "React — lazy",
+        "url": "https://react.dev/reference/react/lazy"
+      },
+      "dimension": "performance/lazyRoutes",
+      "recommends": "routes are lazy",
+      "target": {
+        "op": "gte",
+        "value": 1
+      },
+      "appliesTo": "any",
+      "sources": {
+        "vue": {
+          "name": "Vue Router — Lazy Loading Routes",
+          "url": "https://router.vuejs.org/guide/advanced/lazy-loading.html"
+        },
+        "svelte": {
+          "name": "SvelteKit — Routing",
+          "url": "https://svelte.dev/docs/kit/routing"
+        },
+        "angular": {
+          "name": "Angular — Route Loading Strategies",
+          "url": "https://angular.dev/guide/routing/loading-strategies"
+        }
+      }
+    },
+    "memoise-on-evidence": {
+      "name": "Memoise from a measurement, not by habit",
+      "what": "memo, useMemo and useCallback are added where a profile shows a cost, not applied by default.",
+      "why": "Every memo has its own cost and its own dependency array to get wrong. Applied everywhere it slows the app down while looking like optimisation.",
+      "authority": "official-docs",
+      "source": {
+        "name": "React — useMemo, when to use it",
+        "url": "https://react.dev/reference/react/useMemo#skipping-expensive-recalculations"
+      },
+      "dimension": "performance/useMemo",
+      "recommends": "proportionate to measured cost",
+      "appliesTo": "any",
+      "contested": "The React Compiler changes this calculus where it is enabled; the practice is about hand-written memoisation."
+    },
+    "one-breakpoint-home": {
+      "name": "Breakpoints have one home",
+      "what": "Breakpoint values are defined once and referenced, with the duplication that media queries force being generated rather than typed.",
+      "why": "Media queries cannot read custom properties, so the values get repeated by hand and drift apart the first time one changes.",
+      "authority": "convention",
+      "source": {
+        "name": "MDN — Using media queries",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries"
+      },
+      "dimension": "performance/distinctBreakpoints",
+      "recommends": "a small, single-sourced set",
+      "target": {
+        "op": "lte",
+        "value": 6
+      },
+      "appliesTo": "any"
+    },
+    "agent-contract-file": {
+      "name": "Machine-readable contract at the repository root",
+      "what": "The working agreement lives in AGENTS.md, the cross-tool file name, with a pointer for tools that expect their own.",
+      "why": "Multiple coding agents now read a repository. A convention documented only in a wiki reaches none of them.",
+      "authority": "convention",
+      "source": {
+        "name": "AGENTS.md",
+        "url": "https://agents.md/"
+      },
+      "dimension": "toolchain/missing",
+      "recommends": "present",
+      "appliesTo": "any"
+    }
+  }
+}

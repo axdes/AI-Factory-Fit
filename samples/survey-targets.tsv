@@ -1,0 +1,15 @@
+# The directory a consultant would actually be pointed at, not the one git made.
+# name<TAB>path relative to the clone
+documenso	apps/remix
+ui	apps/v4
+memos	web
+docusaurus	website
+query	packages/react-query
+formbricks	apps/web
+outline	app
+tldraw	apps/dotcom/client
+excalidraw	.
+# Deliberately outside the tool's competence — React is assumed throughout, and
+# the interesting result is whether it says so or invents numbers anyway.
+vue-vben-admin	apps/web-antd
+kit	packages/kit

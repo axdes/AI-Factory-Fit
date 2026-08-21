@@ -1,0 +1,1 @@
+{ "name": "svelte-idiom-fixture", "private": true, "version": "0.0.0", "dependencies": { "svelte": "^5.0.0" } }

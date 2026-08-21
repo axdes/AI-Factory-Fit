@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "profile": "ng-test",
+  "axes": {},
+  "roles": {
+    "heading": {
+      "component": "UiHeading"
+    },
+    "primaryAction": {
+      "component": "UiButton"
+    },
+    "table": {
+      "component": "UiTable"
+    }
+  }
+}

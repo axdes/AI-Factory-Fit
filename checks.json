@@ -1,0 +1,78 @@
+{
+  "_generated": "node scripts/gen-checks-manifest.mjs",
+  "gate": "npm run check",
+  "checks": {
+    "probe:own": {
+      "command": "npm run probe:own",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Adapter #0 — the first-party system."
+    },
+    "validate": {
+      "command": "npm run validate",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Fail-closed validator for a library profile."
+    },
+    "spec": {
+      "command": "npm run spec",
+      "kind": "manual",
+      "inGate": false,
+      "answers": "Validate a screen spec against a library profile."
+    },
+    "eval": {
+      "command": "npm run eval",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Run the corpus: does this ruleset actually discriminate?"
+    },
+    "redteam": {
+      "command": "npm run redteam",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Break the reference solutions the ways agents really break code, and fail if a break survives."
+    },
+    "context:budget": {
+      "command": "npm run context:budget",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Context budget — the cost side of the profile."
+    },
+    "checks:manifest": {
+      "command": "npm run checks:manifest",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "The map of everything this repository can verify, written for a machine."
+    },
+    "lint:twins": {
+      "command": "npm run lint:twins",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Fail when two components in a library resemble each other and nobody has said why."
+    },
+    "lint:vocab": {
+      "command": "npm run lint:vocab",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Fail when a shared prop name carries a meaning nobody wrote down."
+    },
+    "spec:selection": {
+      "command": "npm run spec:selection",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Check that each zone's representation is one its declared task and data allow."
+    },
+    "test": {
+      "command": "node --test tests/detectors.test.mjs",
+      "kind": "gated",
+      "inGate": true,
+      "answers": "Regression tests for the detectors."
+    },
+    "check": {
+      "command": "npm run check",
+      "kind": "gate",
+      "inGate": false,
+      "answers": null
+    }
+  }
+}

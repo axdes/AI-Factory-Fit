@@ -1,0 +1,67 @@
+{
+  "_": [
+    "Needs stated in somebody else's words, and the component a person chose for each.",
+    "",
+    "This is the labelled set the judgment tier can be measured against, and it is",
+    "nearly empty on purpose: every case here was authored independently of the",
+    "descriptions being measured — they are zone purposes from specs a person wrote —",
+    "because a case written from a description measures the description against itself.",
+    "",
+    "Four distinct needs is not a measurement. The file exists so that a real",
+    "engagement fills it: each time somebody states a need in their own words and a",
+    "person picks the component, that is one case, and it is the only kind of evidence",
+    "this question has."
+  ],
+  "schemaVersion": 1,
+  "profile": "own",
+  "cases": [
+    {
+      "need": "Name the screen and offer the one creating action.",
+      "role": "pageHeader",
+      "component": "PageHeader",
+      "from": "specs/documents-list.json"
+    },
+    {
+      "need": "Name the screen and offer the one creating action.",
+      "role": "primaryAction",
+      "component": "Button",
+      "from": "specs/documents-list.json"
+    },
+    {
+      "need": "Narrow the list by text and by status.",
+      "role": "searchInput",
+      "component": "SearchInput",
+      "from": "specs/documents-list.json"
+    },
+    {
+      "need": "Narrow the list by text and by status.",
+      "role": "select",
+      "component": "Select",
+      "from": "specs/documents-list.json"
+    },
+    {
+      "need": "One row per document with its status.",
+      "role": "table",
+      "component": "Table",
+      "from": "specs/documents-list.json"
+    },
+    {
+      "need": "One row per document with its status.",
+      "role": "statusTag",
+      "component": "Badge",
+      "from": "specs/documents-list.json"
+    },
+    {
+      "need": "One row per document with its status.",
+      "role": "avatar",
+      "component": "Avatar",
+      "from": "specs/documents-list.json"
+    },
+    {
+      "need": "Move through pages when the set is large.",
+      "role": "pagination",
+      "component": "Pagination",
+      "from": "specs/documents-list.json"
+    }
+  ]
+}

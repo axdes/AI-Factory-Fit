@@ -1,0 +1,6 @@
+{
+  "id": "document-list",
+  "requirement": "A list of documents with a status label per row and one action to create a new document.",
+  "mustUse": ["Table", "Badge", "Button"],
+  "expects": ["a closed status set", "the creating action carries the primary weight"]
+}

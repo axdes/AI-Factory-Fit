@@ -1,0 +1,37 @@
+{
+  "_": "Role bindings for @mui/material. Authored. Where MUI has no answer, the gap is written down rather than papered over with an approximation.",
+  "schemaVersion": 1,
+  "profile": "mui",
+  "axes": {
+    "tone": { "prop": "color", "values": { "neutral": "inherit", "primary": "primary", "success": "success", "warning": "warning", "danger": "error", "info": "info" } },
+    "size": { "prop": "size", "values": { "sm": "small", "md": "medium", "lg": "large" } }
+  },
+  "roles": {
+    "pageHeader":       { "notCovered": "MUI ships no page header. It is composed from Toolbar, Typography and an action, and that composition belongs in the product layer." },
+    "heading":          { "component": "Typography", "props": { "variant": "h5" } },
+    "text":             { "component": "Typography", "props": { "variant": "body1" } },
+    "primaryAction":    { "component": "Button", "props": { "variant": "contained" } },
+    "secondaryAction":  { "component": "Button", "props": { "variant": "outlined" } },
+    "iconAction":       { "component": "IconButton" },
+    "textInput":        { "component": "TextField" },
+    "searchInput":      { "component": "TextField", "note": "MUI has no dedicated search field; a TextField with a search adornment is the idiom." },
+    "select":           { "component": "Select" },
+    "checkbox":         { "component": "Checkbox" },
+    "toggle":           { "component": "Switch" },
+    "table":            { "component": "Table" },
+    "list":             { "component": "List" },
+    "card":             { "component": "Card" },
+    "statusTag":        { "component": "Chip", "axes": { "tone": { "prop": "color", "values": { "neutral": "default", "primary": "primary", "success": "success", "warning": "warning", "danger": "error", "info": "info" } } } },
+    "avatar":           { "component": "Avatar" },
+    "divider":          { "component": "Divider" },
+    "inlineMessage":    { "component": "Alert", "axes": { "tone": { "prop": "severity", "values": { "success": "success", "warning": "warning", "danger": "error", "info": "info", "neutral": "info" } } }, "note": "severity, not color: on Alert, color changes only the palette while severity carries the meaning and the icon." },
+    "transientMessage": { "component": "Snackbar" },
+    "loading":          { "component": "CircularProgress" },
+    "skeleton":         { "component": "Skeleton" },
+    "emptyState":       { "notCovered": "MUI ships no empty state. It is composed from Stack, Typography and an action; a product on MUI should add one rather than rebuild it per screen." },
+    "tabs":             { "component": "Tabs" },
+    "pagination":       { "component": "Pagination" },
+    "tooltip":          { "component": "Tooltip" },
+    "dialog":           { "component": "Dialog" }
+  }
+}

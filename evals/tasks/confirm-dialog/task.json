@@ -1,0 +1,6 @@
+{
+  "id": "confirm-dialog",
+  "requirement": "A dialog confirming a destructive action, with the destructive weight on the confirming control.",
+  "mustUse": ["Modal", "Button"],
+  "expects": ["the destructive action is visually distinct", "the dialog is dismissible"]
+}

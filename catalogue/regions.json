@@ -1,0 +1,2634 @@
+{
+  "schemaVersion": 1,
+  "_": [
+    "Measured, not authored. Every name here was read from a frame that declares",
+    "it — a React prop typed as renderable content, a Vue or Svelte <slot name>,",
+    "an Angular <ng-content select> — in one of the products named below.",
+    "",
+    "A name in this list is not a recommendation. It is a fact about what frames",
+    "in these products offer, and the number beside it is how many of them.",
+    "Nothing here says a screen SHOULD have a title; it says that seven of eight",
+    "independent products built a frame that offers one."
+  ],
+  "measuredOn": [
+    {
+      "name": "outline",
+      "files": 807,
+      "frames": 62,
+      "counted": true
+    },
+    {
+      "name": "plane",
+      "files": 1879,
+      "frames": 109,
+      "counted": true
+    },
+    {
+      "name": "formbricks",
+      "files": 1952,
+      "frames": 51,
+      "counted": true
+    },
+    {
+      "name": "twenty",
+      "files": 7675,
+      "frames": 123,
+      "counted": true
+    },
+    {
+      "name": "documenso",
+      "files": 539,
+      "frames": 72,
+      "counted": true
+    },
+    {
+      "name": "affine",
+      "files": 2740,
+      "frames": 147,
+      "counted": true
+    },
+    {
+      "name": "immich",
+      "files": 641,
+      "frames": 20,
+      "counted": true
+    },
+    {
+      "name": "vben",
+      "files": 715,
+      "frames": 74,
+      "counted": true
+    }
+  ],
+  "regions": [
+    {
+      "name": "title",
+      "products": 8,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "formbricks",
+        "immich",
+        "outline",
+        "plane",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "header",
+      "products": 7,
+      "seenIn": [
+        "affine",
+        "formbricks",
+        "immich",
+        "outline",
+        "plane",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "label",
+      "products": 7,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "formbricks",
+        "outline",
+        "plane",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "action",
+      "products": 6,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "outline",
+        "plane",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "actions",
+      "products": 6,
+      "seenIn": [
+        "affine",
+        "formbricks",
+        "outline",
+        "plane",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "description",
+      "products": 6,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "formbricks",
+        "outline",
+        "plane",
+        "vben"
+      ]
+    },
+    {
+      "name": "icon",
+      "products": 6,
+      "seenIn": [
+        "affine",
+        "formbricks",
+        "outline",
+        "plane",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "content",
+      "products": 5,
+      "seenIn": [
+        "affine",
+        "outline",
+        "plane",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "trigger",
+      "products": 5,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "formbricks",
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "footer",
+      "products": 4,
+      "seenIn": [
+        "formbricks",
+        "immich",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "subtitle",
+      "products": 4,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "outline",
+        "twenty"
+      ]
+    },
+    {
+      "name": "button",
+      "products": 3,
+      "seenIn": [
+        "immich",
+        "plane",
+        "twenty"
+      ]
+    },
+    {
+      "name": "empty",
+      "products": 3,
+      "seenIn": [
+        "immich",
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "fallback",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "plane",
+        "twenty"
+      ]
+    },
+    {
+      "name": "heading",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "outline"
+      ]
+    },
+    {
+      "name": "left",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "loading",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "menu",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "node",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "placeholder",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "immich",
+        "twenty"
+      ]
+    },
+    {
+      "name": "prefix",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "preview",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "documenso",
+        "twenty"
+      ]
+    },
+    {
+      "name": "toolbar",
+      "products": 3,
+      "seenIn": [
+        "outline",
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "products": 3,
+      "seenIn": [
+        "affine",
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "actionButton",
+      "products": 2,
+      "seenIn": [
+        "plane",
+        "twenty"
+      ]
+    },
+    {
+      "name": "badge",
+      "products": 2,
+      "seenIn": [
+        "immich",
+        "outline"
+      ]
+    },
+    {
+      "name": "body",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "formbricks"
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "products": 2,
+      "seenIn": [
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "buttons",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "immich"
+      ]
+    },
+    {
+      "name": "cancelText",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "vben"
+      ]
+    },
+    {
+      "name": "confirmText",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "vben"
+      ]
+    },
+    {
+      "name": "desc",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "vben"
+      ]
+    },
+    {
+      "name": "emptyState",
+      "products": 2,
+      "seenIn": [
+        "documenso",
+        "plane"
+      ]
+    },
+    {
+      "name": "form",
+      "products": 2,
+      "seenIn": [
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "input",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "twenty"
+      ]
+    },
+    {
+      "name": "items",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "outline"
+      ]
+    },
+    {
+      "name": "leading",
+      "products": 2,
+      "seenIn": [
+        "immich",
+        "twenty"
+      ]
+    },
+    {
+      "name": "logo",
+      "products": 2,
+      "seenIn": [
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "message",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "plane"
+      ]
+    },
+    {
+      "name": "render",
+      "products": 2,
+      "seenIn": [
+        "formbricks",
+        "outline"
+      ]
+    },
+    {
+      "name": "renderFooter",
+      "products": 2,
+      "seenIn": [
+        "formbricks",
+        "plane"
+      ]
+    },
+    {
+      "name": "secondaryButton",
+      "products": 2,
+      "seenIn": [
+        "documenso",
+        "plane"
+      ]
+    },
+    {
+      "name": "separator",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "formbricks"
+      ]
+    },
+    {
+      "name": "shortcut",
+      "products": 2,
+      "seenIn": [
+        "outline",
+        "vben"
+      ]
+    },
+    {
+      "name": "sidebar",
+      "products": 2,
+      "seenIn": [
+        "immich",
+        "outline"
+      ]
+    },
+    {
+      "name": "suffix",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "vben"
+      ]
+    },
+    {
+      "name": "text",
+      "products": 2,
+      "seenIn": [
+        "twenty",
+        "vben"
+      ]
+    },
+    {
+      "name": "thumb",
+      "products": 2,
+      "seenIn": [
+        "affine",
+        "vben"
+      ]
+    },
+    {
+      "name": "tooltipContent",
+      "products": 2,
+      "seenIn": [
+        "formbricks",
+        "plane"
+      ]
+    },
+    {
+      "name": "trailing",
+      "products": 2,
+      "seenIn": [
+        "immich",
+        "twenty"
+      ]
+    },
+    {
+      "name": "`${FORM_SLOT_PREFIX}${slotName}`",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "a",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "action-append",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "action-prepend",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "actionableItems",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "actionButtons",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "actionElement",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "actionIcon",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "actionSlot",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "activity",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "activityPages",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "addButtonMeasurement",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "additionalAction",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "additionalActions",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "AdditionalButtons",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "additionalInfo",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "ai",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "append",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "append-footer",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "appendElement",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "appendIcon",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "appendTitleElement",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "args",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "avatar",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "Avatar",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "b",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "back",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "backdrop",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "backIcon",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "below",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "billingTip",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "blockToRender",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "bodyContent",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "bottom",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "bottomComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "br",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "brandingContent",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "brief",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "Button",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "buttonComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "buttonCTA",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "caption",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "cardContentExpanded",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "cardMedia",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "cells",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "center",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "center-footer",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "childrenPlaceholder",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "clickableComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "close-icon",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "cloud",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "collapsibleContent",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "component",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "confirmationMessage",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "content-overlay",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "contentWrapper",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "context",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "control",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "controls",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "copy",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "copyright",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "createErrorFallback",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "cSchema.fieldName",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "cta",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "ctaLabel",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "currentValue",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "cursor",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "cursorAfter",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "cursorBefore",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "custom",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "customActionButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "customButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "customConfirmButton",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "customDayRenderer",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "customIconContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "customPrimaryButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "customQuickAddButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "customSecondaryButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "customThumbnailLayout",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "customTooltipContent",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "describe",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "descriptionSnippet",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "displayModeContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "displayValue",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "divider",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "draggableItems",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "dropdownComponents",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "dropdownContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "dropdownTriggerClickableComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "editModeContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "element",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "elementCount",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "elementIconMap",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "EMPTY_BUTTONS",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "emptyFallback",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "EndComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "endFix",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "error",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "errorHint",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "example",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "expand-after",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "expand-before",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "extendedSidebar",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "extension",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "extra",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "extra-title",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "extraFeatures",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "fallbackIcon",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "features",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "filterButton",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "filterMenuButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "footnote",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "forbiddenDisplay",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "formSubmitTrigger",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "getIconNode",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "getLabel",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "groupIcon",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "headerActions",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "headerAdornment",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "headerItems",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "headerLeft",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "headerRenderer",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "headerRight",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "helpContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "highlightedJSX",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "hoverIcon",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "Icon",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "iconButton",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "IconFalse",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "iconNode",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "iconPlaceholder",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "Icons",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "IconTrue",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "image",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "importCSV",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "indicator-icon",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "info",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "inputElement",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "inputLabel",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "intersectionElement",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "isSelected",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "item",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "itemComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "itemName",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "itemRenderer",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "key",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "kids",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "Label",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "labelSubField",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "leftComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "LeftComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "leftContent",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "leftIcon",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "leftItem",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "li",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "lifetime",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "link",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "links",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "listContent",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "loadingFallback",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "lock-screen",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "logo-text",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "menuButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "menuItemContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "menuItems",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "menuTarget",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "merge",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "miniIcon",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "mixed-menu",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "mobileHeader",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "modals",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "monthlyPriceSecondaryDescription",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "msg",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "multimedia",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "nav",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "navigationContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "nextValue",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "nodes",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "nonEditModeContent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "note",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "notesEntry",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "notFound",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "notification",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "operations",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "operationsRenderer",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "option",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "options",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "optionsDropdownButton",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "overlay",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "overlays",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "pageTitle",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "panelContent",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "parts",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "payload",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "picker",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "pill",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "placeholderChildren",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "planeDetails",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "planLabel",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "popup",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "postfix",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "preFix",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "prefixIcon",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "prefixItems",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "prepend-footer",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "prependIcon",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "prependTitleElement",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "primaryButton",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "primaryText",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "quickActionElement",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "quickActions",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "quickAdd",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "references",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "renderActionButton",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "renderCell",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "renderer",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "renderHeader",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "renderHeading",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "renderItem",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "renderPriceContent",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "renderQuickActions",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "renderToolbar",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "reset-before",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "resetToDefaults",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "resizeBorder",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "resizeHandle",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "resolvedDisplayValue",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "right",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "rightAdornment",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "rightComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "RightComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "rightElement",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "rightIcon",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "rightItem",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "rightOptions",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "row",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "rowChildren",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "rowElement",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "scroll",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "secondaryBar",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "secondaryOverride",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "secondaryText",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "segments",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "select",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "selectedLabel",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "selectionToolbar",
+      "products": 1,
+      "seenIn": [
+        "outline"
+      ]
+    },
+    {
+      "name": "selfHostedDescription",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "setPanelContent",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "setting",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "side-extra",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "side-extra-title",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "sidebarToRender",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "signInComponent",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "signInUpForm",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "skeleton",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "slot.name",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "slotName",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "StartComponent",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "status",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "Status",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "Story",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "strengthText",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "strong",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "submit-before",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "submitButtonText",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "subtext",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "subTitle",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "subtitleSnippet",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "suffixIcon",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "suffixItems",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "switcher",
+      "products": 1,
+      "seenIn": [
+        "documenso"
+      ]
+    },
+    {
+      "name": "switchMode",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "tab.value",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "tabbar",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "table-title",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "tag",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "tagText",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "template",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "third-party-login",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "thumbnail",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "thumbnailWithGroup",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "tip",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "titleSuffix",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "titleTooltip",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "to-register",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "toggle",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "toggle-button",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "toolbar-actions",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "toolbar-tools",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "tooltipText",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "topImage",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "trailingElement",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "trailingSnippet",
+      "products": 1,
+      "seenIn": [
+        "immich"
+      ]
+    },
+    {
+      "name": "triggerButton",
+      "products": 1,
+      "seenIn": [
+        "formbricks"
+      ]
+    },
+    {
+      "name": "ul",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "user-dropdown",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "view",
+      "products": 1,
+      "seenIn": [
+        "affine"
+      ]
+    },
+    {
+      "name": "visibleContent",
+      "products": 1,
+      "seenIn": [
+        "vben"
+      ]
+    },
+    {
+      "name": "workspaceSlug",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    },
+    {
+      "name": "Wrapper",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "wrapTitle",
+      "products": 1,
+      "seenIn": [
+        "twenty"
+      ]
+    },
+    {
+      "name": "yearlyPriceSecondaryDescription",
+      "products": 1,
+      "seenIn": [
+        "plane"
+      ]
+    }
+  ]
+}

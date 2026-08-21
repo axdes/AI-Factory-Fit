@@ -1,0 +1,1830 @@
+{
+  "schemaVersion": 1,
+  "_": "Extracted from /private/tmp/claude-501/-Users-Vitali-Novikau-Downloads-harness/99992287-9349-41ad-bc25-77f40d283d7c/scratchpad/e2e/memos/web/src/components/ui by adapt-react. Facts only: exports, props, required flags and closed unions. Level, surface, status and description are policy and judgment — they are null until a person writes them, because a guessed judgment tier recommends the wrong component confidently.",
+  "components": {
+    "Badge": {
+      "ref": "Badge",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Badge"
+      ],
+      "main": "Badge",
+      "from": "@/components/ui/badge",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "variant",
+          "type": "'default' | 'secondary' | 'destructive' | 'outline' | 'warning'",
+          "required": false,
+          "values": [
+            "default",
+            "secondary",
+            "destructive",
+            "outline",
+            "warning"
+          ],
+          "from": "cva"
+        },
+        {
+          "name": "shape",
+          "type": "'default' | 'pill'",
+          "required": false,
+          "values": [
+            "default",
+            "pill"
+          ],
+          "from": "cva"
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "span"
+      ],
+      "variants": {
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "default",
+            "secondary",
+            "destructive",
+            "outline",
+            "warning"
+          ]
+        },
+        "shape": {
+          "prop": "shape",
+          "values": [
+            "default",
+            "pill"
+          ]
+        }
+      },
+      "sourcePath": "badge.tsx",
+      "example": "<Badge key={reactionType} variant=\"outline\" className=\"flex h-8 items-center gap-2 rounded-md px-2.5 font-normal\">\n                <span>{reactionType}</span>\n                <Button\n                  variant=\"ghost\"\n                  size=\"icon-sm\"\n                  onClick={() => updatePartialSetting({ reactions: memoRelatedSetting.reactions.filter((r) => r !== reactionType) })}\n                  aria-label={t(\"setting.memo.remove-reaction\")}\n                >\n                  <X className=\"size-3.5\" />\n                </Button>\n              </Badge>",
+      "exampleFrom": "src/components/Settings/MemoRelatedSettings.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Button": {
+      "ref": "Button",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Button"
+      ],
+      "main": "Button",
+      "from": "@/components/ui/button",
+      "slots": [],
+      "inherits": false,
+      "props": [
+        {
+          "name": "variant",
+          "type": "'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'",
+          "required": false,
+          "values": [
+            "default",
+            "destructive",
+            "outline",
+            "secondary",
+            "ghost",
+            "link"
+          ],
+          "from": "cva"
+        },
+        {
+          "name": "size",
+          "type": "'default' | 'sm' | 'lg' | 'icon' | 'icon-sm'",
+          "required": false,
+          "values": [
+            "default",
+            "sm",
+            "lg",
+            "icon",
+            "icon-sm"
+          ],
+          "from": "cva"
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "ButtonPrimitive"
+      ],
+      "variants": {
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "default",
+            "destructive",
+            "outline",
+            "secondary",
+            "ghost",
+            "link"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "default",
+            "sm",
+            "lg",
+            "icon",
+            "icon-sm"
+          ]
+        }
+      },
+      "sourcePath": "button.tsx",
+      "example": "<Button\n    type=\"button\"\n    variant=\"ghost\"\n    size=\"icon\"\n    disabled={disabled}\n    onClick={onClick}\n    aria-label={label}\n    className=\"h-9 w-9 rounded-full text-white hover:bg-white/12 hover:text-white disabled:text-white/35\"\n  >\n    {children}\n  </Button>",
+      "exampleFrom": "src/components/PreviewImageDialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Checkbox": {
+      "ref": "Checkbox",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Checkbox"
+      ],
+      "main": "Checkbox",
+      "from": "@/components/ui/checkbox",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CheckIcon",
+        "CheckboxPrimitive.Indicator",
+        "CheckboxPrimitive.Root"
+      ],
+      "sourcePath": "checkbox.tsx",
+      "example": "<Checkbox ref={checkboxRef} checked={Boolean(checked)} disabled={readonly} onCheckedChange={handleChange} className={props.className} />",
+      "exampleFrom": "src/components/MemoContent/TaskListItem.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DialogContent": {
+      "ref": "DialogContent",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DialogContent"
+      ],
+      "main": "DialogContent",
+      "from": "@/components/ui/dialog",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "showCloseButton",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'sm' | 'default' | 'lg' | 'xl' | '2xl' | 'full'",
+          "required": false,
+          "values": [
+            "sm",
+            "default",
+            "lg",
+            "xl",
+            "2xl",
+            "full"
+          ],
+          "from": "cva"
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "DialogOverlay"
+      ],
+      "renders": [
+        "DialogOverlay",
+        "DialogPortal",
+        "DialogPrimitive.Close",
+        "DialogPrimitive.Popup",
+        "XIcon",
+        "div",
+        "span"
+      ],
+      "variants": {
+        "showCloseButton": {
+          "prop": "showCloseButton",
+          "values": [
+            "true"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "sm",
+            "default",
+            "lg",
+            "xl",
+            "2xl",
+            "full"
+          ]
+        }
+      },
+      "sourcePath": "dialog.tsx",
+      "example": "<DialogContent size=\"sm\">\n        <DialogHeader>\n          <DialogTitle>{title}</DialogTitle>\n          {description ? <DialogDescription>{description}</DialogDescription> : null}\n        </DialogHeader>\n        <DialogFooter>\n          <Button variant=\"ghost\" disabled={loading} onClick={() => onOpenChange(false)}>\n            {cancelLabel}\n          </Button>\n          <Button variant={confirmVariant} disabled={loading} onClick={handleConfirm} data-loading={loading}>\n            {confirmLabel}\n          </Button>\n        </DialogFooter>\n      </DialogContent>",
+      "exampleFrom": "src/components/ConfirmDialog/index.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DialogDescription": {
+      "ref": "DialogDescription",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DialogDescription"
+      ],
+      "main": "DialogDescription",
+      "from": "@/components/ui/dialog",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DialogPrimitive.Description"
+      ],
+      "sourcePath": "dialog.tsx",
+      "example": "<DialogDescription className=\"sr-only\">\n          {t(\"common.search\")} {scopeLabel}\n        </DialogDescription>",
+      "exampleFrom": "src/components/AppSidebar/QuickFindDialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DialogFooter": {
+      "ref": "DialogFooter",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DialogFooter"
+      ],
+      "main": "DialogFooter",
+      "from": "@/components/ui/dialog",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "div"
+      ],
+      "sourcePath": "dialog.tsx",
+      "example": "<DialogFooter>\n          <Button variant=\"ghost\" disabled={loading} onClick={() => onOpenChange(false)}>\n            {cancelLabel}\n          </Button>\n          <Button variant={confirmVariant} disabled={loading} onClick={handleConfirm} data-loading={loading}>\n            {confirmLabel}\n          </Button>\n        </DialogFooter>",
+      "exampleFrom": "src/components/ConfirmDialog/index.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DialogHeader": {
+      "ref": "DialogHeader",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DialogHeader"
+      ],
+      "main": "DialogHeader",
+      "from": "@/components/ui/dialog",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "div"
+      ],
+      "sourcePath": "dialog.tsx",
+      "example": "<DialogHeader>\n          <DialogTitle className=\"flex items-center gap-2\">\n            <LinkIcon className=\"h-4 w-4\" />\n            {t(\"memo.share.title\")}\n          </DialogTitle>\n        </DialogHeader>",
+      "exampleFrom": "src/components/MemoDetailSidebar/MemoSharePanel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DialogOverlay": {
+      "ref": "DialogOverlay",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DialogOverlay"
+      ],
+      "main": "DialogOverlay",
+      "from": "@/components/ui/dialog",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DialogPrimitive.Backdrop"
+      ],
+      "sourcePath": "dialog.tsx",
+      "example": "<DialogOverlay />",
+      "exampleFrom": "src/components/ui/dialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DialogTitle": {
+      "ref": "DialogTitle",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DialogTitle"
+      ],
+      "main": "DialogTitle",
+      "from": "@/components/ui/dialog",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DialogPrimitive.Title"
+      ],
+      "sourcePath": "dialog.tsx",
+      "example": "<DialogTitle className=\"sr-only\">{t(\"common.search\")}</DialogTitle>",
+      "exampleFrom": "src/components/AppSidebar/QuickFindDialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenu": {
+      "ref": "DropdownMenu",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenu"
+      ],
+      "main": "DropdownMenu",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.Root"
+      ],
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenu>\n        <DropdownMenuTrigger render={<SegmentButton Icon={HeadingGlyph} label={t(\"editor.format.heading\")} />} />\n        <DropdownMenuContent align=\"start\" finalFocus={returnFocusToEditor}>\n          {HEADING_COMMANDS.map((command) => (\n            <DropdownMenuItem key={command.id} onClick={() => run(command.id)}>\n              {t(command.labelKey)}\n            </DropdownMenuItem>\n          ))}\n        </DropdownMenuContent>\n      </DropdownMenu>",
+      "exampleFrom": "src/components/MemoEditor/Toolbar/FormattingToolbar.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenuCheckboxItem": {
+      "ref": "DropdownMenuCheckboxItem",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuCheckboxItem"
+      ],
+      "main": "DropdownMenuCheckboxItem",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CheckIcon",
+        "DropdownMenuPrimitive.CheckboxItem",
+        "DropdownMenuPrimitive.CheckboxItemIndicator",
+        "span"
+      ],
+      "sourcePath": "dropdown-menu.tsx"
+    },
+    "DropdownMenuContent": {
+      "ref": "DropdownMenuContent",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuContent"
+      ],
+      "main": "DropdownMenuContent",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "DropdownMenuSize",
+          "required": false,
+          "values": [
+            "default",
+            "sm"
+          ]
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.Popup",
+        "DropdownMenuPrimitive.Portal",
+        "DropdownMenuPrimitive.Positioner",
+        "DropdownMenuSizeContext.Provider"
+      ],
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "default",
+            "sm"
+          ]
+        }
+      },
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenuContent\n      align=\"start\"\n      alignOffset={-3}\n      side=\"right\"\n      sideOffset={0}\n      size={size ?? inheritedSize}\n      className={cn(\"w-auto\", className)}\n      {...props}\n    />",
+      "exampleFrom": "src/components/ui/dropdown-menu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenuGroup": {
+      "ref": "DropdownMenuGroup",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuGroup"
+      ],
+      "main": "DropdownMenuGroup",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.Group"
+      ],
+      "sourcePath": "dropdown-menu.tsx"
+    },
+    "DropdownMenuItem": {
+      "ref": "DropdownMenuItem",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuItem"
+      ],
+      "main": "DropdownMenuItem",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"destructive\"",
+          "required": false,
+          "values": [
+            "default",
+            "destructive"
+          ]
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.Item"
+      ],
+      "variants": {
+        "inset": {
+          "prop": "inset",
+          "values": [
+            "true"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "default",
+            "destructive"
+          ]
+        }
+      },
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenuItem\n            key={item.id}\n            aria-current={item.id === resolvedScope ? \"page\" : undefined}\n            className={cn(\n              \"h-[30px] shrink-0 py-0 text-[13px]\",\n              item.id === resolvedScope && \"bg-accent font-medium text-accent-foreground\",\n            )}\n            onClick={() => navigateToScope(item.id)}\n          >\n            <Icon className=\"size-4\" strokeWidth={1.8} />\n            <span className=\"truncate\">{item.label}</span>\n          </DropdownMenuItem>",
+      "exampleFrom": "src/components/AppSidebar/AppSidebar.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenuLabel": {
+      "ref": "DropdownMenuLabel",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuLabel"
+      ],
+      "main": "DropdownMenuLabel",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.GroupLabel"
+      ],
+      "variants": {
+        "inset": {
+          "prop": "inset",
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "sourcePath": "dropdown-menu.tsx"
+    },
+    "DropdownMenuRadioGroup": {
+      "ref": "DropdownMenuRadioGroup",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuRadioGroup"
+      ],
+      "main": "DropdownMenuRadioGroup",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.RadioGroup"
+      ],
+      "sourcePath": "dropdown-menu.tsx"
+    },
+    "DropdownMenuRadioItem": {
+      "ref": "DropdownMenuRadioItem",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuRadioItem"
+      ],
+      "main": "DropdownMenuRadioItem",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CircleIcon",
+        "DropdownMenuPrimitive.RadioItem",
+        "DropdownMenuPrimitive.RadioItemIndicator",
+        "span"
+      ],
+      "sourcePath": "dropdown-menu.tsx"
+    },
+    "DropdownMenuSeparator": {
+      "ref": "DropdownMenuSeparator",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuSeparator"
+      ],
+      "main": "DropdownMenuSeparator",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.Separator"
+      ],
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenuSeparator />",
+      "exampleFrom": "src/components/MemoEditor/Toolbar/InsertMenu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenuShortcut": {
+      "ref": "DropdownMenuShortcut",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuShortcut"
+      ],
+      "main": "DropdownMenuShortcut",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "span"
+      ],
+      "sourcePath": "dropdown-menu.tsx"
+    },
+    "DropdownMenuSub": {
+      "ref": "DropdownMenuSub",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuSub"
+      ],
+      "main": "DropdownMenuSub",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.SubmenuRoot"
+      ],
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenuSub>\n          <DropdownMenuSubTrigger>\n            <GlobeIcon className=\"size-4 text-muted-foreground\" />\n            {t(\"common.language\")}\n          </DropdownMenuSubTrigger>\n          <DropdownMenuSubContent className=\"max-h-[min(24rem,var(--available-height))] overflow-y-auto p-0\">\n            <LocaleSearchList value={currentLocale} onChange={handleLocaleChange} className=\"w-64\" />\n          </DropdownMenuSubContent>\n        </DropdownMenuSub>",
+      "exampleFrom": "src/components/UserMenu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenuSubContent": {
+      "ref": "DropdownMenuSubContent",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuSubContent"
+      ],
+      "main": "DropdownMenuSubContent",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "DropdownMenuSize",
+          "required": false,
+          "values": [
+            "default",
+            "sm"
+          ]
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "DropdownMenuContent"
+      ],
+      "renders": [
+        "DropdownMenuContent"
+      ],
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "default",
+            "sm"
+          ]
+        }
+      },
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenuSubContent className=\"max-h-[min(24rem,var(--available-height))] overflow-y-auto p-0\">\n            <LocaleSearchList value={currentLocale} onChange={handleLocaleChange} className=\"w-64\" />\n          </DropdownMenuSubContent>",
+      "exampleFrom": "src/components/UserMenu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenuSubTrigger": {
+      "ref": "DropdownMenuSubTrigger",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuSubTrigger"
+      ],
+      "main": "DropdownMenuSubTrigger",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "inset",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "ChevronRightIcon",
+        "DropdownMenuPrimitive.SubmenuTrigger"
+      ],
+      "variants": {
+        "inset": {
+          "prop": "inset",
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenuSubTrigger>\n              <CopyIcon className=\"w-4 h-auto\" />\n              {t(\"common.copy\")}\n            </DropdownMenuSubTrigger>",
+      "exampleFrom": "src/components/MemoActionMenu/MemoActionMenu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "DropdownMenuTrigger": {
+      "ref": "DropdownMenuTrigger",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "DropdownMenuTrigger"
+      ],
+      "main": "DropdownMenuTrigger",
+      "from": "@/components/ui/dropdown-menu",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "DropdownMenuPrimitive.Trigger"
+      ],
+      "sourcePath": "dropdown-menu.tsx",
+      "example": "<DropdownMenuTrigger render={<Button variant=\"secondary\" size=\"icon\" disabled={insertionDisabled} aria-label={t(\"common.add\")} />}>\n          {isUploading ? <LoaderIcon className=\"size-4 animate-spin\" /> : <PlusIcon className=\"size-4\" />}\n        </DropdownMenuTrigger>",
+      "exampleFrom": "src/components/MemoEditor/Toolbar/InsertMenu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Input": {
+      "ref": "Input",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Input"
+      ],
+      "main": "Input",
+      "from": "@/components/ui/input",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "input"
+      ],
+      "sourcePath": "input.tsx",
+      "example": "<Input\n          id={`${idPrefix}-username`}\n          type=\"text\"\n          readOnly={readOnly}\n          placeholder={t(\"common.username\")}\n          value={username}\n          autoComplete=\"username\"\n          autoCapitalize=\"off\"\n          spellCheck={false}\n          onChange={(e) => onUsernameChange(e.target.value)}\n          required\n        />",
+      "exampleFrom": "src/components/CredentialFields.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Label": {
+      "ref": "Label",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Label"
+      ],
+      "main": "Label",
+      "from": "@/components/ui/label",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "label"
+      ],
+      "sourcePath": "label.tsx",
+      "example": "<Label htmlFor=\"memo-location-lat\" className=\"text-xs uppercase tracking-wide text-muted-foreground\">\n                  Lat\n                </Label>",
+      "exampleFrom": "src/components/MemoMetadata/Location/LocationDialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Popover": {
+      "ref": "Popover",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Popover"
+      ],
+      "main": "Popover",
+      "from": "@/components/ui/popover",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "PopoverPrimitive.Root"
+      ],
+      "sourcePath": "popover.tsx"
+    },
+    "PopoverContent": {
+      "ref": "PopoverContent",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "PopoverContent"
+      ],
+      "main": "PopoverContent",
+      "from": "@/components/ui/popover",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "PopoverPrimitive.Popup",
+        "PopoverPrimitive.Portal",
+        "PopoverPrimitive.Positioner"
+      ],
+      "sourcePath": "popover.tsx",
+      "example": "<PopoverContent align=\"start\" className=\"w-auto p-2 pt-1 space-y-1\">\n        <TimestampInput\n          label={t(\"common.created-at\")}\n          date={createTime}\n          onChange={(d) => dispatch(actions.setTimestamps({ createTime: d }))}\n        />\n        <TimestampInput\n          label={t(\"common.last-updated-at\")}\n          date={updateTime}\n          onChange={(d) => dispatch(actions.setTimestamps({ updateTime: d }))}\n        />\n      </PopoverContent>",
+      "exampleFrom": "src/components/MemoEditor/components/TimestampPopover.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "PopoverTrigger": {
+      "ref": "PopoverTrigger",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "PopoverTrigger"
+      ],
+      "main": "PopoverTrigger",
+      "from": "@/components/ui/popover",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "PopoverPrimitive.Trigger"
+      ],
+      "sourcePath": "popover.tsx",
+      "example": "<PopoverTrigger render={<Button type=\"button\" variant=\"outline\" className={cn(\"w-full justify-between\", className)} />}>\n        <span className=\"flex min-w-0 flex-1 items-center gap-2\">\n          <GlobeIcon className=\"size-4 shrink-0 text-muted-foreground\" />\n          <span className=\"truncate\">{getLocaleDisplayName(value)}</span>\n        </span>\n        <ChevronDownIcon className=\"size-4 shrink-0 text-muted-foreground\" />\n      </PopoverTrigger>",
+      "exampleFrom": "src/components/LocalePicker.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "RadioGroup": {
+      "ref": "RadioGroup",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "RadioGroup"
+      ],
+      "main": "RadioGroup",
+      "from": "@/components/ui/radio-group",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "RadioGroupPrimitive"
+      ],
+      "sourcePath": "radio-group.tsx",
+      "example": "<RadioGroup value={state.expiration.toString()} onValueChange={handleRoleInputChange} className=\"flex flex-row gap-4\">\n                {expirationOptions.map((option) => (\n                  <div key={option.value} className=\"flex items-center space-x-2\">\n                    <RadioGroupItem value={option.value.toString()} id={`expiration-${option.value}`} />\n                    <Label htmlFor={`expiration-${option.value}`}>{option.label}</Label>\n                  </div>\n                ))}\n              </RadioGroup>",
+      "exampleFrom": "src/components/CreateAccessTokenDialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "RadioGroupItem": {
+      "ref": "RadioGroupItem",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "RadioGroupItem"
+      ],
+      "main": "RadioGroupItem",
+      "from": "@/components/ui/radio-group",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CircleIcon",
+        "Radio.Indicator",
+        "Radio.Root"
+      ],
+      "sourcePath": "radio-group.tsx",
+      "example": "<RadioGroupItem value={String(option.storageType)} id={option.id} className=\"mt-0.5\" />",
+      "exampleFrom": "src/components/Settings/StorageSection.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Select": {
+      "ref": "Select",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Select"
+      ],
+      "main": "Select",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [
+        {
+          "name": "onValueChange",
+          "type": "(value: string) => void",
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SelectPrimitive.Root"
+      ],
+      "sourcePath": "select.tsx",
+      "example": "<Select\n          value={transcription.providerId || \"__none__\"}\n          items={providerOptions}\n          onValueChange={(value) => update({ providerId: value === \"__none__\" ? \"\" : value })}\n          disabled={noProviders}\n        >\n          <SelectTrigger className=\"w-full\">\n            <SelectValue />\n          </SelectTrigger>\n          <SelectContent>\n            {providerOptions.map((option) => (\n              <SelectItem key={option.value} value={option.value}>\n                {option.label}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>",
+      "exampleFrom": "src/components/Settings/AISection.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SelectContent": {
+      "ref": "SelectContent",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectContent"
+      ],
+      "main": "SelectContent",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "SelectScrollDownButton",
+        "SelectScrollUpButton"
+      ],
+      "renders": [
+        "SelectPrimitive.List",
+        "SelectPrimitive.Popup",
+        "SelectPrimitive.Portal",
+        "SelectPrimitive.Positioner",
+        "SelectScrollDownButton",
+        "SelectScrollUpButton"
+      ],
+      "sourcePath": "select.tsx",
+      "example": "<SelectContent>\n                {visibilityOptions.map((option) => (\n                  <SelectItem key={option.value} value={option.value} className=\"whitespace-nowrap\">\n                    {option.label}\n                  </SelectItem>\n                ))}\n              </SelectContent>",
+      "exampleFrom": "src/components/Settings/PreferencesSection.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SelectGroup": {
+      "ref": "SelectGroup",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectGroup"
+      ],
+      "main": "SelectGroup",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SelectPrimitive.Group"
+      ],
+      "sourcePath": "select.tsx"
+    },
+    "SelectItem": {
+      "ref": "SelectItem",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectItem"
+      ],
+      "main": "SelectItem",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CheckIcon",
+        "SelectPrimitive.Item",
+        "SelectPrimitive.ItemIndicator",
+        "SelectPrimitive.ItemText",
+        "span"
+      ],
+      "sourcePath": "select.tsx",
+      "example": "<SelectItem key={option.value} value={option.value} className=\"whitespace-nowrap\">\n                    {option.label}\n                  </SelectItem>",
+      "exampleFrom": "src/components/Settings/PreferencesSection.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SelectLabel": {
+      "ref": "SelectLabel",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectLabel"
+      ],
+      "main": "SelectLabel",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SelectPrimitive.GroupLabel"
+      ],
+      "sourcePath": "select.tsx"
+    },
+    "SelectScrollDownButton": {
+      "ref": "SelectScrollDownButton",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectScrollDownButton"
+      ],
+      "main": "SelectScrollDownButton",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "ChevronDownIcon",
+        "SelectPrimitive.ScrollDownArrow"
+      ],
+      "sourcePath": "select.tsx",
+      "example": "<SelectScrollDownButton />",
+      "exampleFrom": "src/components/ui/select.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SelectScrollUpButton": {
+      "ref": "SelectScrollUpButton",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectScrollUpButton"
+      ],
+      "main": "SelectScrollUpButton",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "ChevronUpIcon",
+        "SelectPrimitive.ScrollUpArrow"
+      ],
+      "sourcePath": "select.tsx",
+      "example": "<SelectScrollUpButton />",
+      "exampleFrom": "src/components/ui/select.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SelectSeparator": {
+      "ref": "SelectSeparator",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectSeparator"
+      ],
+      "main": "SelectSeparator",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SelectPrimitive.Separator"
+      ],
+      "sourcePath": "select.tsx"
+    },
+    "SelectTrigger": {
+      "ref": "SelectTrigger",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectTrigger"
+      ],
+      "main": "SelectTrigger",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [
+        {
+          "name": "size",
+          "type": "\"xs\" | \"sm\" | \"default\"",
+          "required": false,
+          "values": [
+            "xs",
+            "sm",
+            "default"
+          ]
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "ChevronDownIcon",
+        "SelectPrimitive.Icon",
+        "SelectPrimitive.Trigger"
+      ],
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "xs",
+            "sm",
+            "default"
+          ]
+        }
+      },
+      "sourcePath": "select.tsx",
+      "example": "<SelectTrigger size=\"sm\" className=\"w-32\" aria-label={t(\"memo.order-by\")}>\n              <SelectValue />\n            </SelectTrigger>",
+      "exampleFrom": "src/components/MemoDisplaySettingMenu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SelectValue": {
+      "ref": "SelectValue",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SelectValue"
+      ],
+      "main": "SelectValue",
+      "from": "@/components/ui/select",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SelectPrimitive.Value"
+      ],
+      "sourcePath": "select.tsx",
+      "example": "<SelectValue className=\"truncate\" placeholder=\"Select theme\" />",
+      "exampleFrom": "src/components/ThemeSelect.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Separator": {
+      "ref": "Separator",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Separator"
+      ],
+      "main": "Separator",
+      "from": "@/components/ui/separator",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SeparatorPrimitive"
+      ],
+      "sourcePath": "separator.tsx",
+      "example": "<Separator className=\"my-0\" />",
+      "exampleFrom": "src/components/Settings/SettingGroup.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Sheet": {
+      "ref": "Sheet",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Sheet"
+      ],
+      "main": "Sheet",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SheetPrimitive.Root"
+      ],
+      "sourcePath": "sheet.tsx",
+      "example": "<Sheet open={mobileOpen} onOpenChange={setMobileOpen}>\n      <SheetContent side=\"left\" className=\"w-[min(18rem,calc(100vw-2rem))] gap-0 border-border p-0 shadow-2xl [&>button]:hidden\">\n        <SheetTitle className=\"sr-only\">Navigation</SheetTitle>\n        <AppSidebar />\n      </SheetContent>\n    </Sheet>",
+      "exampleFrom": "src/components/AppSidebar/AppSidebar.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SheetClose": {
+      "ref": "SheetClose",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SheetClose"
+      ],
+      "main": "SheetClose",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SheetPrimitive.Close"
+      ],
+      "sourcePath": "sheet.tsx"
+    },
+    "SheetContent": {
+      "ref": "SheetContent",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SheetContent"
+      ],
+      "main": "SheetContent",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "side",
+          "type": "\"top\" | \"right\" | \"bottom\" | \"left\"",
+          "required": false,
+          "values": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SheetOverlay",
+        "SheetPortal",
+        "SheetPrimitive.Close",
+        "SheetPrimitive.Popup",
+        "XIcon",
+        "span"
+      ],
+      "variants": {
+        "side": {
+          "prop": "side",
+          "values": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        }
+      },
+      "sourcePath": "sheet.tsx",
+      "example": "<SheetContent side=\"left\" className=\"w-[min(18rem,calc(100vw-2rem))] gap-0 border-border p-0 shadow-2xl [&>button]:hidden\">\n        <SheetTitle className=\"sr-only\">Navigation</SheetTitle>\n        <AppSidebar />\n      </SheetContent>",
+      "exampleFrom": "src/components/AppSidebar/AppSidebar.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SheetDescription": {
+      "ref": "SheetDescription",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SheetDescription"
+      ],
+      "main": "SheetDescription",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SheetPrimitive.Description"
+      ],
+      "sourcePath": "sheet.tsx"
+    },
+    "SheetFooter": {
+      "ref": "SheetFooter",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SheetFooter"
+      ],
+      "main": "SheetFooter",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "div"
+      ],
+      "sourcePath": "sheet.tsx"
+    },
+    "SheetHeader": {
+      "ref": "SheetHeader",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SheetHeader"
+      ],
+      "main": "SheetHeader",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "div"
+      ],
+      "sourcePath": "sheet.tsx"
+    },
+    "SheetTitle": {
+      "ref": "SheetTitle",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SheetTitle"
+      ],
+      "main": "SheetTitle",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SheetPrimitive.Title"
+      ],
+      "sourcePath": "sheet.tsx",
+      "example": "<SheetTitle className=\"sr-only\">Navigation</SheetTitle>",
+      "exampleFrom": "src/components/AppSidebar/AppSidebar.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "SheetTrigger": {
+      "ref": "SheetTrigger",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "SheetTrigger"
+      ],
+      "main": "SheetTrigger",
+      "from": "@/components/ui/sheet",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SheetPrimitive.Trigger"
+      ],
+      "sourcePath": "sheet.tsx"
+    },
+    "Switch": {
+      "ref": "Switch",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Switch"
+      ],
+      "main": "Switch",
+      "from": "@/components/ui/switch",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SwitchPrimitive.Root",
+        "SwitchPrimitive.Thumb"
+      ],
+      "sourcePath": "switch.tsx",
+      "example": "<Switch\n            aria-label={t(\"memo.compact-mode\")}\n            checked={compactLocked || compactMode}\n            onCheckedChange={setCompactMode}\n            disabled={compactLocked}\n          />",
+      "exampleFrom": "src/components/MemoDisplaySettingMenu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Tabs": {
+      "ref": "Tabs",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Tabs"
+      ],
+      "main": "Tabs",
+      "from": "@/components/ui/tabs",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string) => void",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "TabsVariant",
+          "required": false,
+          "values": [
+            "segmented",
+            "underline"
+          ]
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "TabsContext.Provider",
+        "div"
+      ],
+      "variants": {
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "segmented",
+            "underline"
+          ]
+        }
+      },
+      "sourcePath": "tabs.tsx"
+    },
+    "TabsList": {
+      "ref": "TabsList",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "TabsList"
+      ],
+      "main": "TabsList",
+      "from": "@/components/ui/tabs",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "div"
+      ],
+      "sourcePath": "tabs.tsx"
+    },
+    "TabsTrigger": {
+      "ref": "TabsTrigger",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "TabsTrigger"
+      ],
+      "main": "TabsTrigger",
+      "from": "@/components/ui/tabs",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "'segmented' | 'underline'",
+          "required": false,
+          "values": [
+            "segmented",
+            "underline"
+          ],
+          "from": "cva"
+        },
+        {
+          "name": "active",
+          "type": "'true' | 'false'",
+          "required": false,
+          "values": [
+            "true",
+            "false"
+          ],
+          "from": "cva"
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "button"
+      ],
+      "variants": {
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "segmented",
+            "underline"
+          ]
+        },
+        "active": {
+          "prop": "active",
+          "values": [
+            "true",
+            "false"
+          ]
+        }
+      },
+      "sourcePath": "tabs.tsx"
+    },
+    "Textarea": {
+      "ref": "Textarea",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Textarea"
+      ],
+      "main": "Textarea",
+      "from": "@/components/ui/textarea",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "textarea"
+      ],
+      "sourcePath": "textarea.tsx",
+      "example": "<Textarea\n          value={transcription.prompt}\n          onChange={(e) => update({ prompt: e.target.value })}\n          placeholder={t(\"setting.ai.transcription-prompt-placeholder\")}\n          rows={3}\n          disabled={!transcription.providerId}\n          maxLength={4096}\n        />",
+      "exampleFrom": "src/components/Settings/AISection.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "Tooltip": {
+      "ref": "Tooltip",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Tooltip"
+      ],
+      "main": "Tooltip",
+      "from": "@/components/ui/tooltip",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "TooltipPrimitive.Root"
+      ],
+      "sourcePath": "tooltip.tsx",
+      "example": "<Tooltip>\n            <TooltipTrigger render={<span className=\"inline-flex\" tabIndex={0} aria-label={blockedMessage} />}>\n              <Button onClick={onSave} disabled>\n                {t(\"editor.save\")}\n              </Button>\n            </TooltipTrigger>\n            <TooltipContent side=\"top\">{blockedMessage}</TooltipContent>\n          </Tooltip>",
+      "exampleFrom": "src/components/MemoEditor/Toolbar/EditorToolbar.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "TooltipContent": {
+      "ref": "TooltipContent",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "TooltipContent"
+      ],
+      "main": "TooltipContent",
+      "from": "@/components/ui/tooltip",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "TooltipPrimitive.Arrow",
+        "TooltipPrimitive.Popup",
+        "TooltipPrimitive.Portal",
+        "TooltipPrimitive.Positioner"
+      ],
+      "sourcePath": "tooltip.tsx",
+      "example": "<TooltipContent align=\"start\" className=\"flex flex-col items-start gap-0.5 whitespace-nowrap text-left\">\n      {content.createdAt && <span>{content.createdAt}</span>}\n      {content.updatedAt && <span>{content.updatedAt}</span>}\n    </TooltipContent>",
+      "exampleFrom": "src/components/MemoView/components/MemoHeader.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "TooltipProvider": {
+      "ref": "TooltipProvider",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "TooltipProvider"
+      ],
+      "main": "TooltipProvider",
+      "from": "@/components/ui/tooltip",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "TooltipPrimitive.Provider"
+      ],
+      "sourcePath": "tooltip.tsx",
+      "example": "<TooltipProvider>\n      <Tooltip>\n        <TooltipTrigger render={<a className={`text-muted-foreground hover:text-primary ${className}`} href={url} target=\"_blank\" />}>\n          <ExternalLinkIcon className=\"w-4 h-auto\" />\n        </TooltipTrigger>\n        <TooltipContent>\n          <p>{title ?? t(\"common.learn-more\")}</p>\n        </TooltipContent>\n      </Tooltip>\n    </TooltipProvider>",
+      "exampleFrom": "src/components/LearnMore.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "TooltipTrigger": {
+      "ref": "TooltipTrigger",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "TooltipTrigger"
+      ],
+      "main": "TooltipTrigger",
+      "from": "@/components/ui/tooltip",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "TooltipPrimitive.Trigger"
+      ],
+      "sourcePath": "tooltip.tsx",
+      "example": "<TooltipTrigger render={<span className=\"-ml-2 inline-flex\" />}>\n              <Button\n                type=\"button\"\n                variant=\"ghost\"\n                size=\"icon\"\n                className=\"rounded-full\"\n                onClick={onTranscribe}\n                disabled={isTranscribeDisabled}\n                aria-label={t(\"editor.audio-recorder.transcribe\")}\n              >\n                <AudioWaveformIcon className=\"size-4\" />\n              </Button>\n            </TooltipTrigger>",
+      "exampleFrom": "src/components/MemoEditor/components/AudioRecorderPanel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    },
+    "VisuallyHidden": {
+      "ref": "VisuallyHidden",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "VisuallyHidden"
+      ],
+      "main": "VisuallyHidden",
+      "from": "@/components/ui/visually-hidden",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "span"
+      ],
+      "sourcePath": "visually-hidden.tsx",
+      "example": "<VisuallyHidden>\n          <DialogClose />\n        </VisuallyHidden>",
+      "exampleFrom": "src/components/MemoMetadata/Location/LocationDialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be"
+    }
+  },
+  "blocks": {}
+}

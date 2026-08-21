@@ -1,0 +1,35 @@
+{
+  "_": "An installed gate, as `install` leaves one. The enforced set is deliberately out of step with what the repository now measures, so an update has something to move: one rule steady, one whose expectation changed, one that no longer holds anywhere, and one the repository has settled on since.",
+  "schemaVersion": 1,
+  "generatedFrom": "ds-profile scan of 11 files",
+  "mode": "settled",
+  "scope": "src",
+  "excluded": [
+    "vendor",
+    "src/generated"
+  ],
+  "enforce": {
+    "file structure": {
+      "expect": "flat Name.tsx",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "styling": {
+      "expect": "CSS modules",
+      "share": 0.62,
+      "source": "whole repository"
+    },
+    "internal imports": {
+      "expect": "relative",
+      "share": 1,
+      "source": "whole repository"
+    },
+    "handler naming": {
+      "expect": "handleX",
+      "share": 0.9,
+      "source": "whole repository"
+    }
+  },
+  "documented": {},
+  "undecided": {}
+}

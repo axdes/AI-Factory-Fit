@@ -1,0 +1,12 @@
+{
+  "_": "Roles bound for the fixture. `chart` is bound to a component whose module is deliberately absent, so the test can prove the generator says so rather than reporting a screen that conforms.",
+  "schemaVersion": 1,
+  "profile": "screen-test",
+  "axes": {},
+  "roles": {
+    "heading":       { "component": "PageHeading" },
+    "primaryAction": { "component": "ActionButton" },
+    "table":         { "component": "DataTable" },
+    "chart":         { "component": "Sparkline" }
+  }
+}

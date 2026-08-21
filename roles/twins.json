@@ -1,0 +1,21 @@
+{
+  "_": [
+    "Pairs that scripts/lint-twins.mjs flags as alike and that a person has looked at.",
+    "",
+    "An entry is not permission to duplicate. It is a claim that the two components",
+    "are genuinely different, plus the condition under which that claim expires — so",
+    "the next reader can check the claim instead of inheriting it.",
+    "",
+    "Enforcement is bidirectional. A new similar pair with no entry here FAILS the",
+    "gate: a duplicate in the library is inherited by every product that adopts it.",
+    "An entry whose pair has stopped resembling (the profile changed, or one now",
+    "renders the other) also FAILS as stale — an excuse nobody needs any more would",
+    "silently waive a real duplicate later."
+  ],
+  "pairs": {
+    "Meter ~ Stat": {
+      "separated": "both show a labelled value with a tone and a size, but Meter draws it as a proportional bar against a fixed min/max scale (with an optional target marker), while Stat renders the raw figure large with a caption and no scale — a gauge versus a reading. The shared props (value, label, tone, size) are the vocabulary any value display uses; neither renders the other.",
+      "reopenIf": "Stat grows a bar or a min/max scale, or Meter drops its bar to show only the number — at that point one component with a 'draw the bar?' flag is the smaller thing."
+    }
+  }
+}

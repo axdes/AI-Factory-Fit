@@ -1,0 +1,6 @@
+{
+  "_": "The styling convention is agreed, so a stylesheet is written even though the screens on disk mostly have none. What the stylesheet CONTAINS is measured.",
+  "schemaVersion": 1, "scope": "src", "excluded": [],
+  "enforce": { "styling": { "expect": "plain co-located CSS", "share": 1, "source": "whole repository" } },
+  "documented": {}, "undecided": {}
+}

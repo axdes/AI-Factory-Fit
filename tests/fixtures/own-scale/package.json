@@ -1,0 +1,9 @@
+{
+  "name": "screen-idiom-fixture",
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "@storybook/react": "^8.3.0",
+    "@storybook/react-vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "filter-bar",
+  "requirement": "A bar that narrows a list by free text and by a status chosen from a short fixed set.",
+  "mustUse": ["SearchInput", "Select"],
+  "expects": ["a short fixed list is a Select, not an Autocomplete"]
+}

@@ -1,0 +1,18 @@
+node_modules/
+scans/
+styles/
+tests/fixtures/.tmp/
+.sandboxes/
+
+# Not ours to publish, and not needed to run anything here.
+#
+# `profiles/own` and `profiles/css-extracted` were extracted from a private design
+# system; the reference profile committed in their place comes from a public library
+# so that every number in this repository can be re-derived by anybody.
+profiles/own/
+profiles/css-extracted/
+bindings/own.json
+
+# Agent definitions vendored from an internal marketplace. Kept locally as reference,
+# never redistributed.
+references/agents/

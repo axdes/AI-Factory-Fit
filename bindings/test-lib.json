@@ -1,0 +1,7 @@
+{
+  "_": "Role bindings for test-lib. EMPTY AND DELIBERATELY SO: a binding claims that a component is the right answer for a role, which is judgment. Fill these in before building screens against this profile; `ds spec` will name every role it cannot resolve.",
+  "schemaVersion": 1,
+  "profile": "test-lib",
+  "axes": {},
+  "roles": {}
+}

@@ -1,0 +1,63 @@
+{
+  "_": "A profile whose specifiers point at modules this fixture really has, so the test can tell a preserved path from an invented one. `PageHeading` sits at @/ui/heading; a generator that rewrites it through the measured alias produces @/PageHeading, which is nowhere.",
+  "schemaVersion": 1,
+  "profile": "screen-test",
+  "components": {
+    "PageHeading": {
+      "from": "@/ui/heading",
+      "exportedAs": "named",
+      "level": "molecule",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false
+        }
+      ]
+    },
+    "ActionButton": {
+      "from": "@/ui/button",
+      "exportedAs": "named",
+      "level": "atom",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "'primary' | 'ghost'",
+          "required": true,
+          "values": [
+            "primary",
+            "ghost"
+          ]
+        }
+      ]
+    },
+    "DataTable": {
+      "from": "@/ui/table",
+      "exportedAs": "named",
+      "level": "organism",
+      "props": [
+        {
+          "name": "rows",
+          "type": "unknown[]",
+          "required": true
+        },
+        {
+          "name": "dense",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    "Sparkline": {
+      "from": "@/ui/sparkline",
+      "exportedAs": "named",
+      "level": "molecule",
+      "props": []
+    }
+  }
+}

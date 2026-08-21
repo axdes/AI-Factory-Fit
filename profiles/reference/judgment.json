@@ -1,0 +1,20 @@
+{
+  "_": "Which of two confusable components to reach for, and the condition under which the decision would be reopened. Authored; no library publishes this.",
+  "schemaVersion": 1,
+  "twins": {
+    "pairs": {
+      "Checkbox ~ Switch": {
+        "separated": "when the change takes effect. A Switch acts the moment it is flipped and the screen must reflect it immediately; a Checkbox collects an answer that is submitted with the rest of the form. Both are two-state and look alike, which is why the wrong one is chosen so often.",
+        "reopenIf": "the product adopts auto-saving forms, at which point the distinction stops being about timing and has to be redrawn."
+      },
+      "Progress ~ Spinner": {
+        "separated": "whether the length is known. Progress needs a denominator; a Spinner is the honest answer when there is none. A Spinner shown for a task whose length IS known throws away information the user wants.",
+        "reopenIf": "Progress learns an indeterminate mode, which would make the pair one component with a prop."
+      },
+      "Button ~ Link": {
+        "separated": "whether it acts or navigates, never how it looks. A Link that changes state breaks the back button and cannot be opened in a new tab meaningfully; a Button that navigates loses the address.",
+        "reopenIf": "never — this one follows from the platform, not from this system."
+      }
+    }
+  }
+}

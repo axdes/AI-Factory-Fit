@@ -1,0 +1,6 @@
+{
+  "id": "status-row",
+  "requirement": "A row showing a person, their status and an icon-only action to open their profile.",
+  "mustUse": ["Avatar", "Badge", "IconButton"],
+  "expects": ["the icon-only control carries an accessible name"]
+}

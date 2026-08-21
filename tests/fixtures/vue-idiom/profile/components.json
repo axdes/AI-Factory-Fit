@@ -1,0 +1,52 @@
+{
+  "_": "A profile whose specifiers are .vue files, so the generator can tell a resolvable path from an invented one in a Vue project.",
+  "schemaVersion": 1,
+  "profile": "vue-test",
+  "components": {
+    "Heading": {
+      "from": "@/ui/heading.vue",
+      "exportedAs": "default",
+      "level": "molecule",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false
+        }
+      ]
+    },
+    "ActionButton": {
+      "from": "@/ui/button.vue",
+      "exportedAs": "default",
+      "level": "atom",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "'primary' | 'ghost'",
+          "required": true,
+          "values": [
+            "primary",
+            "ghost"
+          ]
+        }
+      ]
+    },
+    "Table": {
+      "from": "@/ui/table.vue",
+      "exportedAs": "default",
+      "level": "organism",
+      "props": [
+        {
+          "name": "rows",
+          "type": "unknown[]",
+          "required": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "antd",
+  "library": {
+    "name": "antd",
+    "kind": "third-party",
+    "source": "antd@6.6.0"
+  },
+  "adapter": "adapt-antd.mjs",
+  "tiers": {
+    "facts": [
+      "components.json",
+      "tokens.json"
+    ],
+    "policy": [
+      "policy.json",
+      "rules.json"
+    ],
+    "judgment": [
+      "judgment.json"
+    ]
+  },
+  "counts": {
+    "components": 56,
+    "blocks": 0,
+    "tokens": 536
+  }
+}

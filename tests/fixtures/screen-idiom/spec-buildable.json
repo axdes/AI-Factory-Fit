@@ -1,0 +1,10 @@
+{
+  "id": "a-page-listing-archived-memos-with-a-sea",
+  "title": "Archived memos",
+  "goal": "Find an archived memo.",
+  "zones": [
+    { "name": "header",  "purpose": "Name the screen.", "elements": ["heading", "primaryAction"] },
+    { "name": "content", "purpose": "One row per memo.", "elements": ["table"] }
+  ],
+  "states": { "empty": "nothing archived yet", "error": "the list could not be loaded" }
+}

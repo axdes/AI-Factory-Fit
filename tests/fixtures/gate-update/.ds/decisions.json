@@ -1,0 +1,10 @@
+{
+  "_": "Choices the team has made. These outrank the measurement and are never regenerated.",
+  "dimensions": {
+    "component export": {
+      "expect": "default",
+      "on": "2026-08-01",
+      "why": "settled in the design review; the measurement says otherwise and does not get a vote"
+    }
+  }
+}

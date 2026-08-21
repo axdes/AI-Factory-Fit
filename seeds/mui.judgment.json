@@ -1,0 +1,248 @@
+{
+  "_": [
+    "The judgment tier for @mui/material. Authored, not extracted.",
+    "",
+    "MUI ships its component descriptions on its documentation site, not in the",
+    "types it publishes: of 127 components, exactly one carries a usable sentence",
+    "in its .d.ts. So the single most important line for an agent — what this",
+    "component is for, and when to reach for it instead of its neighbour — is the",
+    "one thing the library does not give us. It is written here instead.",
+    "",
+    "`level` and `surface` are assignments too. MUI has no atomic hierarchy; these",
+    "place its components into ours so the import-direction rule can be enforced.",
+    "",
+    "`exclude` removes what is not a component you build a screen from. A registry",
+    "that offers GlobalStyles as a choice teaches the agent that it is one.",
+    "",
+    "Every entry here is a claim a person made and can be argued with. That is the",
+    "difference between this file and components.json, which is a transcript of",
+    "what the library declares."
+  ],
+  "schemaVersion": 1,
+  "library": "@mui/material",
+
+  "exclude": {
+    "CssBaseline": "Global style reset mounted once at the app root; never part of a screen.",
+    "ScopedCssBaseline": "The same reset scoped to a subtree; an app-shell decision, not a screen one.",
+    "GlobalStyles": "Escape hatch for arbitrary global CSS. Offering it invites exactly the hardcoding the token rules forbid.",
+    "InitColorSchemeScript": "Blocking script for first-paint theme selection; belongs to the document, not the UI.",
+    "ClickAwayListener": "Behavioural wrapper with no appearance; composed inside other components, not chosen for a screen.",
+    "PigmentContainer": "Pigment CSS build of Container. Two names for one thing splits the vocabulary; use Container.",
+    "PigmentStack": "Pigment CSS build of Stack. Use Stack."
+  },
+
+  "components": {
+    "Accordion": { "level": "molecule", "surface": "region", "description": "Collapsible section for content that is secondary until asked for; use Tabs when the sections are peers a user switches between rather than optional detail." },
+    "AccordionActions": { "level": "molecule", "surface": "card", "description": "Action row pinned to the bottom of an Accordion's expanded body." },
+    "AccordionDetails": { "level": "molecule", "surface": "card", "description": "The body of an Accordion, revealed on expand." },
+    "AccordionSummary": { "level": "molecule", "surface": "card", "description": "The always-visible header of an Accordion; it carries the expand affordance." },
+    "Alert": { "level": "molecule", "surface": "region", "description": "Inline message that stays on the page until the condition is resolved; use Snackbar when the message should leave on its own." },
+    "AlertTitle": { "level": "atom", "surface": "card", "description": "Bold first line inside an Alert, for when the message needs a heading above its body." },
+    "AppBar": { "level": "organism", "surface": "page", "description": "The application's top bar; it owns the page's full width and usually holds a Toolbar." },
+    "Autocomplete": { "level": "molecule", "surface": "card", "description": "Text-filtered chooser for a list too long to scan; use Select for a short fixed list and Autocomplete multiple for multi-select." },
+    "Avatar": { "level": "atom", "surface": "card", "description": "Circular representation of a person or entity, from an image, initials or an icon." },
+    "AvatarGroup": { "level": "molecule", "surface": "card", "description": "Overlapping row of Avatars with an overflow count; for showing that many people are involved without listing them." },
+    "Backdrop": { "level": "atom", "surface": "region", "description": "Dimming layer over the page while something blocking is happening; Dialog and Drawer bring their own, so reach for this only for a custom blocking state." },
+    "Badge": { "level": "atom", "surface": "card", "description": "Small count or dot pinned to another element's corner; use Chip for a standalone pill the user can read or press." },
+    "BottomNavigation": { "level": "organism", "surface": "page", "description": "Primary navigation fixed to the bottom of a small viewport; the mobile counterpart of a sidebar, not a Tabs replacement." },
+    "BottomNavigationAction": { "level": "molecule", "surface": "card", "description": "One destination inside a BottomNavigation." },
+    "Breadcrumbs": { "level": "molecule", "surface": "card", "description": "Trail showing where the current page sits in the hierarchy above it." },
+    "Button": { "level": "atom", "surface": "card", "description": "The action control; variant sets its weight, and a destructive action pairs contained with color error." },
+    "ButtonBase": { "level": "atom", "surface": "card", "description": "Unstyled pressable surface with the ripple and focus handling; the base other controls are built from, not a choice for a screen." },
+    "ButtonGroup": { "level": "molecule", "surface": "card", "description": "Row of related Buttons rendered as one unit; use ToggleButtonGroup when the buttons represent a selected state rather than actions." },
+    "Card": { "level": "organism", "surface": "region", "description": "Bounded surface grouping one subject's content and actions; use Paper when the surface carries no subject of its own." },
+    "CardActionArea": { "level": "molecule", "surface": "card", "description": "Makes a Card's body one large pressable target when the whole card navigates somewhere." },
+    "CardActions": { "level": "molecule", "surface": "card", "description": "Action row at the bottom of a Card." },
+    "CardContent": { "level": "molecule", "surface": "card", "description": "Padded body region of a Card." },
+    "CardHeader": { "level": "molecule", "surface": "card", "description": "Title, subheader, avatar and overflow action at the top of a Card." },
+    "CardMedia": { "level": "atom", "surface": "card", "description": "Image or video region of a Card, sized by the card rather than by itself." },
+    "Checkbox": { "level": "atom", "surface": "card", "description": "Independent on/off choice; wrap it in FormControlLabel to give it a label, and use Switch when the change applies immediately." },
+    "Chip": { "level": "atom", "surface": "card", "description": "Compact pill for a value, filter or selection the user can remove or toggle; use Badge for a count attached to something else." },
+    "CircularProgress": { "level": "atom", "surface": "card", "description": "Indeterminate busy indicator; use LinearProgress when progress is measurable and Skeleton when the shape of the content is known." },
+    "Collapse": { "level": "atom", "surface": "card", "description": "Height transition wrapper for content that appears and disappears in place." },
+    "Container": { "level": "organism", "surface": "page", "description": "Centres page content and caps its width at a breakpoint; the page's own frame, not a layout tool inside it." },
+    "Dialog": { "level": "organism", "surface": "region", "description": "Modal window for a task that interrupts the page; use Modal only when Dialog's title, content and action structure does not fit." },
+    "DialogActions": { "level": "molecule", "surface": "card", "description": "Action row at the bottom of a Dialog; the confirming action goes last." },
+    "DialogContent": { "level": "molecule", "surface": "card", "description": "Scrollable body of a Dialog." },
+    "DialogContentText": { "level": "atom", "surface": "card", "description": "Body copy inside a DialogContent, styled as secondary text." },
+    "DialogTitle": { "level": "atom", "surface": "card", "description": "Heading of a Dialog; it names the task, not the app." },
+    "Divider": { "level": "atom", "surface": "card", "description": "The one hairline rule separating content; reach for spacing before a divider." },
+    "Drawer": { "level": "organism", "surface": "page", "description": "Panel anchored to a page edge for navigation or secondary tools; use SwipeableDrawer when touch gestures should open it." },
+    "Fab": { "level": "atom", "surface": "card", "description": "Floating button for the screen's single most important action; more than one on a screen means none of them is primary." },
+    "Fade": { "level": "atom", "surface": "card", "description": "Opacity transition wrapper." },
+    "FilledInput": { "level": "atom", "surface": "card", "description": "The filled rendering of a text input; use TextField unless you are assembling the field's parts by hand." },
+    "FormControl": { "level": "molecule", "surface": "card", "description": "Groups a label, control and helper text so they share state; TextField is this assembled for you." },
+    "FormControlLabel": { "level": "molecule", "surface": "card", "description": "Pairs a Checkbox, Radio or Switch with its clickable label." },
+    "FormGroup": { "level": "molecule", "surface": "card", "description": "Vertical or horizontal grouping of related checkboxes or switches; use RadioGroup when only one may be chosen." },
+    "FormHelperText": { "level": "atom", "surface": "card", "description": "Assistive or error text under a field." },
+    "FormLabel": { "level": "atom", "surface": "card", "description": "Label for a group of controls; a single field gets its label from TextField or FormControlLabel." },
+    "Grid": { "level": "organism", "surface": "card", "description": "Responsive column layout for a page or section; use Stack when items flow in one direction with a consistent gap." },
+    "Grow": { "level": "atom", "surface": "card", "description": "Scale-and-fade transition wrapper, used by menus and popovers." },
+    "Icon": { "level": "atom", "surface": "card", "description": "Renders a ligature-based icon font; prefer SvgIcon or an icon component for anything tree-shakeable." },
+    "IconButton": { "level": "atom", "surface": "card", "description": "Icon-only action; it must carry an accessible name and normally a Tooltip, since nothing else says what it does." },
+    "ImageList": { "level": "organism", "surface": "region", "description": "Grid of images with a shared rhythm; use Grid when the cells are content rather than pictures." },
+    "ImageListItem": { "level": "molecule", "surface": "card", "description": "One cell of an ImageList." },
+    "ImageListItemBar": { "level": "molecule", "surface": "card", "description": "Caption strip overlaid on an ImageListItem." },
+    "Input": { "level": "atom", "surface": "card", "description": "The standard underlined text input; use TextField unless you are assembling the field's parts by hand." },
+    "InputAdornment": { "level": "atom", "surface": "card", "description": "Icon, unit or action placed inside a field at its start or end." },
+    "InputBase": { "level": "atom", "surface": "card", "description": "Unstyled input primitive the other input renderings are built from; not a choice for a screen." },
+    "InputLabel": { "level": "atom", "surface": "card", "description": "Label positioned for an input inside a FormControl." },
+    "LinearProgress": { "level": "atom", "surface": "card", "description": "Horizontal progress toward completion; use CircularProgress for an unmeasurable wait." },
+    "Link": { "level": "atom", "surface": "card", "description": "Navigational text; if the control performs an action rather than going somewhere, it is a Button." },
+    "List": { "level": "organism", "surface": "region", "description": "Vertical run of items of one kind; use Table when the items have comparable columns." },
+    "ListItem": { "level": "molecule", "surface": "card", "description": "One row of a List; use ListItemButton when the row itself is pressable." },
+    "ListItemAvatar": { "level": "atom", "surface": "card", "description": "Avatar slot at the start of a list row." },
+    "ListItemButton": { "level": "molecule", "surface": "card", "description": "A list row that is itself the control, carrying selection and hover state." },
+    "ListItemIcon": { "level": "atom", "surface": "card", "description": "Icon slot at the start of a list row." },
+    "ListItemSecondaryAction": { "level": "atom", "surface": "card", "description": "Trailing control on a list row, kept outside the row's own press target." },
+    "ListItemText": { "level": "atom", "surface": "card", "description": "Primary and secondary text of a list row." },
+    "ListSubheader": { "level": "atom", "surface": "card", "description": "Sticky heading that groups a run of list rows." },
+    "Menu": { "level": "molecule", "surface": "region", "description": "List of actions opened from a control; use Popover for a card of arbitrary controls and Tooltip for text on hover." },
+    "MenuItem": { "level": "molecule", "surface": "card", "description": "One action inside a Menu, or one option inside a Select." },
+    "MenuList": { "level": "molecule", "surface": "card", "description": "The keyboard-navigable list inside a Menu, for when you supply your own popover." },
+    "MobileStepper": { "level": "molecule", "surface": "region", "description": "Compact progress-through-steps indicator for small viewports; use Stepper where there is room to show the steps." },
+    "Modal": { "level": "organism", "surface": "region", "description": "Low-level blocking overlay with focus trapping; reach for Dialog, Drawer or Popover first, and use this only when none of them fits." },
+    "NativeSelect": { "level": "molecule", "surface": "card", "description": "Select rendered by the platform's own control; use it when the native picker on mobile matters more than styling." },
+    "OutlinedInput": { "level": "atom", "surface": "card", "description": "The outlined rendering of a text input; use TextField unless you are assembling the field's parts by hand." },
+    "Pagination": { "level": "molecule", "surface": "card", "description": "Page-number navigation for a known total; when the total is unknown, load more instead." },
+    "PaginationItem": { "level": "atom", "surface": "card", "description": "One page control inside a Pagination, exposed for custom rendering such as router links." },
+    "Paper": { "level": "organism", "surface": "region", "description": "Plain elevated surface; use Card when the surface groups one subject with its own header and actions." },
+    "Popover": { "level": "molecule", "surface": "region", "description": "Anchored surface holding arbitrary content opened on click; use Menu for a list of actions and Tooltip for a label." },
+    "Popper": { "level": "molecule", "surface": "region", "description": "Positioning engine with no surface, styling or focus handling; use Popover or Tooltip unless you need the placement only." },
+    "Radio": { "level": "atom", "surface": "card", "description": "One option in a set where exactly one may be chosen; it belongs inside a RadioGroup." },
+    "RadioGroup": { "level": "molecule", "surface": "card", "description": "Groups Radios into one choice; use FormGroup when several may be selected at once." },
+    "Rating": { "level": "atom", "surface": "card", "description": "Star-scale input or display for a subjective score." },
+    "Select": { "level": "molecule", "surface": "card", "description": "Chooser for a short fixed list; use Autocomplete when the list is long enough that typing beats scrolling." },
+    "Skeleton": { "level": "atom", "surface": "card", "description": "Placeholder holding the shape of content that has not arrived; use CircularProgress when the shape is unknown." },
+    "Slide": { "level": "atom", "surface": "card", "description": "Directional slide transition wrapper, used by drawers and snackbars." },
+    "Slider": { "level": "atom", "surface": "card", "description": "Selects a value from a continuous or stepped range where the approximate position matters more than the exact number." },
+    "Snackbar": { "level": "molecule", "surface": "region", "description": "Brief message that leaves on its own; use Alert when the message must stay until resolved." },
+    "SnackbarContent": { "level": "molecule", "surface": "card", "description": "The surface inside a Snackbar, for a message that is not an Alert." },
+    "SpeedDial": { "level": "molecule", "surface": "region", "description": "Floating button that fans out into related actions; use it only where a single Fab is genuinely insufficient." },
+    "SpeedDialAction": { "level": "molecule", "surface": "card", "description": "One action revealed by a SpeedDial." },
+    "SpeedDialIcon": { "level": "atom", "surface": "card", "description": "The icon of a SpeedDial's trigger, which swaps on open." },
+    "Stack": { "level": "organism", "surface": "card", "description": "One-direction layout with a token gap; the default for arranging things, with Grid reserved for real column layouts." },
+    "Step": { "level": "molecule", "surface": "card", "description": "One step inside a Stepper." },
+    "StepButton": { "level": "molecule", "surface": "card", "description": "Makes a step pressable so a user can jump back to it." },
+    "StepConnector": { "level": "atom", "surface": "card", "description": "The line drawn between steps." },
+    "StepContent": { "level": "molecule", "surface": "card", "description": "Body shown under the active step in a vertical Stepper." },
+    "StepIcon": { "level": "atom", "surface": "card", "description": "The numbered or completed marker of a step." },
+    "StepLabel": { "level": "molecule", "surface": "card", "description": "Title and optional caption of a step." },
+    "Stepper": { "level": "organism", "surface": "region", "description": "Progress through an ordered multi-step task; use Tabs when the sections can be visited in any order." },
+    "SvgIcon": { "level": "atom", "surface": "card", "description": "Wraps an SVG so it inherits colour and the icon size scale; the base of every icon component." },
+    "SwipeableDrawer": { "level": "organism", "surface": "page", "description": "Drawer that also opens and closes by touch gesture; it costs more JavaScript, so use plain Drawer on desktop-only screens." },
+    "Switch": { "level": "atom", "surface": "card", "description": "Immediate on/off toggle for a setting; use Checkbox when the change only takes effect on submit." },
+    "Tab": { "level": "molecule", "surface": "card", "description": "One label inside a Tabs bar." },
+    "TabScrollButton": { "level": "atom", "surface": "card", "description": "Arrow shown when a Tabs bar overflows its width." },
+    "Table": { "level": "organism", "surface": "region", "description": "Rows with comparable columns and a known count; use List when the items have no columns to compare." },
+    "TableBody": { "level": "molecule", "surface": "card", "description": "The data rows of a Table." },
+    "TableCell": { "level": "atom", "surface": "card", "description": "One cell; it carries the alignment and the header or body role." },
+    "TableContainer": { "level": "organism", "surface": "region", "description": "Scroll and surface wrapper for a Table that is wider than its column." },
+    "TableFooter": { "level": "molecule", "surface": "card", "description": "Summary rows pinned under a Table's body." },
+    "TableHead": { "level": "molecule", "surface": "card", "description": "The header rows of a Table." },
+    "TablePagination": { "level": "molecule", "surface": "card", "description": "Page size and page controls sized to sit inside a Table's footer." },
+    "TablePaginationActions": { "level": "molecule", "surface": "card", "description": "The next and previous controls of a TablePagination, exposed for custom rendering." },
+    "TableRow": { "level": "molecule", "surface": "card", "description": "One row of a Table, carrying hover and selected state." },
+    "TableSortLabel": { "level": "atom", "surface": "card", "description": "Makes a header cell sortable and shows the current direction." },
+    "Tabs": { "level": "organism", "surface": "region", "description": "Switches between peer panels of content; use ToggleButtonGroup when the choice sets a value rather than revealing a panel." },
+    "TextField": { "level": "molecule", "surface": "card", "description": "The assembled text field: label, input, helper and error text in one control. This is the default; the bare Input renderings are for hand assembly only." },
+    "ToggleButton": { "level": "molecule", "surface": "card", "description": "Button that carries a selected state; it belongs inside a ToggleButtonGroup." },
+    "ToggleButtonGroup": { "level": "molecule", "surface": "card", "description": "Set of ToggleButtons forming one choice; use Tabs when the choice reveals a panel, and Chips when each option toggles independently." },
+    "Toolbar": { "level": "organism", "surface": "region", "description": "Horizontal bar of controls with the right height and padding, usually inside an AppBar." },
+    "Tooltip": { "level": "molecule", "surface": "region", "description": "Short text on hover or focus; use Popover when the content has controls in it." },
+    "Typography": { "level": "atom", "surface": "card", "description": "Applies the type scale to text; a screen that sets its own font size is bypassing the scale." },
+    "Zoom": { "level": "atom", "surface": "card", "description": "Scale transition wrapper, used by floating actions." }
+  },
+
+  "twins": {
+    "pairs": {
+      "Dialog ~ Modal": {
+        "separated": "Dialog is Modal with the title, content and action structure already decided, plus the ARIA wiring for a dialog. Modal is the unstyled blocking layer underneath it.",
+        "reopenIf": "MUI gives Modal a documented content structure of its own, making the two interchangeable."
+      },
+      "Popover ~ Popper ~ Tooltip ~ Menu": {
+        "separated": "Popper only positions; it has no surface, elevation or focus handling. Popover adds those. Menu is a Popover whose content is a keyboard-navigable action list. Tooltip is text on hover with no interactive content.",
+        "reopenIf": "Popper gains a default surface, at which point it and Popover overlap."
+      },
+      "Select ~ Autocomplete ~ NativeSelect": {
+        "separated": "Select shows a fixed list; Autocomplete filters by typing and is the only one of the three that handles a list too long to scan; NativeSelect delegates to the platform picker, which matters on mobile and rules out custom option rendering.",
+        "reopenIf": "Select gains built-in filtering."
+      },
+      "Chip ~ Badge": {
+        "separated": "A Chip is a standalone element the user reads, presses or removes. A Badge is a count or dot attached to another element's corner and is never itself the target.",
+        "reopenIf": "Badge becomes independently interactive."
+      },
+      "CircularProgress ~ LinearProgress ~ Skeleton": {
+        "separated": "Skeleton is for when the shape of the incoming content is known and should be held. LinearProgress is for measurable advance. CircularProgress is for an unmeasurable wait whose shape is unknown.",
+        "reopenIf": "any of the three grows the others' role."
+      },
+      "Snackbar ~ Alert": {
+        "separated": "A Snackbar leaves on its own and must not carry anything the user has to act on. An Alert stays until the condition is resolved. Alert is commonly rendered INSIDE a Snackbar, which is what makes the pair confusing.",
+        "reopenIf": "Snackbar gains a persistent mode."
+      },
+      "Stack ~ Grid": {
+        "separated": "Stack lays items along one axis with a gap. Grid assigns responsive column spans. A Grid used for a single row of evenly spaced items is a Stack written the long way.",
+        "reopenIf": "Grid gains a one-dimensional shorthand that reads as clearly as Stack."
+      },
+      "Tabs ~ ToggleButtonGroup ~ BottomNavigation": {
+        "separated": "Tabs reveal panels. ToggleButtonGroup sets a value and reveals nothing. BottomNavigation is primary navigation between destinations on a small viewport, not a control inside a page.",
+        "reopenIf": "any of them takes on another's job in the MUI docs."
+      },
+      "Card ~ Paper": {
+        "separated": "Paper is an elevated surface with no opinion about its contents. Card adds the header, media, content and actions structure for one subject. A Paper that grows a title and an action row has become a Card.",
+        "reopenIf": "Card's structural parts become optional to the point that the two render identically."
+      },
+      "TextField ~ Input ~ OutlinedInput ~ FilledInput ~ InputBase": {
+        "separated": "TextField is the assembled control and the one to use. The three Input renderings and InputBase are its parts, present for hand assembly inside a FormControl.",
+        "reopenIf": "TextField stops covering a case its parts cover, which would make reaching past it normal rather than exceptional."
+      },
+      "Checkbox ~ Switch": {
+        "separated": "A Switch applies its change immediately. A Checkbox records a choice that takes effect when the form is submitted. The distinction is about when the change lands, not about how it looks.",
+        "reopenIf": "the codebase adopts immediate-apply forms throughout, at which point the distinction stops carrying information."
+      },
+      "List ~ Table": {
+        "separated": "A Table exists to make columns comparable across rows. A List presents items that have no columns worth aligning. A List whose rows line up values in columns is a Table.",
+        "reopenIf": "never; this one is structural."
+      }
+    }
+  },
+
+  "vocabulary": {
+    "_": "MUI's own prop vocabulary, recorded as found rather than corrected. Where it is inconsistent, the inconsistency is written down so nobody assumes otherwise.",
+    "color": {
+      "axis": "which palette role this element takes",
+      "values": {
+        "primary": "the brand accent",
+        "secondary": "the second accent",
+        "success": "it worked",
+        "error": "it failed or is invalid",
+        "warning": "it needs attention but nothing is broken",
+        "info": "neutral information worth noticing",
+        "inherit": "take the surrounding colour, used for controls inside a coloured bar",
+        "default": "no palette role; the resting colour"
+      },
+      "note": "`inherit` appears on Button and IconButton but not on Chip; `default` appears on Chip but not on Button. The two words cover the same idea and neither is available everywhere."
+    },
+    "variant": {
+      "axis": "how much visual weight this element carries",
+      "values": {
+        "contained": "filled; the primary action of its area (Button, Fab)",
+        "outlined": "bordered; a secondary action or a bounded field",
+        "text": "no container; the lightest action",
+        "filled": "filled surface (Chip, Alert, and the filled Input rendering)",
+        "standard": "the platform-default rendering (Alert, TextField, Select)"
+      },
+      "note": "The set is not shared: Button uses text/outlined/contained, Chip uses filled/outlined, Alert and TextField use standard/filled/outlined. Learning `variant` on one component does not transfer to another."
+    },
+    "size": {
+      "axis": "the control's height on the density scale",
+      "values": { "small": "dense", "medium": "the default", "large": "prominent" },
+      "note": "Button offers all three; TextField, Chip and Autocomplete offer only small and medium."
+    },
+    "severity": {
+      "axis": "what an Alert is reporting",
+      "values": { "success": "it worked", "info": "neutral information", "warning": "attention needed", "error": "something failed" },
+      "note": "Alert carries both `severity` and `color` with the same four values. `severity` sets the meaning and the icon; `color` overrides only the palette. Setting one and expecting the other is a real and common mistake."
+    }
+  }
+}

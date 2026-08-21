@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "reference",
+  "library": {
+    "name": "radix-ui-themes",
+    "kind": "first-party",
+    "source": "radix-ui/themes @ packages/radix-ui-themes (MIT)",
+    "note": "The reference profile, and how to re-derive it.  Facts come from radix-ui/themes: components and what they render by adapt-react over src/components, closed value sets from the sibling <name>.props.tsx files, and the token layer from src/styles/tokens/*.css. All of it public, all of it MIT.  Level, surface, description and the twin pairs are AUTHORED here. They are the worked example of the tier no library ships — one reading of a public library, not its own words."
+  },
+  "adapter": "adapt-react.mjs",
+  "tiers": {
+    "facts": "extracted from the published components; complete",
+    "policy": "written — level and surface for every component",
+    "judgment": "written — a description for every component and three twin pairs"
+  },
+  "counts": {
+    "components": 43,
+    "blocks": 0,
+    "tokens": 86
+  }
+}

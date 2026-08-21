@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "profile": "ng-test",
+  "_": "A profile whose specifiers point at components this fixture really has, each declaring its own selector \u2014 the thing an Angular template reaches for and the registry does not carry.",
+  "components": {
+    "UiHeading": {
+      "from": "@app/ui/ui-heading.component",
+      "exportedAs": "named",
+      "level": "molecule",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false
+        }
+      ]
+    },
+    "UiButton": {
+      "from": "@app/ui/ui-button.component",
+      "exportedAs": "named",
+      "level": "atom",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "'primary' | 'ghost'",
+          "required": true,
+          "values": [
+            "primary",
+            "ghost"
+          ]
+        }
+      ]
+    },
+    "UiTable": {
+      "from": "@app/ui/ui-table.component",
+      "exportedAs": "named",
+      "level": "organism",
+      "props": [
+        {
+          "name": "rows",
+          "type": "unknown[]",
+          "required": true
+        }
+      ]
+    }
+  }
+}

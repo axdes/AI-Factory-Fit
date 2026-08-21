@@ -1,0 +1,99 @@
+{
+  "$comment": "The representation rules: which way of showing a collection fits which task and data shape. A zone that declares its task and data shape may only name a representation some matching rule chooses; spec-selection.mjs enforces it. The division of labour is deliberate — the spec author names the task and the data, which is a judgment a reviewer approves; this file decides what that judgment permits, which is a computation. Adapted from css's screen-specs/selection-rules.json to harness's role vocabulary: harness names three collection representations (table, list, cards → the roles table, list, card) and does not yet have roles for a virtualized grid or for stat tiles, so the css rules that select 'grid' (R2) or 'stats' (R5, R6) and the hard constraints that send you to a grid (H1 unbounded, H2 editable) are reduced to what this vocabulary can express, and noted where dropped. Sources: NN/g (data tables, cards, dashboards), uxpatterns.dev, Smart Interface Design Patterns, SAP Fiori floorplans.",
+
+  "collectionTasks": ["find", "compare", "scan", "browse", "monitor", "analyze", "process", "navigate"],
+
+  "representations": {
+    "table": {
+      "roles": ["table"],
+      "means": "columns over rows: side-by-side comparison, sort and filter by field"
+    },
+    "list": {
+      "roles": ["list"],
+      "means": "one row per item, few attributes, linear scanning"
+    },
+    "cards": {
+      "roles": ["card"],
+      "means": "self-contained tiles: each item read and judged on its own"
+    }
+  },
+
+  "precedence": ["table", "list", "cards"],
+
+  "rules": [
+    {
+      "id": "R1",
+      "title": "Looking up and comparing records wants columns",
+      "when": { "task": ["find", "compare"], "item": "record", "minFields": 4 },
+      "choose": ["table"],
+      "because": "Two adjacent data points in a column are compared without moving the eyes or holding values in working memory; cards force spatial reorientation per item and de-emphasize ranking (NN/g data tables, NN/g cards).",
+      "good": "a table with sortable columns, one row per record",
+      "bad": "a card per record with ten meta rows — comparing two records now means reading two paragraphs"
+    },
+    {
+      "id": "R3",
+      "title": "Scanning a few attributes wants rows",
+      "when": { "task": ["find", "scan"], "item": "record", "maxFields": 3 },
+      "choose": ["list", "table"],
+      "because": "With one to three attributes per item a linear list scans fastest; columns earn their chrome only when several fields are compared (uxpatterns.dev: start with list).",
+      "good": "a list item: title, one meta line, a trailing action",
+      "bad": "a three-column table whose header row labels the obvious"
+    },
+    {
+      "id": "R4",
+      "title": "Judging candidates one by one wants tiles",
+      "when": { "task": ["browse"] },
+      "choose": ["cards", "list"],
+      "because": "Browsing has no single target: each item is read and judged on its own content, so it gets a self-contained surface. The moment the job becomes comparing fields across items, the task is compare and R1 applies (NN/g cards: browsing, not searching).",
+      "good": "a card per candidate: name, a status tag, the reasons as sentences",
+      "bad": "a table whose cells hold sentences — comparison across rows of prose compares nothing"
+    },
+    {
+      "id": "R7",
+      "title": "Prose is never tabular",
+      "when": { "item": "prose" },
+      "choose": ["cards", "list"],
+      "because": "A collection of text-heavy items (questions, messages, findings) is read item by item; a table of paragraphs has columns that align nothing (NN/g data tables: tables are for discrete comparable values).",
+      "good": "a card per question: who asked, the text, the answer, the actions",
+      "bad": "a table with a 'Question' column four lines tall"
+    },
+    {
+      "id": "R8",
+      "title": "A queue is a worklist",
+      "when": { "task": ["process"], "item": "record" },
+      "choose": ["table", "list"],
+      "because": "Working through items that each need a decision is a worklist: the set is given, so it needs density and status, not discovery chrome (SAP Fiori worklist = list report minus the filter bar).",
+      "good": "a table of items with a status tag and one action per row",
+      "bad": "a card grid the user has to graze over to find what is next"
+    },
+    {
+      "id": "R10",
+      "title": "A short queue reads as cards",
+      "when": { "task": ["process"], "item": "record", "cardinality": "few" },
+      "choose": ["cards", "list", "table"],
+      "because": "R8's density argument is about SCALE: with a handful of items, per-item actions and reading beat column density. At cardinality many, R8 alone applies and cards fail again.",
+      "good": "a card per item: eyebrow, title, meta, two small actions",
+      "bad": "a three-row table whose header chrome outweighs its rows"
+    },
+    {
+      "id": "R9",
+      "title": "Entry points are tiles",
+      "when": { "task": ["navigate"] },
+      "choose": ["cards", "list"],
+      "because": "A hub's items are destinations, not records: a tile per destination with what is waiting inside it (SAP Fiori overview page).",
+      "good": "a card per destination: topic, what is waiting, when it arrived",
+      "bad": "a table of destinations with sortable columns nobody sorts"
+    }
+  ],
+
+  "hard": [],
+
+  "notes": [
+    {
+      "id": "N1",
+      "when": { "item": "record", "maxFields": 3 },
+      "if": "table",
+      "say": "three fields rarely earn columns — a list scans faster (uxpatterns.dev); keep the table only if column sorting is really used"
+    }
+  ]
+}

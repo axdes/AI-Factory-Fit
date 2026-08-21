@@ -1,0 +1,196 @@
+{
+  "_": [
+    "The system's rules, classified by what happens to each one when the library",
+    "changes. This is the answer to 'how do the rules still hold on MUI or Ant':",
+    "some rules carry over verbatim, some only in intent, some do not carry over at",
+    "all — and the three classes must not be mixed.",
+    "",
+    "invariant    — holds on any library unchanged, because it constrains PRODUCT",
+    "               code rather than the library's construction.",
+    "translatable — same intent, different expression. `expression` records what the",
+    "               rule becomes on each library. A profile with an unfilled",
+    "               expression for a translatable rule is invalid: an untranslated",
+    "               rule is a disabled rule.",
+    "system-owned — a rule about OWNING the library (folder shape, where an example",
+    "               lives). On a foreign library it either moves to the wrapper",
+    "               layer or honestly drops.",
+    "",
+    "`enforcedBy` names the check that holds the rule. A rule with no check is a",
+    "wish, and wishes do not belong in this file."
+  ],
+  "schemaVersion": 1,
+  "rules": {
+    "discovery-first": {
+      "class": "invariant",
+      "rule": "Read the component index before any UI work. If a thing is not in the index, it does not exist.",
+      "why": "The only thing keeping an agent from inventing UI on top of what already exists. Without an index the model builds the missing piece itself, and the system comes apart within three screens.",
+      "enforcedBy": "registry + verify",
+      "expression": {
+        "own": "component-index.json, generated from src/components",
+        "mui": "index built from @mui/material exports plus the first sentence of each TSDoc",
+        "antd": "index built from antd exports plus the description in their docs JSON"
+      }
+    },
+    "no-invented-props": {
+      "class": "invariant",
+      "rule": "A prop or variant value absent from the registry entry does not exist. props[].values are closed unions.",
+      "why": "The most frequent measured agent failure: a plausible prop that is not there. It compiles in the model's head and fails in ours.",
+      "enforcedBy": "verify, lint-rules",
+      "expression": {
+        "own": "union types read from the component's TypeScript source",
+        "mui": "unions from .d.ts (Button color: 'inherit'|'primary'|…, variant: 'text'|'outlined'|'contained')",
+        "antd": "unions from .d.ts (Button type: 'primary'|'dashed'|'link'|'text'|'default')"
+      }
+    },
+    "spec-before-screen": {
+      "class": "invariant",
+      "rule": "A new screen starts as a spec validated against the registry. A spec naming a component, prop or value the system does not have is rejected.",
+      "why": "An impossible screen cannot be agreed to. Arguing about zones costs a minute; arguing about a built screen costs an afternoon.",
+      "enforcedBy": "check:spec",
+      "expression": {
+        "own": "screen-specs/*.json against component-registry.json",
+        "mui": "same spec schema, MUI registry",
+        "antd": "same spec schema, Ant registry"
+      }
+    },
+    "tokens-not-literals": {
+      "class": "translatable",
+      "rule": "No raw values in product code: sizes, spacing, radii and colours come from tokens.",
+      "why": "A literal is a decision taken outside the system. It does not survive a rebrand and does not take part in theming.",
+      "enforcedBy": "lint-rules, stylelint",
+      "expression": {
+        "own": "var(--space-*), var(--font-*), var(--radius-*) in CSS",
+        "mui": "theme.spacing(), theme.palette.*, theme.shape.* inside sx/styled; literal px and hex in sx are rejected",
+        "antd": "values from useToken(); literals in style or ConfigProvider are rejected"
+      }
+    },
+    "semantic-not-raw-scale": {
+      "class": "translatable",
+      "rule": "Components address the role tier of the tokens, never the raw scales beneath it.",
+      "why": "The role tier is what switches theme and brand. Reaching past it into the scale disables both.",
+      "enforcedBy": "lint-rules (token-layer-check)",
+      "expression": {
+        "own": "semantic.css (--primary, --background), not primitives.css (--teal-400)",
+        "mui": "palette.primary.main / text.secondary, not raw values from an imported palette",
+        "antd": "alias tokens, not seed or map tokens"
+      }
+    },
+    "no-adhoc-styling": {
+      "class": "translatable",
+      "rule": "Styling is not written at the point of use.",
+      "why": "An inline style is a component that is not in the registry, wearing the disguise of using one.",
+      "enforcedBy": "lint-rules (inline-style)",
+      "expression": {
+        "own": "className + data-*; style={{}} only for genuinely dynamic values",
+        "mui": "sx with theme references only; styled() belongs in the wrapper layer, not in a screen",
+        "antd": "className + tokens; style={{}} only for dynamic values"
+      }
+    },
+    "atomic-import-direction": {
+      "class": "invariant",
+      "rule": "Never import up the atomic ladder: an atom does not know about a molecule, a molecule does not know about an organism.",
+      "why": "Dependency direction is the only thing stopping a library from becoming a graph with no order in it.",
+      "enforcedBy": "lint-rules",
+      "expression": {
+        "own": "src/components/levels.json",
+        "mui": "policy.json/levels, assigned once when the profile is adopted",
+        "antd": "policy.json/levels, assigned once when the profile is adopted"
+      },
+      "note": "Invariant in mechanism but dependent on a manifest: a foreign library has no levels, so they are assigned."
+    },
+    "no-important": {
+      "class": "invariant",
+      "rule": "No !important; fix specificity or cascade order instead.",
+      "why": "The first !important makes the second one mandatory.",
+      "enforcedBy": "stylelint"
+    },
+    "logical-properties-rtl": {
+      "class": "translatable",
+      "rule": "Directional properties are logical, so RTL works without a mirroring layer.",
+      "why": "RTL retrofitted afterwards never gets retrofitted.",
+      "enforcedBy": "lint-rules",
+      "expression": {
+        "own": "padding-inline-*, border-inline-*, text-align: start/end",
+        "mui": "theme.direction plus logical properties; the stylis RTL plugin is configured in the profile",
+        "antd": "ConfigProvider direction=rtl plus logical properties"
+      }
+    },
+    "axe-clean": {
+      "class": "invariant",
+      "rule": "Every golden example renders and passes axe with no violations.",
+      "why": "Accessibility checked by eye is not checked.",
+      "enforcedBy": "test (vitest-axe)"
+    },
+    "keyboard-contract": {
+      "class": "invariant",
+      "rule": "Every stateful component has a test covering its keyboard and ARIA contract.",
+      "why": "A promise only running code can prove.",
+      "enforcedBy": "test"
+    },
+    "contrast-wcag": {
+      "class": "invariant",
+      "rule": "Colour pairs are checked for contrast in both themes, resolved from tokens rather than hand-mirrored hex. Accepted misses record their current ratio and may not get worse.",
+      "why": "Computable from tokens on any library, because every library has a palette.",
+      "enforcedBy": "contrast"
+    },
+    "golden-example-per-component": {
+      "class": "translatable",
+      "rule": "Every component ships a golden example: a real module that compiles, renders and passes axe.",
+      "why": "The example is what an agent copies, so it has to be true. If it does not execute it lies, and it lies exactly when a prop gets renamed.",
+      "enforcedBy": "test (examples), gen-registry",
+      "expression": {
+        "own": "Name.example.tsx next to the source",
+        "mui": "demos from their documentation, compiled into profiles/mui/examples and run through the same harness",
+        "antd": "the same, from their demo files"
+      },
+      "note": "The most expensive part of adopting a foreign library, and the most valuable: an example that does not execute is worse than no example."
+    },
+    "twins-are-decided": {
+      "class": "translatable",
+      "rule": "Component pairs that get confused are settled in writing: how they differ, and the condition under which the decision is reopened.",
+      "why": "Picking the wrong component compiles, passes review and is still wrong. Nothing else catches it.",
+      "enforcedBy": "lint-twins",
+      "expression": {
+        "own": "twins.json",
+        "mui": "judgment.json/twins, drafted from their docs and confirmed by a person",
+        "antd": "judgment.json/twins, drafted from their docs and confirmed by a person"
+      }
+    },
+    "prop-vocabulary": {
+      "class": "translatable",
+      "rule": "A shared prop name means the same thing everywhere. Each name has one axis and answers one question.",
+      "why": "An agent that learns a value once applies it everywhere. The same name meaning two things is a guaranteed error.",
+      "enforcedBy": "lint-vocab",
+      "expression": {
+        "own": "prop-vocabulary.json",
+        "mui": "the vocabulary is recorded as found (color/variant/size) and checked for consistency; conflicts are written down",
+        "antd": "the same (type/status/size)"
+      },
+      "note": "A foreign library already has a vocabulary and it is not always consistent. We do not fix it, we record it and make it visible."
+    },
+    "context-budget": {
+      "class": "invariant",
+      "rule": "Files an agent reads on every task have a token ceiling. The full registry is not must-read and is held to a per-entry ceiling instead.",
+      "why": "A contract that does not fit in context is not followed. MUI's registry will be several times larger, which makes this rule more important, not less.",
+      "enforcedBy": "context"
+    },
+    "no-secrets-in-storage": {
+      "class": "invariant",
+      "rule": "Passwords and tokens never reach localStorage.",
+      "why": "Nothing to do with the library, everything to do with the product.",
+      "enforcedBy": "lint-rules, scan:secrets"
+    },
+    "one-component-per-folder": {
+      "class": "system-owned",
+      "rule": "One component per folder: Name.tsx + Name.css + Name.example.tsx + index.ts.",
+      "why": "A rule about owning the source. We do not hold the source of a foreign library.",
+      "movesTo": "the product wrapper layer over the foreign library"
+    },
+    "promotion-on-second-use": {
+      "class": "invariant",
+      "rule": "The second time a thing is needed it moves into the system. A wrapper that supplies wiring is not a copy.",
+      "why": "A shared system fails quietly: everyone builds what they need locally, the gate stays green, and the system stops being where components live. On a foreign library this applies to the wrapper layer.",
+      "enforcedBy": "scout"
+    }
+  }
+}

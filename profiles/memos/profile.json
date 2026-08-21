@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "memos",
+  "library": {
+    "name": "memos",
+    "kind": "first-party"
+  },
+  "adapter": "adapt-react",
+  "tiers": {
+    "facts": "extracted from source; complete",
+    "policy": "UNWRITTEN — level, surface and status, one afternoon for the whole library",
+    "judgment": "UNWRITTEN — descriptions and role bindings, the tier no library ships"
+  },
+  "counts": {
+    "components": 59
+  },
+  "bindings": "bindings/memos.json"
+}

@@ -1,0 +1,2571 @@
+{
+  "schemaVersion": 1,
+  "_": [
+    "Reference profile, extracted from radix-ui/themes (MIT) so that every number in",
+    "this repository can be re-derived from public code by anybody.",
+    "",
+    "Facts — exports, props, what each renders — are extracted. Level, surface and the",
+    "description are AUTHORED here, as the worked example of the tier no library ships.",
+    "They are one person's reading of a public library, not the library's own words."
+  ],
+  "components": {
+    "Avatar": {
+      "ref": "Avatar",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A person or a team as an image with a letter fallback. Presentational: it knows nothing about presence or status — pair it with Badge if that has to show.",
+      "exports": [
+        "Avatar"
+      ],
+      "main": "Avatar",
+      "from": "./avatar",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'solid' | 'soft'",
+          "values": [
+            "solid",
+            "soft"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "AvatarImpl",
+        "AvatarPrimitive.Root"
+      ],
+      "sourcePath": "avatar.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "solid",
+            "soft"
+          ]
+        }
+      }
+    },
+    "Badge": {
+      "ref": "Badge",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A small standalone pill that labels state. Not Kbd, which shows a key to press, and not Code, which shows a literal.",
+      "exports": [
+        "Badge"
+      ],
+      "main": "Badge",
+      "from": "./badge",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3'",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'solid' | 'soft' | 'surface' | 'outline'",
+          "values": [
+            "solid",
+            "soft",
+            "surface",
+            "outline"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "badge.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "solid",
+            "soft",
+            "surface",
+            "outline"
+          ]
+        }
+      }
+    },
+    "BaseButton": {
+      "ref": "BaseButton",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The unstyled button every other button is built on. Reach for Button; this is here to be extended, not used.",
+      "exports": [
+        "BaseButton"
+      ],
+      "main": "BaseButton",
+      "from": "./_internal/base-button",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "Button"
+      ],
+      "renders": [
+        "Button",
+        "Comp"
+      ],
+      "sourcePath": "_internal/base-button.tsx",
+      "example": "<BaseButton {...props} ref={forwardedRef} className={classNames('rt-Button', className)} />",
+      "exampleFrom": "src/components/button.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card"
+    },
+    "Blockquote": {
+      "ref": "Blockquote",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A quoted passage set apart from the text around it. Quote marks a phrase inline; this takes the whole block.",
+      "exports": [
+        "Blockquote"
+      ],
+      "main": "Blockquote",
+      "from": "./blockquote",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "Text"
+      ],
+      "renders": [
+        "Comp",
+        "Text"
+      ],
+      "sourcePath": "blockquote.tsx",
+      "context": "region",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        }
+      }
+    },
+    "Box": {
+      "ref": "Box",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A div with the token system attached and no opinion of its own. Use it when nothing more specific fits — reaching for it often means a component is missing.",
+      "exports": [
+        "Box"
+      ],
+      "main": "Box",
+      "from": "./box",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "as",
+          "type": "'div' | 'span'",
+          "values": [
+            "div",
+            "span"
+          ],
+          "required": false
+        },
+        {
+          "name": "display",
+          "type": "'none' | 'inline' | 'inline-block' | 'block' | 'contents'",
+          "values": [
+            "none",
+            "inline",
+            "inline-block",
+            "block",
+            "contents"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "box.tsx",
+      "example": "<Box flexGrow=\"1\" p={{ initial: '4', xs: '5' }} position=\"relative\">\n              {!!shortcut && (\n                <Box position=\"absolute\" top=\"0\" right=\"0\" m=\"2\">\n                  {shortcut}\n                </Box>\n              )}\n              <ThemePanelContent onAppearanceChange={onAppearanceChange} context={themeContext} />\n            </Box>",
+      "exampleFrom": "src/components/theme-panel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "region",
+      "variants": {
+        "as": {
+          "prop": "as",
+          "values": [
+            "div",
+            "span"
+          ]
+        },
+        "display": {
+          "prop": "display",
+          "values": [
+            "none",
+            "inline",
+            "inline-block",
+            "block",
+            "contents"
+          ]
+        }
+      }
+    },
+    "Button": {
+      "ref": "Button",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The main way to start an action. IconButton when the label is the icon; Link when it navigates rather than acts.",
+      "exports": [
+        "Button"
+      ],
+      "main": "Button",
+      "from": "./button",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "BaseButton"
+      ],
+      "renders": [
+        "BaseButton"
+      ],
+      "sourcePath": "button.tsx",
+      "example": "<Button style={{ width: '100%' }} onClick={handleCopyThemeConfig}>\n          {copyState === 'copied' ? 'Copied' : 'Copy Theme'}\n        </Button>",
+      "exampleFrom": "src/components/theme-panel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card"
+    },
+    "Card": {
+      "ref": "Card",
+      "level": "molecule",
+      "surface": null,
+      "status": "stable",
+      "description": "A bounded surface that groups related content and can be made interactive as a whole. Not Box: a Card is a thing on a page, a Box is a wrapper.",
+      "exports": [
+        "Card"
+      ],
+      "main": "Card",
+      "from": "./card",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'surface' | 'classic' | 'ghost'",
+          "values": [
+            "surface",
+            "classic",
+            "ghost"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "card.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "surface",
+            "classic",
+            "ghost"
+          ]
+        }
+      }
+    },
+    "Checkbox": {
+      "ref": "Checkbox",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "One independent yes/no. Switch when the change takes effect immediately; Radio when exactly one of several must be chosen.",
+      "exports": [
+        "Checkbox"
+      ],
+      "main": "Checkbox",
+      "from": "./checkbox",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "ThickCheckIcon",
+        "ThickDividerHorizontalIcon"
+      ],
+      "renders": [
+        "CheckboxPrimitive.Indicator",
+        "CheckboxPrimitive.Root",
+        "ThickCheckIcon",
+        "ThickDividerHorizontalIcon"
+      ],
+      "sourcePath": "checkbox.tsx",
+      "context": "card"
+    },
+    "CheckboxGroup": {
+      "ref": "CheckboxGroup",
+      "level": "molecule",
+      "surface": null,
+      "status": "stable",
+      "description": "Several checkboxes sharing one name and one value array. Use it when the set is the field, not the individual boxes.",
+      "exports": [
+        "CheckboxGroup"
+      ],
+      "main": "CheckboxGroup",
+      "from": "./checkbox-group.primitive",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "name",
+          "type": "CheckboxGroupContextValue['name']",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>['required']",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>['disabled']",
+          "required": false
+        },
+        {
+          "name": "dir",
+          "type": "RovingFocusGroupProps['dir']",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "RovingFocusGroupProps['orientation']",
+          "required": false
+        },
+        {
+          "name": "loop",
+          "type": "RovingFocusGroupProps['loop']",
+          "required": false
+        },
+        {
+          "name": "defaultValue",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "CheckboxGroupContextValue['value']",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string[]) => void",
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CheckboxGroupProvider",
+        "Primitive.div",
+        "RovingFocus.Root"
+      ],
+      "sourcePath": "checkbox-group.primitive.tsx",
+      "context": "card"
+    },
+    "CheckboxGroupIndicator": {
+      "ref": "CheckboxGroupIndicator",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The mark inside a grouped checkbox. A part, not a component to reach for.",
+      "exports": [
+        "CheckboxGroupIndicator"
+      ],
+      "main": "CheckboxGroupIndicator",
+      "from": "./checkbox-group.primitive",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CheckboxPrimitive.Indicator"
+      ],
+      "sourcePath": "checkbox-group.primitive.tsx",
+      "context": "card"
+    },
+    "CheckboxGroupItem": {
+      "ref": "CheckboxGroupItem",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "One box inside a CheckboxGroup. It reads its state from the group and cannot be used alone.",
+      "exports": [
+        "CheckboxGroupItem"
+      ],
+      "main": "CheckboxGroupItem",
+      "from": "./checkbox-group.primitive",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "CheckboxPrimitive.Root",
+        "RovingFocus.Item"
+      ],
+      "sourcePath": "checkbox-group.primitive.tsx",
+      "context": "card"
+    },
+    "ChevronDownIcon": {
+      "ref": "ChevronDownIcon",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The disclosure chevron used by controls that open. A part of those controls, not a general-purpose icon.",
+      "exports": [
+        "ChevronDownIcon"
+      ],
+      "main": "ChevronDownIcon",
+      "from": "./icons",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "path",
+        "svg"
+      ],
+      "sourcePath": "icons.tsx",
+      "example": "<ChevronDownIcon className=\"rt-SelectIcon\" />",
+      "exampleFrom": "src/components/select.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card"
+    },
+    "Code": {
+      "ref": "Code",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A literal shown as code inline. Kbd for a key the reader should press.",
+      "exports": [
+        "Code"
+      ],
+      "main": "Code",
+      "from": "./code",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'solid' | 'soft' | 'outline' | 'ghost'",
+          "values": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "code.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "solid",
+            "soft",
+            "outline",
+            "ghost"
+          ]
+        }
+      }
+    },
+    "Container": {
+      "ref": "Container",
+      "level": "organism",
+      "surface": null,
+      "status": "stable",
+      "description": "Centres content and caps its width. The outermost layout piece on a page; Section divides what is inside it.",
+      "exports": [
+        "Container"
+      ],
+      "main": "Container",
+      "from": "./container",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "required": false
+        },
+        {
+          "name": "display",
+          "type": "'none' | 'initial'",
+          "values": [
+            "none",
+            "initial"
+          ],
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right'",
+          "values": [
+            "left",
+            "center",
+            "right"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp",
+        "div"
+      ],
+      "sourcePath": "container.tsx",
+      "context": "page",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        "display": {
+          "prop": "display",
+          "values": [
+            "none",
+            "initial"
+          ]
+        },
+        "align": {
+          "prop": "align",
+          "values": [
+            "left",
+            "center",
+            "right"
+          ]
+        }
+      }
+    },
+    "Em": {
+      "ref": "Em",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Stress emphasis, carried semantically. Strong for importance rather than emphasis.",
+      "exports": [
+        "Em"
+      ],
+      "main": "Em",
+      "from": "./em",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "em.tsx",
+      "context": "card"
+    },
+    "Flex": {
+      "ref": "Flex",
+      "level": "organism",
+      "surface": null,
+      "status": "stable",
+      "description": "One-dimensional arrangement with the spacing scale attached. Grid when both axes matter.",
+      "exports": [
+        "Flex"
+      ],
+      "main": "Flex",
+      "from": "./flex",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "as",
+          "type": "'div' | 'span'",
+          "values": [
+            "div",
+            "span"
+          ],
+          "required": false
+        },
+        {
+          "name": "display",
+          "type": "'none' | 'inline-flex' | 'flex'",
+          "values": [
+            "none",
+            "inline-flex",
+            "flex"
+          ],
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "'row' | 'column' | 'row-reverse' | 'column-reverse'",
+          "values": [
+            "row",
+            "column",
+            "row-reverse",
+            "column-reverse"
+          ],
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end' | 'baseline' | 'stretch'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "stretch"
+          ],
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'center' | 'end' | 'between'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "between"
+          ],
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "'nowrap' | 'wrap' | 'wrap-reverse'",
+          "values": [
+            "nowrap",
+            "wrap",
+            "wrap-reverse"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "flex.tsx",
+      "example": "<Flex align=\"center\" justify=\"center\" height=\"32px\">\n                    <Theme asChild scaling={value}>\n                      <Flex align=\"center\" justify=\"center\">\n                        <Text size=\"1\" weight=\"medium\">\n                          {upperFirst(value)}\n                        </Text>\n                      </Flex>\n                    </Theme>\n                  </Flex>",
+      "exampleFrom": "src/components/theme-panel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "region",
+      "variants": {
+        "as": {
+          "prop": "as",
+          "values": [
+            "div",
+            "span"
+          ]
+        },
+        "display": {
+          "prop": "display",
+          "values": [
+            "none",
+            "inline-flex",
+            "flex"
+          ]
+        },
+        "direction": {
+          "prop": "direction",
+          "values": [
+            "row",
+            "column",
+            "row-reverse",
+            "column-reverse"
+          ]
+        },
+        "align": {
+          "prop": "align",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "stretch"
+          ]
+        },
+        "justify": {
+          "prop": "justify",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "between"
+          ]
+        },
+        "wrap": {
+          "prop": "wrap",
+          "values": [
+            "nowrap",
+            "wrap",
+            "wrap-reverse"
+          ]
+        }
+      }
+    },
+    "Grid": {
+      "ref": "Grid",
+      "level": "organism",
+      "surface": null,
+      "status": "stable",
+      "description": "Two-dimensional arrangement. Flex when only one axis is being controlled.",
+      "exports": [
+        "Grid"
+      ],
+      "main": "Grid",
+      "from": "./grid",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "as",
+          "type": "'div' | 'span'",
+          "values": [
+            "div",
+            "span"
+          ],
+          "required": false
+        },
+        {
+          "name": "display",
+          "type": "'none' | 'inline-grid' | 'grid'",
+          "values": [
+            "none",
+            "inline-grid",
+            "grid"
+          ],
+          "required": false
+        },
+        {
+          "name": "flow",
+          "type": "'row' | 'column' | 'dense' | 'row-dense' | 'column-dense'",
+          "values": [
+            "row",
+            "column",
+            "dense",
+            "row-dense",
+            "column-dense"
+          ],
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "'start' | 'center' | 'end' | 'baseline' | 'stretch'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "stretch"
+          ],
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'center' | 'end' | 'between'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "between"
+          ],
+          "required": false
+        },
+        {
+          "name": "alignContent",
+          "type": "'start' | 'center' | 'end' | 'baseline' | 'between' | 'around' | 'evenly' | 'stretch'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "between",
+            "around",
+            "evenly",
+            "stretch"
+          ],
+          "required": false
+        },
+        {
+          "name": "justifyItems",
+          "type": "'start' | 'center' | 'end' | 'baseline' | 'stretch'",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "stretch"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "grid.tsx",
+      "example": "<Grid asChild>\n        <RadioGroupPrimitive.Root\n          data-accent-color={color}\n          {...rootProps}\n          ref={forwardedRef}\n          className={classNames('rt-RadioCardsRoot', className)}\n        />\n      </Grid>",
+      "exampleFrom": "src/components/radio-cards.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "region",
+      "variants": {
+        "as": {
+          "prop": "as",
+          "values": [
+            "div",
+            "span"
+          ]
+        },
+        "display": {
+          "prop": "display",
+          "values": [
+            "none",
+            "inline-grid",
+            "grid"
+          ]
+        },
+        "flow": {
+          "prop": "flow",
+          "values": [
+            "row",
+            "column",
+            "dense",
+            "row-dense",
+            "column-dense"
+          ]
+        },
+        "align": {
+          "prop": "align",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "stretch"
+          ]
+        },
+        "justify": {
+          "prop": "justify",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "between"
+          ]
+        },
+        "alignContent": {
+          "prop": "alignContent",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "between",
+            "around",
+            "evenly",
+            "stretch"
+          ]
+        },
+        "justifyItems": {
+          "prop": "justifyItems",
+          "values": [
+            "start",
+            "center",
+            "end",
+            "baseline",
+            "stretch"
+          ]
+        }
+      }
+    },
+    "Heading": {
+      "ref": "Heading",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A section title with its level carried separately from its size, so the outline stays correct when the visual scale changes.",
+      "exports": [
+        "Heading"
+      ],
+      "main": "Heading",
+      "from": "./heading",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "as",
+          "type": "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
+          "values": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6"
+          ],
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Slot.Root",
+        "Tag"
+      ],
+      "sourcePath": "heading.tsx",
+      "example": "<Heading size=\"5\" mb=\"3\" trim=\"start\" {...props} asChild={false} ref={forwardedRef} />",
+      "exampleFrom": "src/components/alert-dialog.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "region",
+      "variants": {
+        "as": {
+          "prop": "as",
+          "values": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        }
+      }
+    },
+    "IconButton": {
+      "ref": "IconButton",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "An action whose label is its icon, and which therefore needs an accessible name. Button when there is room for words.",
+      "exports": [
+        "IconButton"
+      ],
+      "main": "IconButton",
+      "from": "./icon-button",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "BaseButton"
+      ],
+      "renders": [
+        "BaseButton"
+      ],
+      "sourcePath": "icon-button.tsx",
+      "context": "card"
+    },
+    "Inset": {
+      "ref": "Inset",
+      "level": "molecule",
+      "surface": null,
+      "status": "stable",
+      "description": "Content that breaks out of its Card padding to meet the edge — an image at the top of a card, and little else.",
+      "exports": [
+        "Inset"
+      ],
+      "main": "Inset",
+      "from": "./inset",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "side",
+          "type": "'all' | 'x' | 'y' | 'top' | 'bottom' | 'left' | 'right'",
+          "values": [
+            "all",
+            "x",
+            "y",
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ],
+          "required": false
+        },
+        {
+          "name": "clip",
+          "type": "'border-box' | 'padding-box'",
+          "values": [
+            "border-box",
+            "padding-box"
+          ],
+          "required": false
+        },
+        {
+          "name": "p",
+          "type": "'current' | '0'",
+          "values": [
+            "current",
+            "0"
+          ],
+          "required": false
+        },
+        {
+          "name": "px",
+          "type": "'current' | '0'",
+          "values": [
+            "current",
+            "0"
+          ],
+          "required": false
+        },
+        {
+          "name": "py",
+          "type": "'current' | '0'",
+          "values": [
+            "current",
+            "0"
+          ],
+          "required": false
+        },
+        {
+          "name": "pt",
+          "type": "'current' | '0'",
+          "values": [
+            "current",
+            "0"
+          ],
+          "required": false
+        },
+        {
+          "name": "pr",
+          "type": "'current' | '0'",
+          "values": [
+            "current",
+            "0"
+          ],
+          "required": false
+        },
+        {
+          "name": "pb",
+          "type": "'current' | '0'",
+          "values": [
+            "current",
+            "0"
+          ],
+          "required": false
+        },
+        {
+          "name": "pl",
+          "type": "'current' | '0'",
+          "values": [
+            "current",
+            "0"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "inset.tsx",
+      "context": "card",
+      "variants": {
+        "side": {
+          "prop": "side",
+          "values": [
+            "all",
+            "x",
+            "y",
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ]
+        },
+        "clip": {
+          "prop": "clip",
+          "values": [
+            "border-box",
+            "padding-box"
+          ]
+        },
+        "p": {
+          "prop": "p",
+          "values": [
+            "current",
+            "0"
+          ]
+        },
+        "px": {
+          "prop": "px",
+          "values": [
+            "current",
+            "0"
+          ]
+        },
+        "py": {
+          "prop": "py",
+          "values": [
+            "current",
+            "0"
+          ]
+        },
+        "pt": {
+          "prop": "pt",
+          "values": [
+            "current",
+            "0"
+          ]
+        },
+        "pr": {
+          "prop": "pr",
+          "values": [
+            "current",
+            "0"
+          ]
+        },
+        "pb": {
+          "prop": "pb",
+          "values": [
+            "current",
+            "0"
+          ]
+        },
+        "pl": {
+          "prop": "pl",
+          "values": [
+            "current",
+            "0"
+          ]
+        }
+      }
+    },
+    "Kbd": {
+      "ref": "Kbd",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A key the reader is being asked to press. Code for a literal value.",
+      "exports": [
+        "Kbd"
+      ],
+      "main": "Kbd",
+      "from": "./kbd",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'classic' | 'soft'",
+          "values": [
+            "classic",
+            "soft"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "kbd.tsx",
+      "example": "<Kbd asChild size=\"3\" tabIndex={0} className=\"rt-ThemePanelShortcut\">\n              <button\n                type=\"button\"\n                onClick={() => setOpen((open) => !open)}\n                ref={triggerRef}\n                aria-label=\"Toggle the Theme Panel\"\n              >\n                T\n              </button>\n            </Kbd>",
+      "exampleFrom": "src/components/theme-panel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "classic",
+            "soft"
+          ]
+        }
+      }
+    },
+    "Link": {
+      "ref": "Link",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Navigation. If it changes state rather than location it is a Button, whatever it looks like.",
+      "exports": [
+        "Link"
+      ],
+      "main": "Link",
+      "from": "./link",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "required": false
+        },
+        {
+          "name": "underline",
+          "type": "'auto' | 'always' | 'hover' | 'none'",
+          "values": [
+            "auto",
+            "always",
+            "hover",
+            "none"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "Text"
+      ],
+      "renders": [
+        "Text",
+        "a"
+      ],
+      "sourcePath": "link.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "underline": {
+          "prop": "underline",
+          "values": [
+            "auto",
+            "always",
+            "hover",
+            "none"
+          ]
+        }
+      }
+    },
+    "Progress": {
+      "ref": "Progress",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "How far along a known-length task is. Spinner when the length is unknown.",
+      "exports": [
+        "Progress"
+      ],
+      "main": "Progress",
+      "from": "./progress",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "duration",
+          "type": "`${number}s` | `${number}ms`",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3'",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'classic' | 'surface' | 'soft'",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "ProgressPrimitive.Indicator",
+        "ProgressPrimitive.Root"
+      ],
+      "sourcePath": "progress.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ]
+        }
+      }
+    },
+    "Quote": {
+      "ref": "Quote",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A quoted phrase inside running text. Blockquote when the quote is the block.",
+      "exports": [
+        "Quote"
+      ],
+      "main": "Quote",
+      "from": "./quote",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "quote.tsx",
+      "context": "card"
+    },
+    "Radio": {
+      "ref": "Radio",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Exactly one of several. Checkbox when the choices are independent.",
+      "exports": [
+        "Radio"
+      ],
+      "main": "Radio",
+      "from": "./radio",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "input"
+      ],
+      "sourcePath": "radio.tsx",
+      "context": "card"
+    },
+    "Reset": {
+      "ref": "Reset",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Strips a native element back to nothing so it can be styled. Plumbing.",
+      "exports": [
+        "Reset"
+      ],
+      "main": "Reset",
+      "from": "./reset",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Slot.Root"
+      ],
+      "sourcePath": "reset.tsx",
+      "context": "card"
+    },
+    "ScrollArea": {
+      "ref": "ScrollArea",
+      "level": "organism",
+      "surface": null,
+      "status": "stable",
+      "description": "A region that scrolls with consistent scrollbars across platforms. Its presence is a layout decision, not a styling one.",
+      "exports": [
+        "ScrollArea"
+      ],
+      "main": "ScrollArea",
+      "from": "./scroll-area",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3'",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ],
+          "required": false
+        },
+        {
+          "name": "scrollbars",
+          "type": "'vertical' | 'horizontal' | 'both'",
+          "values": [
+            "vertical",
+            "horizontal",
+            "both"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "ScrollAreaPrimitive.Corner",
+        "ScrollAreaPrimitive.Root",
+        "ScrollAreaPrimitive.Scrollbar",
+        "ScrollAreaPrimitive.Thumb",
+        "ScrollAreaPrimitive.Viewport",
+        "div"
+      ],
+      "sourcePath": "scroll-area.tsx",
+      "example": "<ScrollArea>\n            <Box flexGrow=\"1\" p={{ initial: '4', xs: '5' }} position=\"relative\">\n              {!!shortcut && (\n                <Box position=\"absolute\" top=\"0\" right=\"0\" m=\"2\">\n                  {shortcut}\n                </Box>\n              )}\n              <ThemePanelContent onAppearanceChange={onAppearanceChange} context={themeContext} />\n            </Box>\n          </ScrollArea>",
+      "exampleFrom": "src/components/theme-panel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "region",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "scrollbars": {
+          "prop": "scrollbars",
+          "values": [
+            "vertical",
+            "horizontal",
+            "both"
+          ]
+        }
+      }
+    },
+    "Section": {
+      "ref": "Section",
+      "level": "organism",
+      "surface": null,
+      "status": "stable",
+      "description": "A vertical band of a page with the vertical rhythm applied. Container caps the width; this divides the height.",
+      "exports": [
+        "Section"
+      ],
+      "main": "Section",
+      "from": "./section",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "required": false
+        },
+        {
+          "name": "display",
+          "type": "'none' | 'initial'",
+          "values": [
+            "none",
+            "initial"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "section.tsx",
+      "context": "region",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        "display": {
+          "prop": "display",
+          "values": [
+            "none",
+            "initial"
+          ]
+        }
+      }
+    },
+    "Separator": {
+      "ref": "Separator",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A line that means a break in content, announced as one. A border is decoration; this is structure.",
+      "exports": [
+        "Separator"
+      ],
+      "main": "Separator",
+      "from": "./separator",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "orientation",
+          "type": "'horizontal' | 'vertical'",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "span"
+      ],
+      "sourcePath": "separator.tsx",
+      "context": "region",
+      "variants": {
+        "orientation": {
+          "prop": "orientation",
+          "values": [
+            "horizontal",
+            "vertical"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      }
+    },
+    "Skeleton": {
+      "ref": "Skeleton",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The shape of content that has not arrived, holding its space so nothing jumps.",
+      "exports": [
+        "Skeleton"
+      ],
+      "main": "Skeleton",
+      "from": "./skeleton",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Tag"
+      ],
+      "sourcePath": "skeleton.tsx",
+      "context": "card"
+    },
+    "Slider": {
+      "ref": "Slider",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A value chosen from a continuous range by dragging. A number field when the exact value matters more than the feel of it.",
+      "exports": [
+        "Slider"
+      ],
+      "main": "Slider",
+      "from": "./slider",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3'",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'classic' | 'surface' | 'soft'",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SliderPrimitive.Range",
+        "SliderPrimitive.Root",
+        "SliderPrimitive.Thumb",
+        "SliderPrimitive.Track"
+      ],
+      "sourcePath": "slider.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ]
+        }
+      }
+    },
+    "Spinner": {
+      "ref": "Spinner",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Something is happening and its length is unknown. Progress when it is known.",
+      "exports": [
+        "Spinner"
+      ],
+      "main": "Spinner",
+      "from": "./spinner",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3'",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "Flex"
+      ],
+      "renders": [
+        "Flex",
+        "span"
+      ],
+      "sourcePath": "spinner.tsx",
+      "example": "<Spinner size={mapResponsiveProp(size, mapButtonSizeToSpinnerSize)} />",
+      "exampleFrom": "src/components/_internal/base-button.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      }
+    },
+    "Strong": {
+      "ref": "Strong",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Importance, carried semantically. Em for emphasis rather than importance.",
+      "exports": [
+        "Strong"
+      ],
+      "main": "Strong",
+      "from": "./strong",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Comp"
+      ],
+      "sourcePath": "strong.tsx",
+      "context": "card"
+    },
+    "Switch": {
+      "ref": "Switch",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "A setting that takes effect the moment it is flipped. Checkbox when the change is submitted later.",
+      "exports": [
+        "Switch"
+      ],
+      "main": "Switch",
+      "from": "./switch",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3'",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'classic' | 'surface' | 'soft'",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "SwitchPrimitive.Root",
+        "SwitchPrimitive.Thumb"
+      ],
+      "sourcePath": "switch.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ]
+        }
+      }
+    },
+    "Text": {
+      "ref": "Text",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Body copy with the type scale attached. Heading when it titles a section.",
+      "exports": [
+        "Text"
+      ],
+      "main": "Text",
+      "from": "./text",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "as",
+          "type": "'span' | 'div' | 'label' | 'p'",
+          "values": [
+            "span",
+            "div",
+            "label",
+            "p"
+          ],
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Slot.Root",
+        "Tag"
+      ],
+      "sourcePath": "text.tsx",
+      "example": "<Text\n        as=\"p\"\n        size={mapResponsiveProp(size, mapCalloutSizeToTextSize)}\n        {...props}\n        asChild={false}\n        ref={forwardedRef}\n        className={classNames('rt-CalloutText', className)}\n      />",
+      "exampleFrom": "src/components/callout.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card",
+      "variants": {
+        "as": {
+          "prop": "as",
+          "values": [
+            "span",
+            "div",
+            "label",
+            "p"
+          ]
+        },
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        }
+      }
+    },
+    "TextArea": {
+      "ref": "TextArea",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "Multi-line input. A single-line field when the answer is short — the height is the promise.",
+      "exports": [
+        "TextArea"
+      ],
+      "main": "TextArea",
+      "from": "./text-area",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "size",
+          "type": "'1' | '2' | '3'",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ],
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'classic' | 'surface' | 'soft'",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ],
+          "required": false
+        },
+        {
+          "name": "resize",
+          "type": "'none' | 'vertical' | 'horizontal' | 'both'",
+          "values": [
+            "none",
+            "vertical",
+            "horizontal",
+            "both"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "div",
+        "textarea"
+      ],
+      "sourcePath": "text-area.tsx",
+      "context": "card",
+      "variants": {
+        "size": {
+          "prop": "size",
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "classic",
+            "surface",
+            "soft"
+          ]
+        },
+        "resize": {
+          "prop": "resize",
+          "values": [
+            "none",
+            "vertical",
+            "horizontal",
+            "both"
+          ]
+        }
+      }
+    },
+    "Theme": {
+      "ref": "Theme",
+      "level": "organism",
+      "surface": null,
+      "status": "stable",
+      "description": "The root that carries appearance, accent and radius down the tree. One per application, or one per deliberately different area.",
+      "exports": [
+        "Theme"
+      ],
+      "main": "Theme",
+      "from": "./theme",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "appearance",
+          "type": "'inherit' | 'light' | 'dark'",
+          "values": [
+            "inherit",
+            "light",
+            "dark"
+          ],
+          "required": false
+        },
+        {
+          "name": "panelBackground",
+          "type": "'solid' | 'translucent'",
+          "values": [
+            "solid",
+            "translucent"
+          ],
+          "required": false
+        },
+        {
+          "name": "scaling",
+          "type": "'90%' | '95%' | '100%' | '105%' | '110%'",
+          "values": [
+            "90%",
+            "95%",
+            "100%",
+            "105%",
+            "110%"
+          ],
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "Direction.Provider",
+        "ThemeImpl",
+        "ThemeRoot",
+        "TooltipPrimitive.Provider"
+      ],
+      "sourcePath": "theme.tsx",
+      "example": "<Theme asChild>\n          <TooltipPrimitive.Content\n            sideOffset={4}\n            collisionPadding={10}\n            {...tooltipContentProps}\n            asChild={false}\n            ref={forwardedRef}\n            className={classNames('rt-TooltipContent', className)}\n          >\n            <Text as=\"p\" className=\"rt-TooltipText\" size=\"1\">\n              {content}\n            </Text>\n            <TooltipPrimitive.Arrow className=\"rt-TooltipArrow\" />\n          </TooltipPrimitive.Content>\n        </Theme>",
+      "exampleFrom": "src/components/tooltip.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "page",
+      "variants": {
+        "appearance": {
+          "prop": "appearance",
+          "values": [
+            "inherit",
+            "light",
+            "dark"
+          ]
+        },
+        "panelBackground": {
+          "prop": "panelBackground",
+          "values": [
+            "solid",
+            "translucent"
+          ]
+        },
+        "scaling": {
+          "prop": "scaling",
+          "values": [
+            "90%",
+            "95%",
+            "100%",
+            "105%",
+            "110%"
+          ]
+        }
+      }
+    },
+    "ThemePanel": {
+      "ref": "ThemePanel",
+      "level": "organism",
+      "surface": null,
+      "status": "stable",
+      "description": "The development panel for trying theme settings live. Not for production.",
+      "exports": [
+        "ThemePanel"
+      ],
+      "main": "ThemePanel",
+      "from": "./theme-panel",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "onAppearanceChange",
+          "type": "(value: 'light' | 'dark') => void",
+          "required": false
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "Kbd",
+        "Tooltip"
+      ],
+      "renders": [
+        "Kbd",
+        "ThemePanelImpl",
+        "Tooltip",
+        "button"
+      ],
+      "variants": {
+        "defaultOpen": {
+          "prop": "defaultOpen",
+          "values": [
+            "true"
+          ]
+        }
+      },
+      "sourcePath": "theme-panel.tsx",
+      "context": "region"
+    },
+    "ThemePanelContent": {
+      "ref": "ThemePanelContent",
+      "level": "molecule",
+      "surface": null,
+      "status": "stable",
+      "description": "The body of ThemePanel. A part.",
+      "exports": [
+        "ThemePanelContent"
+      ],
+      "main": "ThemePanelContent",
+      "from": "./theme-panel",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "onAppearanceChange",
+          "type": "(value: 'light' | 'dark') => void",
+          "required": false
+        },
+        {
+          "name": "context",
+          "type": "ThemeContextValue",
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "Box",
+        "Button",
+        "Flex",
+        "Grid",
+        "Heading",
+        "IconButton",
+        "Text",
+        "Theme",
+        "Tooltip"
+      ],
+      "renders": [
+        "AccessibleIcon",
+        "Box",
+        "Button",
+        "Flex",
+        "Grid",
+        "Heading",
+        "IconButton",
+        "Popover.Content",
+        "Popover.Root",
+        "Popover.Trigger",
+        "Text",
+        "Theme",
+        "ThemePanelHeading",
+        "ThemePanelSection",
+        "Tooltip",
+        "body",
+        "html",
+        "input",
+        "label",
+        "path",
+        "svg"
+      ],
+      "sourcePath": "theme-panel.tsx",
+      "example": "<ThemePanelContent onAppearanceChange={onAppearanceChange} context={themeContext} />",
+      "exampleFrom": "src/components/theme-panel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "region"
+    },
+    "ThickCheckIcon": {
+      "ref": "ThickCheckIcon",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The check mark used inside selection controls. A part.",
+      "exports": [
+        "ThickCheckIcon"
+      ],
+      "main": "ThickCheckIcon",
+      "from": "./icons",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "path",
+        "svg"
+      ],
+      "sourcePath": "icons.tsx",
+      "example": "<ThickCheckIcon className=\"rt-SelectItemIndicatorIcon\" />",
+      "exampleFrom": "src/components/select.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card"
+    },
+    "ThickChevronRightIcon": {
+      "ref": "ThickChevronRightIcon",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The forward chevron used inside navigation controls. A part.",
+      "exports": [
+        "ThickChevronRightIcon"
+      ],
+      "main": "ThickChevronRightIcon",
+      "from": "./icons",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "path",
+        "svg"
+      ],
+      "sourcePath": "icons.tsx",
+      "example": "<ThickChevronRightIcon className=\"rt-BaseMenuSubTriggerIcon rt-ContextMenuSubTriggerIcon\" />",
+      "exampleFrom": "src/components/context-menu.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card"
+    },
+    "ThickDividerHorizontalIcon": {
+      "ref": "ThickDividerHorizontalIcon",
+      "level": "atom",
+      "surface": null,
+      "status": "stable",
+      "description": "The indeterminate mark inside a checkbox. A part.",
+      "exports": [
+        "ThickDividerHorizontalIcon"
+      ],
+      "main": "ThickDividerHorizontalIcon",
+      "from": "./icons",
+      "slots": [],
+      "inherits": true,
+      "props": [],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "path",
+        "svg"
+      ],
+      "sourcePath": "icons.tsx",
+      "example": "<ThickDividerHorizontalIcon />",
+      "exampleFrom": "src/components/checkbox.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card"
+    },
+    "Tooltip": {
+      "ref": "Tooltip",
+      "level": "molecule",
+      "surface": null,
+      "status": "stable",
+      "description": "A short label revealed on hover or focus, for something already visible. It cannot hold anything interactive — use a popover for that.",
+      "exports": [
+        "Tooltip"
+      ],
+      "main": "Tooltip",
+      "from": "./tooltip",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "content",
+          "type": "React.ReactNode",
+          "required": true
+        },
+        {
+          "name": "container",
+          "type": "React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Portal>['container']",
+          "required": false
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [
+        "Text",
+        "Theme"
+      ],
+      "renders": [
+        "Text",
+        "Theme",
+        "TooltipPrimitive.Arrow",
+        "TooltipPrimitive.Content",
+        "TooltipPrimitive.Portal",
+        "TooltipPrimitive.Root",
+        "TooltipPrimitive.Trigger"
+      ],
+      "sourcePath": "tooltip.tsx",
+      "example": "<Tooltip content=\"Press T to show/hide the Theme Panel\" side=\"bottom\" sideOffset={6}>\n            <Kbd asChild size=\"3\" tabIndex={0} className=\"rt-ThemePanelShortcut\">\n              <button\n                type=\"button\"\n                onClick={() => setOpen((open) => !open)}\n                ref={triggerRef}\n                aria-label=\"Toggle the Theme Panel\"\n              >\n                T\n              </button>\n            </Kbd>\n          </Tooltip>",
+      "exampleFrom": "src/components/theme-panel.tsx",
+      "exampleIs": "extracted from the best real usage in this repository; nothing maintains it, and it records how the component is used today rather than how it should be",
+      "context": "card"
+    }
+  },
+  "blocks": {}
+}

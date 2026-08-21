@@ -1,0 +1,4 @@
+{
+  "handler naming": ["src/components/Widget1.tsx", "src/components/Widget2.tsx"],
+  "internal imports": ["src/lib/helper.ts"]
+}

@@ -1,0 +1,66 @@
+{
+  "_": [
+    "The role vocabulary a screen spec is written in.",
+    "",
+    "A spec that names Button and Field can only be built on a library that has a",
+    "Button and a Field. A spec that names `primaryAction` and `textInput` can be",
+    "built on any library that binds those roles — which is what makes one agreed",
+    "screen reachable on more than one stack.",
+    "",
+    "The vocabulary is deliberately small. Every role here is one a product screen",
+    "actually asks for; anything a specific library adds beyond this is reached by",
+    "naming its component directly, and that spec stops being portable. That is a",
+    "fair trade to make knowingly, not by accident.",
+    "",
+    "Axes are the props a spec may set. They carry the same meaning on every",
+    "library; each binding says what the library calls them and which of its values",
+    "each one maps to."
+  ],
+  "schemaVersion": 1,
+
+  "roles": {
+    "pageHeader": "Names the screen and holds its primary action.",
+    "heading": "A title inside the screen.",
+    "text": "Body copy.",
+
+    "primaryAction": "The one action the screen exists for.",
+    "secondaryAction": "A supporting action, subordinate to the primary one.",
+    "iconAction": "An action shown as an icon only; it always needs an accessible name.",
+
+    "textInput": "Single-line text entry with a label.",
+    "searchInput": "Text entry that filters what is on screen.",
+    "select": "Choice from a short fixed list.",
+    "checkbox": "Independent on/off choice, applied on submit.",
+    "toggle": "On/off setting applied immediately.",
+
+    "table": "Rows with comparable columns.",
+    "list": "Vertical run of items with no columns to compare.",
+    "card": "Bounded surface grouping one subject.",
+
+    "statusTag": "Compact label carrying a status or category.",
+    "avatar": "Visual stand-in for a person or entity.",
+    "divider": "The one hairline rule between content.",
+
+    "inlineMessage": "Message that stays until the condition is resolved.",
+    "transientMessage": "Message that leaves on its own.",
+    "loading": "Busy indicator for an unmeasurable wait.",
+    "skeleton": "Placeholder holding the shape of content that has not arrived.",
+    "emptyState": "What the screen shows when there is nothing to show.",
+
+    "tabs": "Switches between peer panels.",
+    "pagination": "Page navigation for a known total.",
+    "tooltip": "Short text on hover or focus.",
+    "dialog": "Modal window for a task that interrupts the screen."
+  },
+
+  "axes": {
+    "tone": {
+      "means": "what this element's state is",
+      "values": ["neutral", "primary", "success", "warning", "danger", "info"]
+    },
+    "size": {
+      "means": "the element's place on the density scale",
+      "values": ["sm", "md", "lg"]
+    }
+  }
+}

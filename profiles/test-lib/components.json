@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "_": "Extracted from /Users/Vitali_Novikau/Downloads/harness/tests/fixtures/react-lib by adapt-react. Facts only: exports, props, required flags and closed unions. Level, surface, status and description are policy and judgment — they are null until a person writes them, because a guessed judgment tier recommends the wrong component confidently.",
+  "components": {
+    "Badge": {
+      "ref": "Badge",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Badge"
+      ],
+      "main": "Badge",
+      "from": "@/ui/badge",
+      "slots": [],
+      "inherits": true,
+      "props": [
+        {
+          "name": "variant",
+          "type": "'default' | 'secondary' | 'destructive'",
+          "required": false,
+          "values": [
+            "default",
+            "secondary",
+            "destructive"
+          ],
+          "from": "cva"
+        },
+        {
+          "name": "shape",
+          "type": "'default' | 'pill'",
+          "required": false,
+          "values": [
+            "default",
+            "pill"
+          ],
+          "from": "cva"
+        }
+      ],
+      "propsUnknown": false,
+      "exportedAs": "named",
+      "uses": [],
+      "renders": [
+        "span"
+      ],
+      "variants": {
+        "variant": {
+          "prop": "variant",
+          "values": [
+            "default",
+            "secondary",
+            "destructive"
+          ]
+        },
+        "shape": {
+          "prop": "shape",
+          "values": [
+            "default",
+            "pill"
+          ]
+        }
+      },
+      "sourcePath": "badge.tsx",
+      "example": "<Badge variant=\"secondary\">Draft</Badge>",
+      "exampleFrom": "badge.stories.tsx — the \"Secondary\" story",
+      "exampleIs": "authored: a Storybook story, which somebody wrote and Storybook renders"
+    },
+    "Screen": {
+      "ref": "Screen",
+      "level": null,
+      "surface": null,
+      "status": null,
+      "description": null,
+      "exports": [
+        "Screen"
+      ],
+      "main": "Screen",
+      "from": "@/ui/app/Screen",
+      "slots": [],
+      "inherits": false,
+      "props": [],
+      "propsUnknown": true,
+      "exportedAs": "named",
+      "uses": [
+        "Badge"
+      ],
+      "renders": [
+        "Badge"
+      ],
+      "sourcePath": "app/Screen.tsx"
+    }
+  },
+  "blocks": {}
+}

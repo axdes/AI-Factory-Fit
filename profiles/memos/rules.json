@@ -1,0 +1,6 @@
+{
+  "_": "How the shared rule catalogue is expressed for this library. Until expressionKey names a set of expressions, every translatable rule is a disabled rule.",
+  "schemaVersion": 1,
+  "catalogue": "../../rules/catalogue.json",
+  "expressionKey": null
+}

@@ -1,0 +1,106 @@
+{
+  "_": [
+    "The last resort for style: asking.",
+    "",
+    "Reach for this only when there is nothing to read — no site, no Figma, no",
+    "existing code. That is rare, and it should be rare: a client's live site is",
+    "the design decisions they have already made and already shipped, and reading",
+    "it produces values while asking produces adjectives. `style-from-site` first,",
+    "always.",
+    "",
+    "These are forks, not preferences. Each one changes what gets built, has a",
+    "default that is defensible when nobody has an opinion, and is recorded as a",
+    "decision the moment it is answered — after which it outranks any later",
+    "measurement, the same as any other entry in decisions.json.",
+    "",
+    "Keep the list this short. A questionnaire long enough to be thorough is long",
+    "enough that the answers stop being considered."
+  ],
+  "schemaVersion": 1,
+
+  "forks": {
+    "density": {
+      "question": "How much does a screen hold?",
+      "options": {
+        "dense": "Operational tools where the user lives all day: more on screen, smaller type, tighter spacing.",
+        "comfortable": "The default. Room to read, one subject per region.",
+        "spacious": "Marketing surfaces and low-frequency tasks: generous whitespace, larger type."
+      },
+      "default": "comfortable",
+      "changes": "the spacing scale's base step, control heights, and the type scale's body size",
+      "affects": ["settings.css control tokens", "spacing base", "font-base"]
+    },
+
+    "tone": {
+      "question": "How does the product speak?",
+      "options": {
+        "plain": "Says what happened. The default, and the only one that survives translation intact.",
+        "warm": "First person, contractions, a little encouragement in empty states.",
+        "formal": "Full sentences, no contractions; regulated and enterprise contexts often require it."
+      },
+      "default": "plain",
+      "changes": "microcopy, empty states, error messages, button labels",
+      "affects": ["copy rules in the agent contract"]
+    },
+
+    "colour-commitment": {
+      "question": "How far does brand colour reach into the interface?",
+      "options": {
+        "accent-only": "Brand appears on the primary action and little else. The default: it survives a rebrand and keeps contrast easy.",
+        "branded-surfaces": "Brand colour on headers, navigation and large surfaces. Distinctive, and it makes every contrast pair a decision.",
+        "full-palette": "The brand palette drives the whole semantic tier, including status colours."
+      },
+      "default": "accent-only",
+      "changes": "how many semantic tokens map to brand stops, and how much contrast work the theme needs",
+      "affects": ["semantic tier", "contrast pairs"]
+    },
+
+    "motion": {
+      "question": "How much movement?",
+      "options": {
+        "minimal": "State changes and nothing else. The default; it is also the cheapest to keep accessible.",
+        "expressive": "Transitions on entry, layout and emphasis.",
+        "none": "No motion beyond what the platform does. Some regulated and low-power contexts require it."
+      },
+      "default": "minimal",
+      "changes": "the duration scale and whether components ship transitions at all",
+      "affects": ["motion tokens", "prefers-reduced-motion handling"],
+      "note": "Whatever is chosen, prefers-reduced-motion is honoured. That is not a fork; it is WCAG 2.3.3."
+    },
+
+    "theme": {
+      "question": "Which themes ship?",
+      "options": {
+        "light-only": "One theme. Half the contrast work, and no theme parity to maintain.",
+        "light-and-dark": "The default for anything people use for hours.",
+        "system-plus-override": "Follows the operating system with an explicit control. The most work, and the most expected."
+      },
+      "default": "light-and-dark",
+      "changes": "whether the semantic tier needs a second value everywhere, and doubles the contrast matrix",
+      "affects": ["semantic tier", "contrast gate", "visual baselines"]
+    },
+
+    "direction": {
+      "question": "Does the product ship a right-to-left language?",
+      "options": {
+        "ltr-only": "No RTL requirement.",
+        "rtl-from-day-one": "The default when any RTL language is in scope, because retrofitting RTL never finishes."
+      },
+      "default": "ltr-only",
+      "changes": "logical properties become mandatory rather than preferable, and every layout is mirrored in review",
+      "affects": ["CSS property rules", "the logical-properties practice"]
+    },
+
+    "component-source": {
+      "question": "Where do the components come from?",
+      "options": {
+        "existing-library": "MUI, Ant or similar: a profile already exists or costs a day, and the API is not ours to change.",
+        "headless-plus-own-styling": "Radix, Ark or similar: behaviour and accessibility are solved, appearance is entirely ours.",
+        "built-from-scratch": "Full control, full cost. Only worth it when the product's interaction is genuinely unusual."
+      },
+      "default": "existing-library",
+      "changes": "everything downstream: the profile, the bindings, what a screen spec can name",
+      "affects": ["profile", "bindings", "screen specs"]
+    }
+  }
+}

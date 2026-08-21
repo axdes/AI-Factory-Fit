@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "test-lib",
+  "library": {
+    "name": "test-lib",
+    "kind": "first-party"
+  },
+  "adapter": "adapt-react",
+  "tiers": {
+    "facts": "extracted from source; complete",
+    "policy": "UNWRITTEN — level, surface and status, one afternoon for the whole library",
+    "judgment": "UNWRITTEN — descriptions and role bindings, the tier no library ships"
+  },
+  "counts": {
+    "components": 2
+  },
+  "bindings": "bindings/test-lib.json"
+}

@@ -1,0 +1,3 @@
+.readable { color: var(--foreground); background: var(--background); }
+.too-faint { color: var(--card-foreground); background: var(--card); }
+.same { color: var(--background); background: var(--background); }

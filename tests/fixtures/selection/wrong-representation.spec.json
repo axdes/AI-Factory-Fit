@@ -1,0 +1,16 @@
+{
+  "id": "planted-wrong-representation",
+  "title": "A planted spec whose content zone chooses the wrong representation",
+  "goal": "Compare many users across eight fields — a job R1 says wants columns — but the zone draws a card per user. spec-selection must reject this; it exists as proof the whole-spec path can fail, and lives under tests/fixtures so the gate's default specs/ scan never picks it up.",
+  "zones": [
+    {
+      "name": "content",
+      "purpose": "One card per user with all eight fields stacked inside it.",
+      "task": "compare",
+      "data": { "item": "record", "cardinality": "many", "fields": 8 },
+      "elements": ["card", "statusTag tone=warning", "avatar"]
+    }
+  ],
+  "states": { "empty": "emptyState", "error": "inlineMessage tone=danger", "loading": "skeleton" },
+  "data": ["users: id, name, team, role, status, lastSeen, createdAt, seats"]
+}

@@ -1,0 +1,4 @@
+{
+  "comment": "A project config that enumerates rules explicitly. This replaces the category we ask for on the command line, so the jsx-a11y plugin is switched off without any error being raised. Copied in shape from outline, where it hid seventy findings behind a zero.",
+  "rules": { "no-debugger": "error" }
+}

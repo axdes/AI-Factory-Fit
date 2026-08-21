@@ -1,0 +1,117 @@
+{
+  "_": [
+    "The words this system's public API is allowed to use, and what each one means.",
+    "",
+    "A shared prop name is a promise: `tone` must mean the same thing on every",
+    "component that has it, or an agent that learned it once learns it wrong",
+    "everywhere else. This file is the promise written down; scripts/lint-vocab.mjs",
+    "is the promise enforced against the published profile.",
+    "",
+    "A closed-union prop NAME used on two or more components and NOT declared here",
+    "is red: nobody has written down what the word means. A value outside its axis",
+    "is red too. To clear either, put the word here with a sentence — the cost is a",
+    "sentence rather than a checkbox because a value nobody can describe in a",
+    "sentence is a value that will drift.",
+    "",
+    "`axis` names the ONE question a prop answers. A prop name that answers two",
+    "different questions is two props wearing one name. A value written as an object",
+    "with `onlyOn: interactive` is allowed only on components that render their own",
+    "control — the difference between a destructive ACTION and a bad STATE.",
+    "",
+    "`scoped: true` marks an axis whose words are a component-local look, not a",
+    "system-wide scale; its words are declared so the name is accounted for, but",
+    "they carry no promise across components and are not policed value-by-value."
+  ],
+  "size": {
+    "axis": "how much room this thing takes",
+    "values": {
+      "sm": "denser than the default",
+      "md": "the default",
+      "lg": "roomier than the default",
+      "xl": "display scale",
+      "2xl": "hero scale"
+    }
+  },
+  "tone": {
+    "axis": "what this thing's state IS",
+    "values": {
+      "neutral": "no status, the resting colour",
+      "primary": "the brand accent",
+      "success": "it worked",
+      "warning": "it needs attention but nothing is broken",
+      "danger": "it is broken, failed, or over a limit",
+      "info": "neutral information worth noticing",
+      "ai": "produced by a model rather than a person",
+      "destructive": {
+        "means": "activating this control destroys something",
+        "onlyOn": "interactive",
+        "why": "a destructive ACTION is not a bad STATE: a button says `destructive`, a badge or a bar says `danger`. Allowing the action word on a display component is how a status ends up wearing it. Only IconButton carries it, and it renders a real control."
+      }
+    }
+  },
+  "variant": {
+    "axis": "how much emphasis this CONTROL carries, and what role it plays",
+    "values": {
+      "primary": "the one action the screen wants",
+      "secondary": "an ordinary action",
+      "ghost": "an action with no surface until hover",
+      "quiet": "an action with no surface at all",
+      "filled": "an action carrying a solid tone",
+      "destructive": "it destroys something",
+      "success": "it confirms something",
+      "dark": "it sits on a dark surface",
+      "link": "it navigates and looks like text",
+      "ai": "it invokes a model"
+    }
+  },
+  "surface": {
+    "axis": "what this thing is sitting ON, so it can stay visible against it",
+    "values": {
+      "base": "the default surface — a card or the page body; a form control draws its resting border here",
+      "muted": "the tinted surface; a control drops its resting border and lets its fill do the separating",
+      "card": "inside a card, on white — a block that sizes itself to that surface",
+      "page": "on the grey page body — the same block on the other surface"
+    }
+  },
+  "placement": {
+    "axis": "where a SURFACE sits against its trigger or the viewport",
+    "values": {
+      "center": "centred, the default dialog",
+      "drawer": "attached to an edge",
+      "top": "above the trigger",
+      "bottom": "below the trigger",
+      "start": "before the trigger in reading order (left in LTR, right in RTL)",
+      "end": "after the trigger in reading order"
+    }
+  },
+  "shape": {
+    "axis": "what outline a BOX traces",
+    "values": {
+      "text": "a line of text",
+      "block": "a rectangular area",
+      "circle": "a round box: a person's avatar, a round control",
+      "square": "a rounded rectangle where a circle is the default: a team or an organisation rather than a person"
+    }
+  },
+  "as": {
+    "axis": "which HTML element this renders as, when the choice is the document's and not the component's",
+    "values": {
+      "h1": "the page's single top heading",
+      "h2": "a section heading",
+      "h3": "a sub-section heading",
+      "h4": "a fourth-level heading",
+      "p": "a paragraph of body text",
+      "span": "inline text with no block semantics"
+    }
+  },
+  "appearance": {
+    "axis": "which of this component's own local visual styles it wears",
+    "scoped": true,
+    "values": {
+      "meta": "MetaItem: a run of secondary metadata",
+      "eyebrow": "MetaItem: a small label above a heading",
+      "underline": "Tabs: an underline under the active tab",
+      "pills": "Tabs: each tab as a filled pill"
+    }
+  }
+}

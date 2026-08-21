@@ -1,0 +1,21 @@
+/* A page whose values sit deliberately on both sides of the frequency bars, so a
+ * test can tell "extracted" from "below the bar" from "not declared at all".
+ *
+ *   #2563eb   4 uses  → clears the palette bar of 3
+ *   16px font 3 uses  → clears the size bar of 3
+ *   8px gap/padding 5 → clears the spacing bar of 4
+ *   Inter     1 use   → below the family bar of 2
+ *   font-weight       → never declared
+ */
+:root { --brand: #2563eb; --ink: #16181d; }
+body { background: #fafafc; color: #16181d; font-family: Inter, sans-serif; }
+h1 { font-size: 32px; }
+p  { font-size: 16px; line-height: 24px; }
+li { font-size: 16px; }
+td { font-size: 16px; }
+.a { background: #2563eb; padding: 8px; border-radius: 8px; }
+.b { border-color: #2563eb; padding: 8px; border-radius: 8px; }
+.c { outline-color: #2563eb; gap: 8px; }
+.d { color: #2563eb; gap: 8px; }
+.e { gap: 8px; }
+@media (min-width: 768px) { .page { padding: 24px; } }
