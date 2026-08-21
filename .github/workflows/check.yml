@@ -1,0 +1,46 @@
+# CI for the tool itself.
+#
+# The regression suite exists because eleven detectors over-reported before
+# anyone noticed. Running it only when someone remembers is the same failure one
+# level up, so it runs here on every push.
+name: check
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+
+      # The detector suite. Fixtures are self-contained, so this needs no
+      # repository other than this one. Blocks measured against the first-party
+      # profile stand down when it is absent and say so.
+      - run: node --test tests/detectors.test.mjs
+
+      # The practice catalogue fails closed: an entry without a source stops the
+      # build rather than shipping.
+      - run: node scripts/practices.mjs --greenfield > /dev/null
+
+      # The corpus asks whether the ruleset discriminates, and the redteam asks
+      # whether we would notice if a check stopped working. Both need a profile
+      # with all three tiers written against a repository they can score, and the
+      # one they were built against is not published here.
+      #
+      # Guarded rather than dropped, and the absence is printed rather than passed
+      # over: a build that is green because nothing ran is the failure this whole
+      # project exists to catch.
+      - name: corpus and redteam
+        run: |
+          if [ -d profiles/own ]; then
+            node scripts/eval.mjs
+            node scripts/redteam.mjs
+          else
+            echo "profiles/own is not published, so the corpus and the redteam did NOT run."
+            echo "They are not passing — they are unmeasured. Supply a first-party profile to run them."
+          fi
