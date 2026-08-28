@@ -28,7 +28,8 @@ import { normaliseAudit, pathCounts, auditedCount } from '../scripts/lib/audit-s
 import { measureStories, emitStory } from '../scripts/lib/emit-story.mjs'
 import { readAngular } from '../scripts/lib/sfc.mjs'
 import { archetypes, shellOf, regionsDeclaredBy } from '../scripts/lib/archetypes.mjs'
-import { scoreFiles } from '../scripts/lib/score-core.mjs'
+import { scoreFiles, indexProfile } from '../scripts/lib/score-core.mjs'
+import { indexRow, componentDetail } from '../scripts/lib/answers.mjs'
 import { counted, countedLine } from '../scripts/lib/counted.mjs'
 import { walk } from '../scripts/lib/signals.mjs'
 import { attrPairs, propUsage, axesFrom } from '../scripts/lib/prop-usage.mjs'
@@ -5658,6 +5659,37 @@ describeWithOwn('the MCP surface', () => {
     const tools = messages.find(m => m.id === 2)?.result?.tools ?? []
     assert.deepEqual(tools.map(t => t.name).sort(),
       ['check_usage', 'choose_between', 'get_component', 'list_components'])
+  })
+
+  test('the budget prices the answer, and the index row stays one line', () => {
+    // The budget priced a fetch as JSON.stringify(entry) while the server answered
+    // with rendered text: 1891 tokens against 443 for Table, and 26 of 131 entries
+    // over a ceiling no agent had ever paid. The ceiling the budget calls "the
+    // number that actually matters per fetch" was being tripped by punctuation.
+    //
+    // And the index rendered whole descriptions — paragraphs of 96 tokens on
+    // average — into a row format whose whole promise is one line, which is 13.4k
+    // tokens of discovery on every task to say 131 things.
+    const doc = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'components.json'), 'utf8'))
+    const name = Object.keys(doc.components).find(n => (doc.components[n].description ?? '').length > 200)
+    assert.ok(name, 'no long description left to test the one-line rule with')
+
+    const row = indexRow(name, doc.components[name])
+    assert.ok(row.length < 200, `the index row carries a paragraph: ${row.length} chars`)
+
+    // Cheap discovery must not mean lost information: the whole description is
+    // still one get_component away, and that is what makes the row affordable.
+    const detail = componentDetail(name, indexProfile(doc))
+    assert.ok(detail.includes(doc.components[name].description),
+      'the description the row drops is not in the detail answer either')
+
+    // The negative direction, and the reason this test exists: pricing the record
+    // instead of the answer is the mistake, and it is invisible unless measured.
+    const tokens = (text) => Math.ceil(text.length / 4)
+    const answered = tokens(detail)
+    const onDisk = tokens(JSON.stringify(doc.components[name]))
+    assert.ok(answered < onDisk,
+      `${name}: the answer is not cheaper than the record — the two have been conflated again`)
   })
 
   test('it refuses to confirm an invented prop', () => {

@@ -26,6 +26,7 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js'
 import { indexProfile, scoreFiles } from './lib/score-core.mjs'
+import { indexRow, componentDetail } from './lib/answers.mjs'
 import { scanSlot } from './lib/signals.mjs'
 
 const here = dirname(fileURLToPath(import.meta.url))
@@ -56,12 +57,7 @@ const conventions = REPO ? readJson(join(REPO, '.ds', 'conventions.json')) : und
 
 // ── The answers ───────────────────────────────────────────────────────────────
 
-const oneLine = (name) => {
-  const c = components[name]
-  const level = c.level ? ` · ${c.level}` : ''
-  const context = c.context ? `/${c.context}` : ''
-  return `${name}${level}${context} · ${c.description ?? 'no description'}`
-}
+const oneLine = (name) => indexRow(name, components[name])
 
 /**
  * What the client's own codebase writes at its call sites, if it has been measured.
@@ -80,39 +76,7 @@ const observed = (() => {
   } catch { return {} }
 })()
 
-const detail = (name) => {
-  const c = indexed[name]
-  if (!c) return undefined
-  const lines = [`${c.ref ?? name}${c.isPart ? ` — a part of ${c.partOf}` : ''}`]
-  if (c.description) lines.push(c.description)
-  if (c.from) lines.push(`import { ${name} } from '${c.from}'`)
-  if (c.isPart) {
-    lines.push(`Props are declared on ${c.partOf}; this profile does not publish them per part.`)
-    return lines.join('\n')
-  }
-  if (c.props?.length) {
-    lines.push('', 'Props:')
-    for (const p of c.props) {
-      const values = p.values ? `  one of: ${p.values.join(' | ')}` : ''
-      lines.push(`  ${p.name}${p.required ? '' : '?'}: ${p.type}${values}`)
-    }
-  }
-  // What this repository writes, kept separate from what the component accepts.
-  // An agent that cannot tell them apart treats an unused-but-legal value as
-  // forbidden, or a local habit as a rule the compiler will enforce. Only shown
-  // where a measurement exists — inventing the section from an empty scan would put
-  // "no observed values" in front of an agent as though that meant something.
-  const seen = observed[name]
-  if (seen && Object.keys(seen).length) {
-    lines.push('', 'Observed in this repository (a habit to follow, not a constraint):')
-    for (const [prop, a] of Object.entries(seen)) {
-      lines.push(`  ${prop} = ${Object.entries(a.observed).map(([v, n]) => `${v} ×${n}`).join('  ')}   — ${a.from}`)
-    }
-    lines.push('  A value missing here is not forbidden; it is one nobody has needed yet.')
-  }
-  if (c.example) lines.push('', 'Example:', c.example)
-  return lines.join('\n')
-}
+const detail = (name) => componentDetail(name, indexed, observed)
 
 const twinsFor = (name) => Object.entries(judgment.twins?.pairs ?? {})
   .filter(([pair]) => pair.split(/\s*~\s*/).includes(name))
