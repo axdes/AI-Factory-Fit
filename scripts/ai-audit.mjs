@@ -121,9 +121,24 @@ const reach = new Set(present.flatMap(c => c.reach))
 
 // The pointer pattern: one contract file, and a short CLAUDE.md that imports it,
 // so a single text reaches every tool instead of two texts drifting apart.
+//
+// Only the bare `@AGENTS.md` form expands the file into context at launch. A
+// markdown link or a line of prose is inert text: Claude Code loads the four
+// lines that point and never the file pointed at. MUI and Adobe React Spectrum
+// both ship exactly that, having had the right instinct and spent it on the
+// wrong character. Accepting "see AGENTS.md" reported both as correct — the
+// first version of this detector over-reporting, on the one question it was
+// added to answer.
+//
+// Backticks keep the import literal, so `@AGENTS.md` inside a code span or a
+// fenced block points at nothing either.
 const claude = read('CLAUDE.md')
-const pointsAtAgents = Boolean(claude && /@AGENTS\.md|see AGENTS\.md/i.test(claude))
-const duplicated = Boolean(claude && has('AGENTS.md') && !pointsAtAgents && claude.length > 800)
+const withoutCode = claude ? claude.replace(/```[\s\S]*?```|`[^`\n]*`/g, '') : ''
+const pointsAtAgents = Boolean(claude && has('AGENTS.md') && /(^|[\s(])@AGENTS\.md\b/.test(withoutCode))
+// Points in prose, but with something that does not expand. Worth naming rather
+// than passing over: it reads as the pointer pattern and behaves as an empty file.
+const inertPointer = Boolean(claude && has('AGENTS.md') && !pointsAtAgents && /AGENTS\.md/.test(claude))
+const duplicated = Boolean(claude && has('AGENTS.md') && !pointsAtAgents && !inertPointer && claude.length > 800)
 
 // ── 2. Enforcement: what stops an agent rather than advising it ───────────────
 
@@ -406,7 +421,7 @@ const report = {
   taken: taken(import.meta.url, target),
   target,
   searched: ancestors.map(a => relative(target, a) || '.'),
-  contract: { files: contracts.filter(c => c.present), reach: [...reach], pointsAtAgents, duplicated },
+  contract: { files: contracts.filter(c => c.present), reach: [...reach], pointsAtAgents, inertPointer, duplicated },
   enforcement,
   knowledge,
   boundaries: { subagents },
@@ -450,6 +465,11 @@ if (!present.length) {
     console.log('    nothing keeps them in step. One file plus a pointer is the pattern that holds.')
   }
   if (pointsAtAgents) console.log('\n  CLAUDE.md points at AGENTS.md rather than repeating it.')
+  if (inertPointer) {
+    console.log('\n  ⚠ CLAUDE.md mentions AGENTS.md but does not import it. Only a bare @AGENTS.md')
+    console.log('    expands at launch; a markdown link is text. Claude Code is reading the pointer,')
+    console.log('    not the contract.')
+  }
   const biggest = Math.max(...present.map(c => c.size))
   if (biggest > 6000) {
     console.log(`\n  ⚠ The largest contract is about ${biggest} tokens, paid on every task by every agent.`)

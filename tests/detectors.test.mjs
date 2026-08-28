@@ -4804,6 +4804,32 @@ describe('agent readiness', () => {
       'a line about import order was read as a claim about import form')
   })
 
+  test('a CLAUDE.md that links AGENTS.md is not counted as importing it', () => {
+    run('ai-audit.mjs', [fixture('inert-pointer')])
+    const inert = readScan('inert-pointer', 'ai-audit.json').contract
+
+    // Only the bare `@AGENTS.md` form expands the file into context at launch. A
+    // markdown link is inert text, and so is the same string inside a code span or
+    // a fenced block. MUI and Adobe React Spectrum both ship the link, having had
+    // the right instinct and spent it on the wrong character.
+    //
+    // Matching /see AGENTS\.md/i reported both of them as holding the pointer
+    // pattern — the detector confirming the one thing it was added to catch. The
+    // negative direction is the whole test: silence about a contract that does not
+    // arrive is better than a tick beside it.
+    assert.equal(inert.pointsAtAgents, false, 'a markdown link was read as an @-import')
+    assert.equal(inert.inertPointer, true, 'a pointer that does not expand was passed over in silence')
+    assert.equal(inert.duplicated, false, 'a four-line pointer was reported as a second copy of the contract')
+
+    run('ai-audit.mjs', [fixture('live-pointer')])
+    const live = readScan('live-pointer', 'ai-audit.json').contract
+
+    // And the correction must not overshoot: narrowing the pattern until nothing
+    // matches trades a false positive for a false negative on the same question.
+    assert.equal(live.pointsAtAgents, true, 'a bare @AGENTS.md import was not recognised')
+    assert.equal(live.inertPointer, false, 'a working import was reported as inert')
+  })
+
   test('skills are found in every layout projects actually use', () => {
     run('ai-audit.mjs', [fixture('skill-layouts')])
     const audit = readScan('skill-layouts', 'ai-audit.json')
