@@ -101,8 +101,29 @@ function publishedCounts() {
 const tokensDoc = load('tokens/design.tokens.json')
 const levels = load('src/components/levels.json')
 const surfaces = load('src/components/surfaces.json')
-const vocabulary = load('prop-vocabulary.json')
-const twins = load('twins.json')
+/**
+ * A source the system may keep in more than one place, read from wherever it is.
+ *
+ * Both of these moved into `config/` and this probe kept asking for them at the
+ * root, so `npm run check` stopped at "missing required source" against a system
+ * that had neither lost nor renamed them. The same allowance the counts already
+ * get: a system rearranging a file it owns is normal, and the probe says which
+ * copy it read rather than pretending there was only ever one place to look.
+ */
+function loadFrom(...candidates) {
+  for (const relPath of candidates) {
+    const found = load(relPath, { required: false })
+    if (found !== undefined) {
+      if (relPath !== candidates[0]) notes.push(`${candidates[0]} read from ${relPath}`)
+      return found
+    }
+  }
+  fail(`missing required source: ${candidates.join(' or ')}`)
+  return undefined
+}
+
+const vocabulary = loadFrom('prop-vocabulary.json', 'config/prop-vocabulary.json')
+const twins = loadFrom('twins.json', 'config/twins.json')
 
 if (failures.length) {
   console.error('probe-own: sources unavailable\n' + failures.map(f => '  - ' + f).join('\n'))
