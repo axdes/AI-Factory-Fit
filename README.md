@@ -56,7 +56,7 @@ public code.
 `profiles/own`, which most of this repository's measurements were taken against, is
 not published: it was extracted from a design system that is not ours to distribute.
 The test blocks that measure against it stand down when it is absent and say so —
-`231` of `275` tests run without it. Point them at `reference`, or at your own library,
+`259` of `305` tests run without it. Point them at `reference`, or at your own library,
 to run the rest. No substitute is committed in its place, because rewriting those
 assertions to match a profile assembled today would turn a suite that records real
 findings into one that records nothing.
@@ -162,9 +162,9 @@ component gets picked is the one no library provides. That is a day per library,
 reusable across every client on that stack.
 
 ```
-own    82 components ·  219 tokens · 183 union values · 82 descriptions
+own   131 components ·  261 tokens · 355 union values · 131 descriptions
 mui   120 components ·  160 tokens · 404 union values · 120 descriptions (authored)
-antd   56 components ·  536 tokens · 386 union values ·  56 descriptions (authored)
+antd   56 components ·  536 tokens · 374 union values ·  56 descriptions (authored)
 ```
 
 One agreed screen spec validates against all three.
@@ -766,30 +766,13 @@ Two things `build` refuses to do, and says so:
 
 ## Every command
 
-```sh
-ds assess <repo>                    measure everything, report
-ds report <project>                 the assessment as a self-contained document
-ds fit <project> --select/--reject  record what the client agreed and declined
-ds install <repo> --plan            build exactly what was agreed (--apply to write)
-ds update <repo>                    rebuild after the project or the team moved
-ds score <repo> --profile <id>      verify · baseline · evals, one scorer
-ds measure <repo> --baseline        record a starting point; later, compare
-ds style <url> · ds style:tokens    read a site; turn it into tokens, or diff it against code
-ds draft "<requirement>"            a draft spec from a requirement
-ds spec <file> --profile a,b,c      check one spec against several libraries
-ds build <spec> --repo <r>          screen, styles and test in that repo's idiom
-ds mcp --profile <id>               serve the registry to any agent, anywhere
-ds adapt:mui · adapt:antd · adapt:css
-ds security <repo>                  dependencies, secrets, dangerous constructs
-ds vocabulary <repo> --profile <id> which prop values this codebase actually writes
-ds audit:output [slot]              the numbers just written, read the way a sceptic reads them
-ds eval:choice [--record a b]       whether the registry lets the right component be chosen
-ds adapt:figma --from <json>        their Figma variables as a token layer
-ds evidence <repo> --since main     the proof a reviewer reads instead of the diff
-ds adapt:react <dir> --out <id>     a client's own React components into a profile
-ds eval · ds redteam · ds test
-ds survey <dir> --targets <tsv>     the chain over many repositories, side by side
-```
+`ds --help` prints them, from the tool rather than from a copy of it. `npm run`
+lists the same commands as scripts.
+
+This section used to transcribe the list, and by the time anyone noticed it named
+eighteen of thirty-five under a heading that said every. A list that has to be
+exhaustive to be true, in the one document paid for on every session, is a list
+that belongs where it cannot drift.
 
 ## What this does not do
 

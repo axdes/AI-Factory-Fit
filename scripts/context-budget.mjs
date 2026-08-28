@@ -44,10 +44,22 @@ const CHECK = process.argv.includes('--check')
  * here. The budgets are sensible ceilings sat just above today's cost, so a raise
  * is a decision somebody takes on purpose with a reason, not a surprise. */
 const REQUIRED = [
-  /* The system contract. ~11.2k today; the ceiling sits a little above so ordinary
+  /* The system contract. The ceiling sits a little above today's cost so ordinary
    * edits do not trip it, and a real growth in the front-door doc is a deliberate
-   * raise here, argued in a comment like this one. */
-  { path: 'README.md', why: 'the system contract, read every session', budget: 12000 },
+   * raise here, argued in a comment like this one.
+   *
+   * Raised 12.0k→12.5k on 2026-08-28, at 12.1k. What was removed first was the
+   * section that was untrue rather than the section that was long: "Every command"
+   * listed eighteen of thirty-five, and a list that has to be exhaustive to be true
+   * does not belong in the one document paid for on every session — `ds --help`
+   * prints it from the tool. The stale numbers in it went the same way: the test
+   * counts and the profile comparison were re-measured, not re-worded.
+   *
+   * The doctrine says that when the must-read set trips, the answer is the index
+   * and not the contract. It was: the index fell 13.4k→4.1k in the same change,
+   * and the total sits at 16.9k of 18k. This raise is the residue of real growth
+   * after that, not a way around it. */
+  { path: 'README.md', why: 'the system contract, read every session', budget: 12500 },
   /* The language a spec is written in — roles and axes. Small on purpose: the
    * vocabulary README argues that a portable vocabulary stays deliberately small,
    * so this budget being generous is itself a smell if it ever fills. */
