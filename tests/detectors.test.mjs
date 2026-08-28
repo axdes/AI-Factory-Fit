@@ -5218,11 +5218,22 @@ describeWithOwn('the check for a library duplicating itself', () => {
     //
     // One rendering the other is a fact, not a threshold, and it settles the question
     // before any score is computed.
+    //
+    // Named as a pair, this expired: the library dropped ProgressBar, and the guard
+    // below fired on a rule that had not stopped working. A hand-picked exemplar is
+    // a fixture with a shelf life, so the pair is looked up rather than quoted — the
+    // rule is what is pinned, and it holds while any answered pair has the relation.
     const c = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'components.json'), 'utf8')).components
-    assert.ok((c.ProgressBar.renders ?? []).includes('Meter'), 'the fixture for this no longer holds')
-
     const judgment = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'judgment.json'), 'utf8'))
-    assert.ok(judgment.twins.pairs['Meter ~ ProgressBar'], 'the answered pair this tests is gone')
+    const pairs = Object.keys(judgment.twins?.pairs ?? {})
+    assert.ok(pairs.length, 'no answered twin pairs at all — the fixture for this is gone')
+
+    const renderers = pairs
+      .map(key => key.split(' ~ '))
+      .filter(([a, b]) => c[a] && c[b])
+      .filter(([a, b]) => (c[a].renders ?? []).includes(b) || (c[b].renders ?? []).includes(a))
+    assert.ok(renderers.length,
+      `no answered pair has one rendering the other; this pass is no longer exercised by ${pairs.join(', ')}`)
   })
 })
 
@@ -5234,19 +5245,27 @@ describeWithOwn('the tier nobody can measure', () => {
     // molecule. Against the 82 levels written by hand in `own` that rule scored 35,
     // and 34 of the 47 errors were over-estimates.
     //
-    // This pair is why, and it is in the profile, so the test reads it rather than
-    // quoting it.
+    // Why is in the profile, so the test reads it rather than quoting it.
+    //
+    // It used to quote one pair — Button and Card, three uses each, atom against
+    // organism. That is a fixture with a shelf life: the library grew, Button went
+    // to four uses and Card to six, and the proof failed on its example rather than
+    // on its claim. Counted instead of named, the claim is not close to marginal.
     const c = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'components.json'), 'utf8')).components
     const levels = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'policy.json'), 'utf8')).levels
     const registry = new Set(Object.keys(c))
     const usesOf = (n) => (c[n].uses ?? []).filter(u => registry.has(u) && u !== n)
 
-    assert.equal(usesOf('Button').length, 3)
-    assert.equal(usesOf('Card').length, 3)
-    assert.equal(levels.Button, 'atom')
-    assert.equal(levels.Card, 'organism')
     // Identical graph shape, opposite answers: the level says what a thing IS, and a
     // button with a spinner in it is still a button.
+    const named = [...registry].filter(n => levels[n] && usesOf(n).length)
+    const collisions = named.flatMap(a =>
+      named.filter(b => a < b && usesOf(a).length === usesOf(b).length && levels[a] !== levels[b])
+        .map(b => `${a}(${levels[a]}) ~ ${b}(${levels[b]}) both use ${usesOf(a).length}`))
+    assert.ok(collisions.length,
+      'no two components share an out-degree and disagree on level; the graph may derive it after all — re-measure')
+    const farApart = collisions.filter(pair => /atom.*organism|organism.*atom/.test(pair))
+    assert.ok(farApart.length, `shapes collide but never across atom and organism: ${collisions.slice(0, 3).join('; ')}`)
 
     // In-degree is not it either. Three overlapping ranges, medians 1, 0 and 0.
     const inDegree = new Map([...registry].map(n => [n, 0]))
