@@ -28,7 +28,8 @@ import { normaliseAudit, pathCounts, auditedCount } from '../scripts/lib/audit-s
 import { measureStories, emitStory } from '../scripts/lib/emit-story.mjs'
 import { readAngular } from '../scripts/lib/sfc.mjs'
 import { archetypes, shellOf, regionsDeclaredBy } from '../scripts/lib/archetypes.mjs'
-import { scoreFiles } from '../scripts/lib/score-core.mjs'
+import { scoreFiles, indexProfile } from '../scripts/lib/score-core.mjs'
+import { indexRow, componentDetail } from '../scripts/lib/answers.mjs'
 import { counted, countedLine } from '../scripts/lib/counted.mjs'
 import { walk } from '../scripts/lib/signals.mjs'
 import { attrPairs, propUsage, axesFrom } from '../scripts/lib/prop-usage.mjs'
@@ -1407,8 +1408,15 @@ describe('which agents this repository actually carries', () => {
   })
 
   test('the install writes for a host only where that host is here', () => {
+    // Staged outside this repository, unlike the other fixtures here. `install`
+    // skips the portable contract when an AGENTS.md is *reachable* from an
+    // ancestor, not merely present in the target — which is correct, and which
+    // makes a target staged under scans/ inherit this repository's own contract
+    // and the test assert about the wrong tree. It passed only while this
+    // repository had no AGENTS.md of its own.
+    const stage = join(tmpdir(), 'factoryfit-hosts-test')
     const install = (extra) => {
-      const at = join(root, 'scans', '.hosts-test')
+      const at = stage
       rmSync(at, { recursive: true, force: true })
       mkdirSync(at, { recursive: true })
       cpSync(fixture('screen-idiom'), at, { recursive: true })
@@ -1422,7 +1430,7 @@ describe('which agents this repository actually carries', () => {
       return { out, has: (p) => existsSync(join(at, p)) }
     }
     const drop = () => {
-      rmSync(join(root, 'scans', '.hosts-test'), { recursive: true, force: true })
+      rmSync(stage, { recursive: true, force: true })
       rmSync(join(root, 'profiles', 'screen-test'), { recursive: true, force: true })
       rmSync(join(root, 'bindings', 'screen-test.json'), { force: true })
     }
@@ -2786,6 +2794,30 @@ describe('the prop vocabulary', () => {
     const variant = without.find(f => f.prop === 'variant')
     assert.equal(variant.collided.length, 1)
     assert.deepEqual(variant.collided[0].shared, [])
+  })
+
+  test('a numeric axis can be declared at all', async () => {
+    const { propVocabulary } = await import('../scripts/lib/vocab.mjs')
+    // A union value can be a number and a JSON key never is, so `allowed.has(1)`
+    // against a declared "1" was false however carefully anyone wrote the entry:
+    // `columns: 1 | 2 | 3` was undeclarable, and the only way to clear the gate
+    // was to stop declaring it. Silent, because the message says the value is
+    // outside the axis — which reads as a real finding about the component.
+    const components = {
+      Descriptions: { props: [{ name: 'columns', values: [1, 2, 3] }] },
+      Layout: { props: [{ name: 'columns', values: [12] }] },
+    }
+    const declared = {
+      columns: { axis: 'how many columns', values: { 1: '', 2: '', 3: '', 12: '' } },
+    }
+    assert.deepEqual(propVocabulary(components, declared), [],
+      'a declared numeric axis is still reported as outside itself')
+
+    // And the check has to keep biting: a number nobody declared is still a finding.
+    const undeclaredValue = propVocabulary(
+      { ...components, Grid: { props: [{ name: 'columns', values: [24] }] } }, declared)
+    assert.ok(undeclaredValue.some(f => f.prop === 'columns' && f.outsideTheAxis),
+      'an undeclared numeric value stopped being reported')
   })
 })
 
@@ -4195,6 +4227,33 @@ describeWithOwn('the binding proposer, against the bindings people wrote', () =>
     // A floor, so the table cannot be gutted to make the two numbers above pass.
     assert.ok(agreed >= 78, `agreement fell to ${agreed} of 88`)
   })
+
+  test('an expired absence is told apart from a contradiction, but only by name', () => {
+    // An authored `notCovered` is a claim about absence, and absence claims expire.
+    // `own` grew a Toast, the binding still said nothing was named for
+    // transientMessage, and the proposal was counted as contradicting a person —
+    // a disagreement nobody was having, about a note that was true when written.
+    //
+    // The reclassification is the dangerous half of this, because it is an excuse
+    // the pass can start applying to real errors. So what is pinned is the LIMIT:
+    // only a match by name earns it, and a weak one — a spelling guess, a borrowed
+    // fallback — stays WRONG, which is where this tool actually overreaches against
+    // somebody who looked and found nothing.
+    const source = readFileSync(join(root, 'scripts', 'bind.mjs'), 'utf8')
+    assert.match(source, /const refuted = !mine\.weak/,
+      'the stale-absence verdict no longer turns on the match being a strong one')
+
+    for (const profile of ['own', 'mui', 'antd', 'memos']) {
+      const out = run('bind.mjs', [profile, '--check'])
+      const stale = [...out.matchAll(/^\s+(\S+)\s+STALE: the absence they recorded has ended$/gm)]
+      for (const [, role] of stale) {
+        const block = out.slice(out.indexOf(`${role}   `))
+        assert.doesNotMatch(block.slice(0, 200), /marked questionable/,
+          `${profile}: a questionable proposal was excused as an expired absence`)
+      }
+    }
+  })
+
 })
 
 describe('choosing the extractor', () => {
@@ -4797,6 +4856,32 @@ describe('agent readiness', () => {
       'a line about import order was read as a claim about import form')
   })
 
+  test('a CLAUDE.md that links AGENTS.md is not counted as importing it', () => {
+    run('ai-audit.mjs', [fixture('inert-pointer')])
+    const inert = readScan('inert-pointer', 'ai-audit.json').contract
+
+    // Only the bare `@AGENTS.md` form expands the file into context at launch. A
+    // markdown link is inert text, and so is the same string inside a code span or
+    // a fenced block. MUI and Adobe React Spectrum both ship the link, having had
+    // the right instinct and spent it on the wrong character.
+    //
+    // Matching /see AGENTS\.md/i reported both of them as holding the pointer
+    // pattern — the detector confirming the one thing it was added to catch. The
+    // negative direction is the whole test: silence about a contract that does not
+    // arrive is better than a tick beside it.
+    assert.equal(inert.pointsAtAgents, false, 'a markdown link was read as an @-import')
+    assert.equal(inert.inertPointer, true, 'a pointer that does not expand was passed over in silence')
+    assert.equal(inert.duplicated, false, 'a four-line pointer was reported as a second copy of the contract')
+
+    run('ai-audit.mjs', [fixture('live-pointer')])
+    const live = readScan('live-pointer', 'ai-audit.json').contract
+
+    // And the correction must not overshoot: narrowing the pattern until nothing
+    // matches trades a false positive for a false negative on the same question.
+    assert.equal(live.pointsAtAgents, true, 'a bare @AGENTS.md import was not recognised')
+    assert.equal(live.inertPointer, false, 'a working import was reported as inert')
+  })
+
   test('skills are found in every layout projects actually use', () => {
     run('ai-audit.mjs', [fixture('skill-layouts')])
     const audit = readScan('skill-layouts', 'ai-audit.json')
@@ -5090,6 +5175,37 @@ describe('reading a visual language off a site', () => {
     } finally { site.stop() }
   })
 
+  test('the read is bounded by bytes, and says which sheets it never asked for', async () => {
+    // A twelve-file cap read 12 of linear.app's 54 linked stylesheets and stopped at
+    // 297 KB — three quarters of the evidence discarded well inside any byte budget
+    // worth having. Frequency is the signal here, so a truncated read does not merely
+    // see less than the site declares: it ranks the wrong values first.
+    //
+    // Twenty-one links, of which one is never served. The marker colour is declared
+    // only in the twentieth sheet, so under a file cap it is absent and under a byte
+    // budget it is there.
+    const site = await serve(fixture('site-many-sheets'))
+    try {
+      const out = run('style-from-site.mjs', [site.url, '--out', '.many-sheets-test'])
+      const read = JSON.parse(readFileSync(join(root, 'styles', '.many-sheets-test', 'style.json'), 'utf8'))
+
+      assert.equal(read.readable.linkedStylesheetsFound, 21)
+      assert.equal(read.readable.stylesheetsRead, 20, 'the read stopped short of what the page linked')
+      assert.equal(read.readable.stylesheetsSkipped, 0, 'sheets were skipped while inside the budget')
+      assert.match(out, /#0f62fe/, 'a colour declared only in the twentieth sheet was never read')
+
+      // Never requested and requested-but-failed are different facts about the read.
+      // Reporting both as "could not be fetched" described 42 sheets nobody had asked
+      // for, which is the report inventing an outage.
+      assert.equal(read.readable.stylesheetsFailed, 1, 'the one unserved sheet was not counted as a failure')
+      assert.match(read.readable.note, /could not be fetched/)
+      assert.doesNotMatch(read.readable.note, /never requested/, 'nothing was skipped, yet a skip was reported')
+    } finally {
+      site.stop()
+      rmSync(join(root, 'styles', '.many-sheets-test'), { recursive: true, force: true })
+    }
+  })
+
   test('a URL that is not one is refused before anything is fetched', () => {
     const out = run('style-from-site.mjs', ['/private/tmp/some/file.css'])
     assert.match(out, /usage|http/i)
@@ -5127,11 +5243,22 @@ describeWithOwn('the check for a library duplicating itself', () => {
     //
     // One rendering the other is a fact, not a threshold, and it settles the question
     // before any score is computed.
+    //
+    // Named as a pair, this expired: the library dropped ProgressBar, and the guard
+    // below fired on a rule that had not stopped working. A hand-picked exemplar is
+    // a fixture with a shelf life, so the pair is looked up rather than quoted — the
+    // rule is what is pinned, and it holds while any answered pair has the relation.
     const c = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'components.json'), 'utf8')).components
-    assert.ok((c.ProgressBar.renders ?? []).includes('Meter'), 'the fixture for this no longer holds')
-
     const judgment = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'judgment.json'), 'utf8'))
-    assert.ok(judgment.twins.pairs['Meter ~ ProgressBar'], 'the answered pair this tests is gone')
+    const pairs = Object.keys(judgment.twins?.pairs ?? {})
+    assert.ok(pairs.length, 'no answered twin pairs at all — the fixture for this is gone')
+
+    const renderers = pairs
+      .map(key => key.split(' ~ '))
+      .filter(([a, b]) => c[a] && c[b])
+      .filter(([a, b]) => (c[a].renders ?? []).includes(b) || (c[b].renders ?? []).includes(a))
+    assert.ok(renderers.length,
+      `no answered pair has one rendering the other; this pass is no longer exercised by ${pairs.join(', ')}`)
   })
 })
 
@@ -5143,19 +5270,27 @@ describeWithOwn('the tier nobody can measure', () => {
     // molecule. Against the 82 levels written by hand in `own` that rule scored 35,
     // and 34 of the 47 errors were over-estimates.
     //
-    // This pair is why, and it is in the profile, so the test reads it rather than
-    // quoting it.
+    // Why is in the profile, so the test reads it rather than quoting it.
+    //
+    // It used to quote one pair — Button and Card, three uses each, atom against
+    // organism. That is a fixture with a shelf life: the library grew, Button went
+    // to four uses and Card to six, and the proof failed on its example rather than
+    // on its claim. Counted instead of named, the claim is not close to marginal.
     const c = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'components.json'), 'utf8')).components
     const levels = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'policy.json'), 'utf8')).levels
     const registry = new Set(Object.keys(c))
     const usesOf = (n) => (c[n].uses ?? []).filter(u => registry.has(u) && u !== n)
 
-    assert.equal(usesOf('Button').length, 3)
-    assert.equal(usesOf('Card').length, 3)
-    assert.equal(levels.Button, 'atom')
-    assert.equal(levels.Card, 'organism')
     // Identical graph shape, opposite answers: the level says what a thing IS, and a
     // button with a spinner in it is still a button.
+    const named = [...registry].filter(n => levels[n] && usesOf(n).length)
+    const collisions = named.flatMap(a =>
+      named.filter(b => a < b && usesOf(a).length === usesOf(b).length && levels[a] !== levels[b])
+        .map(b => `${a}(${levels[a]}) ~ ${b}(${levels[b]}) both use ${usesOf(a).length}`))
+    assert.ok(collisions.length,
+      'no two components share an out-degree and disagree on level; the graph may derive it after all — re-measure')
+    const farApart = collisions.filter(pair => /atom.*organism|organism.*atom/.test(pair))
+    assert.ok(farApart.length, `shapes collide but never across atom and organism: ${collisions.slice(0, 3).join('; ')}`)
 
     // In-degree is not it either. Three overlapping ranges, medians 1, 0 and 0.
     const inDegree = new Map([...registry].map(n => [n, 0]))
@@ -5548,6 +5683,37 @@ describeWithOwn('the MCP surface', () => {
     const tools = messages.find(m => m.id === 2)?.result?.tools ?? []
     assert.deepEqual(tools.map(t => t.name).sort(),
       ['check_usage', 'choose_between', 'get_component', 'list_components'])
+  })
+
+  test('the budget prices the answer, and the index row stays one line', () => {
+    // The budget priced a fetch as JSON.stringify(entry) while the server answered
+    // with rendered text: 1891 tokens against 443 for Table, and 26 of 131 entries
+    // over a ceiling no agent had ever paid. The ceiling the budget calls "the
+    // number that actually matters per fetch" was being tripped by punctuation.
+    //
+    // And the index rendered whole descriptions — paragraphs of 96 tokens on
+    // average — into a row format whose whole promise is one line, which is 13.4k
+    // tokens of discovery on every task to say 131 things.
+    const doc = JSON.parse(readFileSync(join(root, 'profiles', 'own', 'components.json'), 'utf8'))
+    const name = Object.keys(doc.components).find(n => (doc.components[n].description ?? '').length > 200)
+    assert.ok(name, 'no long description left to test the one-line rule with')
+
+    const row = indexRow(name, doc.components[name])
+    assert.ok(row.length < 200, `the index row carries a paragraph: ${row.length} chars`)
+
+    // Cheap discovery must not mean lost information: the whole description is
+    // still one get_component away, and that is what makes the row affordable.
+    const detail = componentDetail(name, indexProfile(doc))
+    assert.ok(detail.includes(doc.components[name].description),
+      'the description the row drops is not in the detail answer either')
+
+    // The negative direction, and the reason this test exists: pricing the record
+    // instead of the answer is the mistake, and it is invisible unless measured.
+    const tokens = (text) => Math.ceil(text.length / 4)
+    const answered = tokens(detail)
+    const onDisk = tokens(JSON.stringify(doc.components[name]))
+    assert.ok(answered < onDisk,
+      `${name}: the answer is not cheaper than the record — the two have been conflated again`)
   })
 
   test('it refuses to confirm an invented prop', () => {

@@ -34,7 +34,14 @@ if (!url || !/^https?:\/\//.test(url)) {
   process.exit(2)
 }
 
-const MAX_STYLESHEETS = 12
+// What needs bounding is bytes and requests, not files. A page linking fifty
+// stylesheets is rarely fifty times the work — most of them are small. Capping at
+// twelve files read 12 of linear.app's 54 links, stopped at 297 KB, and discarded
+// three quarters of the evidence while well inside any byte budget worth having.
+// Frequency is the signal here, so a truncated read does not merely see less; it
+// ranks wrong.
+const MAX_CSS_BYTES = 2 * 1024 * 1024
+const MAX_REQUESTS = 100
 
 async function get(target) {
   const response = await fetch(target, {
@@ -64,9 +71,19 @@ const hrefs = [...html.matchAll(/<link\b[^>]*rel=["']?stylesheet["']?[^>]*>/gi)]
 
 const inline = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map(m => m[1])
 
+// Never requested and requested-but-failed are different facts about the read, and
+// reporting both as "could not be fetched" described 42 sheets nobody had asked for.
 const sheets = []
-for (const href of hrefs.slice(0, MAX_STYLESHEETS)) {
-  try { sheets.push({ href, css: await get(href) }) } catch { /* a sheet we cannot read is reported below */ }
+let bytes = 0
+let failed = 0
+let skipped = 0
+for (const [i, href] of hrefs.entries()) {
+  if (i >= MAX_REQUESTS || bytes >= MAX_CSS_BYTES) { skipped = hrefs.length - i; break }
+  try {
+    const css = await get(href)
+    bytes += css.length
+    sheets.push({ href, css })
+  } catch { failed += 1 }
 }
 const css = [...inline, ...sheets.map(s => s.css)].join('\n')
 
@@ -156,13 +173,22 @@ const shortfall = (raw, minUses, show = 4) => {
   return `nothing reached ${minUses} use(s) — most-used: ${top}${seen.length > show ? ` (+${seen.length - show} more)` : ''}`
 }
 
+// Said in the report as well as recorded in the file. A partial read that only
+// shows up in JSON is a partial read nobody applies to the numbers above it.
+const partialRead = [
+  failed ? `${failed} stylesheet(s) could not be fetched` : undefined,
+  skipped ? `${skipped} were never requested — the read stopped at its byte or request budget` : undefined,
+].filter(Boolean).join('; ') || undefined
+
 const styleProfile = {
   schemaVersion: 1,
   source: { url, stylesheets: sheets.length, inlineBlocks: inline.length, cssBytes: css.length },
   readable: {
     linkedStylesheetsFound: hrefs.length,
     stylesheetsRead: sheets.length,
-    note: hrefs.length > sheets.length ? 'some stylesheets could not be fetched; the picture is partial' : undefined,
+    stylesheetsFailed: failed,
+    stylesheetsSkipped: skipped,
+    note: partialRead,
   },
   hasDesignSystem: customProperties.length >= 20,
   customProperties: customProperties.length,
@@ -183,7 +209,8 @@ const styleProfile = {
     'Static read: styles injected at runtime, or values computed in JavaScript, are invisible.',
     'Frequency counts declarations in the stylesheet, not renders on the page. A rule in dead CSS counts.',
     'Colours are counted as written; the same colour in hex and rgb form counts twice.',
-  ],
+    partialRead ? `Partial read: ${partialRead}. Frequency ranks what was read, so the order is provisional.` : undefined,
+  ].filter(Boolean),
 }
 
 if (OUT) {

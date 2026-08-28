@@ -400,7 +400,26 @@ if (CHECK) {
     const theirComponent = theirs.component
     if (!theirComponent && !mine) { rows.push({ role, verdict: 'agreed: uncovered' }); continue }
     if (!theirComponent && mine) {
-      rows.push({ role, verdict: 'WRONG: filled where a person left it uncovered', mine: mine.component, weak: mine.weak, why: theirs.notCovered })
+      /* An authored `notCovered` is a claim about ABSENCE, and absence claims expire.
+       *
+       * It says nothing here is NAMED for this role. When the library later ships a
+       * component that is, the claim is refuted on its own terms — by a name, not by
+       * this tool's taste — and calling that "filled where a person refused" reports
+       * a disagreement that nobody is having. `own` gained a Toast; the binding still
+       * said nothing was named for transientMessage, written when it was true.
+       *
+       * A weak match does not qualify. Spelling guesses and borrowed fallbacks are
+       * exactly where this tool overreaches, and against a person who looked and
+       * found nothing, overreach is the failure worth keeping loud.
+       */
+      const refuted = !mine.weak
+      rows.push({
+        role,
+        verdict: refuted ? 'STALE: the absence they recorded has ended' : 'WRONG: filled where a person left it uncovered',
+        mine: mine.component,
+        weak: mine.weak,
+        why: theirs.notCovered,
+      })
       continue
     }
     if (theirComponent && !mine) { rows.push({ role, verdict: 'missed: a person found one', theirs: theirComponent }); continue }
@@ -421,7 +440,13 @@ if (CHECK) {
   const wrong = rows.filter(r => r.verdict.startsWith('WRONG'))
   const different = rows.filter(r => r.verdict.startsWith('DIFFERENT'))
   const missed = rows.filter(r => r.verdict.startsWith('missed'))
+  const stale = rows.filter(r => r.verdict.startsWith('STALE'))
   console.log(`\n  ${agreed} agreed · ${different.length} different · ${missed.length} missed · ${wrong.length} filled where a person refused`)
+  // Not an error of this tool's, and not nothing either: somebody has to go and
+  // answer the role the library has since grown a component for.
+  if (stale.length) {
+    console.log(`  ${stale.length} role(s) the binding records as uncovered that the library now names: ${stale.map(r => `${r.role} → ${r.mine}`).join(', ')}`)
+  }
   // The last number is the one that matters. The others cost a reader a lookup;
   // that one produces a screen that compiles with the wrong component in it.
   console.log(`  of the ${different.length + wrong.length} it got wrong, ${[...different, ...wrong].filter(r => r.weak).length} were marked questionable in the proposal`)

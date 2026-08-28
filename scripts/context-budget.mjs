@@ -24,6 +24,8 @@
  *   node scripts/context-budget.mjs --check         exit non-zero when over budget
  */
 import { readFileSync, existsSync } from 'node:fs'
+import { indexProfile } from './lib/score-core.mjs'
+import { indexRow, componentDetail } from './lib/answers.mjs'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url)).replace(/\/$/, '')
@@ -42,10 +44,22 @@ const CHECK = process.argv.includes('--check')
  * here. The budgets are sensible ceilings sat just above today's cost, so a raise
  * is a decision somebody takes on purpose with a reason, not a surprise. */
 const REQUIRED = [
-  /* The system contract. ~11.2k today; the ceiling sits a little above so ordinary
+  /* The system contract. The ceiling sits a little above today's cost so ordinary
    * edits do not trip it, and a real growth in the front-door doc is a deliberate
-   * raise here, argued in a comment like this one. */
-  { path: 'README.md', why: 'the system contract, read every session', budget: 12000 },
+   * raise here, argued in a comment like this one.
+   *
+   * Raised 12.0k→12.5k on 2026-08-28, at 12.1k. What was removed first was the
+   * section that was untrue rather than the section that was long: "Every command"
+   * listed eighteen of thirty-five, and a list that has to be exhaustive to be true
+   * does not belong in the one document paid for on every session — `ds --help`
+   * prints it from the tool. The stale numbers in it went the same way: the test
+   * counts and the profile comparison were re-measured, not re-worded.
+   *
+   * The doctrine says that when the must-read set trips, the answer is the index
+   * and not the contract. It was: the index fell 13.4k→4.1k in the same change,
+   * and the total sits at 16.9k of 18k. This raise is the residue of real growth
+   * after that, not a way around it. */
+  { path: 'README.md', why: 'the system contract, read every session', budget: 12500 },
   /* The language a spec is written in — roles and axes. Small on purpose: the
    * vocabulary README argues that a portable vocabulary stays deliberately small,
    * so this budget being generous is itself a smell if it ever fills. */
@@ -53,23 +67,29 @@ const REQUIRED = [
 ]
 
 /* Read on demand, not on every task: `get_component` over MCP returns these
- * entries for the four or five components a screen actually uses. The file has a
- * ceiling anyway, because a registry that doubles makes every fetch heavier, and a
- * per-entry ceiling, because that is the number an agent pays when it asks for one.
+ * entries for the four or five components a screen actually uses.
  *
- * File ~52k today across 91 components; heaviest entry ~587. The per-entry ceiling
- * is what guards a single fetch: six worst-case components is then about 3.7k,
- * which is the number that matters when an agent looks them up. When it trips, cut
- * the entry (shorten the example, drop a prop with a reason) before raising it.
+ * The per-entry ceiling is the one that guards a fetch, and it is now measured on
+ * the rendered answer rather than on the record. Six worst-case components is
+ * about 3.6k, which is the number that matters when an agent looks them up. When
+ * it trips, cut the entry (shorten the example, drop a prop with a reason) before
+ * raising it — it has never been raised.
  *
- * The total budget sits a little above today's size (raised 48k→56k on 2026-08-21
- * when the source design system grew 82→91 components; the per-entry ceiling, the
- * number that actually matters per fetch, was untouched at 640 and still holds). */
+ * The file ceiling used to be argued as "a registry that doubles makes every fetch
+ * heavier". That was true only while a fetch was priced as the file's own JSON. It
+ * is not: 131 entries are 67.7k on disk and 34.3k answered, and the difference is
+ * punctuation and fields the answer never renders. What the file total is still
+ * good for is noticing growth in one number, so it stays — with the honest reason.
+ *
+ * Raised 56k→112k on 2026-08-28, when probe:own was fixed and the profile caught
+ * up with the source design system: 91→131 components, and richer entries with it.
+ * The per-entry ceiling was untouched at 640 and holds with room — the heaviest
+ * answer is 607. (Earlier: 48k→56k on 2026-08-21, 82→91 components.) */
 const ON_DEMAND = [
   {
     path: `profiles/${PROFILE}/components.json`,
     why: 'the full contract, fetched per component',
-    budget: 56000,
+    budget: 112000,
     perEntry: 640,
   },
 ]
@@ -94,12 +114,7 @@ if (!existsSync(profilePath)) {
 }
 const profileDoc = JSON.parse(readFileSync(profilePath, 'utf8'))
 const components = profileDoc.components ?? {}
-const oneLine = (name) => {
-  const c = components[name]
-  const level = c.level ? ` · ${c.level}` : ''
-  const context = c.context ? `/${c.context}` : ''
-  return `${name}${level}${context} · ${c.description ?? 'no description'}`
-}
+const oneLine = (name) => indexRow(name, components[name])
 const indexRows = Object.keys(components).sort().map(oneLine)
 const indexText = indexRows.join('\n')
 const INDEX_BUDGET = 6000 // the one-line index, tokens
@@ -149,9 +164,16 @@ console.log('')
 /* Where the registry weight actually sits. Per-entry cost is the number that
  * matters both when adding a component and when fetching one: it is the price of
  * one answer from `get_component`. */
+/* Priced as the ANSWER, not as the record. This used to be
+ * `tokens(JSON.stringify(e))`, which charged an agent for indentation, key names
+ * and fields `get_component` never renders: 1891 against 443 for Table, and 26
+ * entries over the ceiling that no agent had ever paid. The rendering is imported
+ * from the same module the server answers with, so the two cannot drift again. */
+const indexedProfile = indexProfile(profileDoc)
 const entries = Object.entries(components).map(([name, e]) => ({
   ref: e.ref ?? name,
-  total: tokens(JSON.stringify(e)),
+  total: tokens(componentDetail(name, indexedProfile) ?? ''),
+  onDisk: tokens(JSON.stringify(e)),
   example: tokens(e.example ?? ''),
   props: tokens(JSON.stringify(e.props ?? [])),
 }))
@@ -159,11 +181,11 @@ entries.sort((a, b) => b.total - a.total)
 const sum = entries.reduce((n, e) => n + e.total, 0)
 const avg = entries.length ? Math.round(sum / entries.length) : 0
 const fileTokens = tokens(readFileSync(profilePath, 'utf8'))
-const overhead = fileTokens - sum
+const onDiskSum = entries.reduce((n, e) => n + e.onDisk, 0)
 
 console.log('  \x1b[2mregistry breakdown\x1b[0m')
-console.log(`    ${entries.length} entries, ${fmt(sum)} tokens (avg ${avg}/entry)`)
-console.log(`    ${fmt(overhead)} tokens are JSON formatting and the blocks section (indentation, keys, punctuation)`)
+console.log(`    ${entries.length} entries, ${fmt(sum)} tokens answered (avg ${avg}/entry)`)
+console.log(`    ${fmt(onDiskSum)} tokens on disk — the ${fmt(onDiskSum - sum)} difference is JSON the answer never renders`)
 console.log('    heaviest entries:')
 for (const e of entries.slice(0, 6)) {
   console.log(`      ${String(e.total).padStart(5)}  ${e.ref.padEnd(22)} \x1b[2mexample ${e.example}, props ${e.props}\x1b[0m`)
