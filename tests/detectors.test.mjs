@@ -4202,6 +4202,33 @@ describeWithOwn('the binding proposer, against the bindings people wrote', () =>
     // A floor, so the table cannot be gutted to make the two numbers above pass.
     assert.ok(agreed >= 78, `agreement fell to ${agreed} of 88`)
   })
+
+  test('an expired absence is told apart from a contradiction, but only by name', () => {
+    // An authored `notCovered` is a claim about absence, and absence claims expire.
+    // `own` grew a Toast, the binding still said nothing was named for
+    // transientMessage, and the proposal was counted as contradicting a person —
+    // a disagreement nobody was having, about a note that was true when written.
+    //
+    // The reclassification is the dangerous half of this, because it is an excuse
+    // the pass can start applying to real errors. So what is pinned is the LIMIT:
+    // only a match by name earns it, and a weak one — a spelling guess, a borrowed
+    // fallback — stays WRONG, which is where this tool actually overreaches against
+    // somebody who looked and found nothing.
+    const source = readFileSync(join(root, 'scripts', 'bind.mjs'), 'utf8')
+    assert.match(source, /const refuted = !mine\.weak/,
+      'the stale-absence verdict no longer turns on the match being a strong one')
+
+    for (const profile of ['own', 'mui', 'antd', 'memos']) {
+      const out = run('bind.mjs', [profile, '--check'])
+      const stale = [...out.matchAll(/^\s+(\S+)\s+STALE: the absence they recorded has ended$/gm)]
+      for (const [, role] of stale) {
+        const block = out.slice(out.indexOf(`${role}   `))
+        assert.doesNotMatch(block.slice(0, 200), /marked questionable/,
+          `${profile}: a questionable proposal was excused as an expired absence`)
+      }
+    }
+  })
+
 })
 
 describe('choosing the extractor', () => {
