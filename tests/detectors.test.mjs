@@ -5123,6 +5123,37 @@ describe('reading a visual language off a site', () => {
     } finally { site.stop() }
   })
 
+  test('the read is bounded by bytes, and says which sheets it never asked for', async () => {
+    // A twelve-file cap read 12 of linear.app's 54 linked stylesheets and stopped at
+    // 297 KB — three quarters of the evidence discarded well inside any byte budget
+    // worth having. Frequency is the signal here, so a truncated read does not merely
+    // see less than the site declares: it ranks the wrong values first.
+    //
+    // Twenty-one links, of which one is never served. The marker colour is declared
+    // only in the twentieth sheet, so under a file cap it is absent and under a byte
+    // budget it is there.
+    const site = await serve(fixture('site-many-sheets'))
+    try {
+      const out = run('style-from-site.mjs', [site.url, '--out', '.many-sheets-test'])
+      const read = JSON.parse(readFileSync(join(root, 'styles', '.many-sheets-test', 'style.json'), 'utf8'))
+
+      assert.equal(read.readable.linkedStylesheetsFound, 21)
+      assert.equal(read.readable.stylesheetsRead, 20, 'the read stopped short of what the page linked')
+      assert.equal(read.readable.stylesheetsSkipped, 0, 'sheets were skipped while inside the budget')
+      assert.match(out, /#0f62fe/, 'a colour declared only in the twentieth sheet was never read')
+
+      // Never requested and requested-but-failed are different facts about the read.
+      // Reporting both as "could not be fetched" described 42 sheets nobody had asked
+      // for, which is the report inventing an outage.
+      assert.equal(read.readable.stylesheetsFailed, 1, 'the one unserved sheet was not counted as a failure')
+      assert.match(read.readable.note, /could not be fetched/)
+      assert.doesNotMatch(read.readable.note, /never requested/, 'nothing was skipped, yet a skip was reported')
+    } finally {
+      site.stop()
+      rmSync(join(root, 'styles', '.many-sheets-test'), { recursive: true, force: true })
+    }
+  })
+
   test('a URL that is not one is refused before anything is fetched', () => {
     const out = run('style-from-site.mjs', ['/private/tmp/some/file.css'])
     assert.match(out, /usage|http/i)
