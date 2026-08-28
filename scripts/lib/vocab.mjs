@@ -59,9 +59,13 @@ export function propVocabulary(components, declared) {
     // A declared axis answers the question outright.
     const axis = declared?.[name]
     if (axis) {
-      const allowed = new Set(Object.keys(axis.values ?? {}))
+      /* Compared as text, because a union value can be a number and a JSON key
+       * never is: `columns: 1 | 2 | 3` could not match a declared "1" no matter
+       * what anyone wrote, so a numeric axis was undeclarable and stayed red
+       * forever. The sibling check in lint-vocab.mjs already reads them this way. */
+      const allowed = new Set(Object.keys(axis.values ?? {}).map(String))
       const outside = uses
-        .map(u => ({ ...u, bad: u.values.filter(v => !allowed.has(v)) }))
+        .map(u => ({ ...u, bad: u.values.filter(v => !allowed.has(String(v))) }))
         .filter(u => u.bad.length)
       if (outside.length) {
         findings.push({

@@ -2795,6 +2795,30 @@ describe('the prop vocabulary', () => {
     assert.equal(variant.collided.length, 1)
     assert.deepEqual(variant.collided[0].shared, [])
   })
+
+  test('a numeric axis can be declared at all', async () => {
+    const { propVocabulary } = await import('../scripts/lib/vocab.mjs')
+    // A union value can be a number and a JSON key never is, so `allowed.has(1)`
+    // against a declared "1" was false however carefully anyone wrote the entry:
+    // `columns: 1 | 2 | 3` was undeclarable, and the only way to clear the gate
+    // was to stop declaring it. Silent, because the message says the value is
+    // outside the axis — which reads as a real finding about the component.
+    const components = {
+      Descriptions: { props: [{ name: 'columns', values: [1, 2, 3] }] },
+      Layout: { props: [{ name: 'columns', values: [12] }] },
+    }
+    const declared = {
+      columns: { axis: 'how many columns', values: { 1: '', 2: '', 3: '', 12: '' } },
+    }
+    assert.deepEqual(propVocabulary(components, declared), [],
+      'a declared numeric axis is still reported as outside itself')
+
+    // And the check has to keep biting: a number nobody declared is still a finding.
+    const undeclaredValue = propVocabulary(
+      { ...components, Grid: { props: [{ name: 'columns', values: [24] }] } }, declared)
+    assert.ok(undeclaredValue.some(f => f.prop === 'columns' && f.outsideTheAxis),
+      'an undeclared numeric value stopped being reported')
+  })
 })
 
 describe('single-file components', () => {

@@ -61,7 +61,8 @@
       "success": "it confirms something",
       "dark": "it sits on a dark surface",
       "link": "it navigates and looks like text",
-      "ai": "it invokes a model"
+      "ai": "it invokes a model",
+      "bare": "it paints nothing, ever, because something else is the affordance — the control wraps a whole surface that already answers the pointer"
     }
   },
   "surface": {
@@ -85,12 +86,14 @@
     }
   },
   "shape": {
-    "axis": "what outline a BOX traces",
+    "axis": "what silhouette this thing draws — the outline of a box, or the track of an indicator",
     "values": {
       "text": "a line of text",
       "block": "a rectangular area",
       "circle": "a round box: a person's avatar, a round control",
-      "square": "a rounded rectangle where a circle is the default: a team or an organisation rather than a person"
+      "square": "a rounded rectangle where a circle is the default: a team or an organisation rather than a person",
+      "bar": "Progress: a straight track, the linear form",
+      "ring": "Progress: a circular track, the same reading curled round"
     }
   },
   "as": {
@@ -101,7 +104,8 @@
       "h3": "a sub-section heading",
       "h4": "a fourth-level heading",
       "p": "a paragraph of body text",
-      "span": "inline text with no block semantics"
+      "span": "inline text with no block semantics",
+      "div": "a block wrapper with no semantics of its own, where the surrounding document already says what the passage is"
     }
   },
   "appearance": {
@@ -137,6 +141,20 @@
       "2": "two columns",
       "3": "three columns",
       "12": "the twelve-column grid a page region is placed on, not a count of content columns"
+    }
+  },
+  "layout": {
+    "axis": "how this component lays out its own internals",
+    "scoped": true,
+    "values": {
+      "auto": "ContentCard: pick the arrangement from which slots are filled · Table: column widths from the content, the browser default",
+      "tile": "ContentCard: media above, text below — the feed card",
+      "side": "ContentCard: media beside the text",
+      "cover": "ContentCard: text over full-bleed media",
+      "row": "ContentCard: a single line, for a dense list",
+      "stacked": "Descriptions: label above its value",
+      "inline": "Descriptions: label beside its value",
+      "fixed": "Table: column widths from the first row, so a wide cell cannot re-flow the table"
     }
   }
 }
