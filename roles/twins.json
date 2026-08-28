@@ -13,9 +13,9 @@
     "silently waive a real duplicate later."
   ],
   "pairs": {
-    "Meter ~ Stat": {
-      "separated": "both show a labelled value with a tone and a size, but Meter draws it as a proportional bar against a fixed min/max scale (with an optional target marker), while Stat renders the raw figure large with a caption and no scale — a gauge versus a reading. The shared props (value, label, tone, size) are the vocabulary any value display uses; neither renders the other.",
-      "reopenIf": "Stat grows a bar or a min/max scale, or Meter drops its bar to show only the number — at that point one component with a 'draw the bar?' flag is the smaller thing."
+    "Checkbox ~ Radio": {
+      "separated": "both wrap a native input, take the same label/size/invalid props and render the same themed box, so the markup and prop sets score alike. What differs is the arity the browser enforces, and the third state only one of them can hold: a Checkbox is answerable alone and carries `indeterminate` for the partly-selected parent of a tree, while a Radio is meaningless alone — it is one option of a set sharing a `name`, from which the platform gives arrow-key navigation and the exactly-one guarantee for free. Folding them would mean re-implementing that guarantee in application code, which is the bug this pair exists to avoid.",
+      "reopenIf": "Radio grows an indeterminate state, or Checkbox starts taking a group `name` and enforcing exactly-one — at that point the difference is a prop, not a component. Also reopen if either stops using the native input, since the platform behaviour is the whole of the argument above."
     }
   }
 }

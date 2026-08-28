@@ -113,5 +113,30 @@
       "underline": "Tabs: an underline under the active tab",
       "pills": "Tabs: each tab as a filled pill"
     }
+  },
+  "align": {
+    "axis": "which edge of the thing it hangs from lines up",
+    "values": {
+      "start": "flush with the leading edge — left in a left-to-right reading order",
+      "center": "centred on the thing it hangs from",
+      "end": "flush with the trailing edge"
+    }
+  },
+  "density": {
+    "axis": "how much air sits between the rows of a thing that repeats",
+    "values": {
+      "comfortable": "the default — reading spacing, for a surface somebody dwells on",
+      "compact": "tightened, for a surface being scanned rather than read",
+      "dense": "as tight as the type allows, for the most data on one screen"
+    }
+  },
+  "columns": {
+    "axis": "how many columns the content is laid out across",
+    "values": {
+      "1": "one column — the stacked form, and what every layout falls back to when narrow",
+      "2": "two columns",
+      "3": "three columns",
+      "12": "the twelve-column grid a page region is placed on, not a count of content columns"
+    }
   }
 }
