@@ -1407,8 +1407,15 @@ describe('which agents this repository actually carries', () => {
   })
 
   test('the install writes for a host only where that host is here', () => {
+    // Staged outside this repository, unlike the other fixtures here. `install`
+    // skips the portable contract when an AGENTS.md is *reachable* from an
+    // ancestor, not merely present in the target — which is correct, and which
+    // makes a target staged under scans/ inherit this repository's own contract
+    // and the test assert about the wrong tree. It passed only while this
+    // repository had no AGENTS.md of its own.
+    const stage = join(tmpdir(), 'factoryfit-hosts-test')
     const install = (extra) => {
-      const at = join(root, 'scans', '.hosts-test')
+      const at = stage
       rmSync(at, { recursive: true, force: true })
       mkdirSync(at, { recursive: true })
       cpSync(fixture('screen-idiom'), at, { recursive: true })
@@ -1422,7 +1429,7 @@ describe('which agents this repository actually carries', () => {
       return { out, has: (p) => existsSync(join(at, p)) }
     }
     const drop = () => {
-      rmSync(join(root, 'scans', '.hosts-test'), { recursive: true, force: true })
+      rmSync(stage, { recursive: true, force: true })
       rmSync(join(root, 'profiles', 'screen-test'), { recursive: true, force: true })
       rmSync(join(root, 'bindings', 'screen-test.json'), { force: true })
     }
